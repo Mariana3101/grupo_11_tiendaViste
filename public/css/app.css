@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,400i&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Nunito, sans-serif;
+}
+
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+.contenedor {
+    width: 100%;
+    margin: auto;
+    border: solid 1px red;
+}
+
+.float-fix {
+    overflow: hidden;
+}
+
+
+/*Header*/
+
+.main-header {
+    padding: 10px;
+}
+
+.logo,
+.center-navbar {
+    float: left;
+}
+
+
+/*
+.logo .el-logo {
+    width: 10%;
+    height: 10%;
+}
+*/
+
+.rigth-navbar {
+    float: right;
+}
+
+.center-navbar,
+.rigth-navbar {
+    margin-top: 10px;
+}
+
+.center-navbar li,
+.rigth-navbar li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.center-navbar li a,
+.rigth-navbar li a {
+    text-transform: uppercase;
+}
+
+
+/*Main Content*/
+
+.main-content {
+    margin-top: 30px;
+}
+
+.imagenes {
+    background-color: blue;
+    padding: 10px;
+}
+
+.imagenes .nena1 {
+    width: 100%;
+}
+
+.main-bottom {
+    background-color: brown;
+    padding: 10px;
+}
+
+.todosProductos {
+    text-align: center;
+    padding: 10px;
+    margin: 10px 0 10px 0;
+}
+
+.contactanos,
+.video,
+.datosContacto,
+.main-bottom {
+    float: left;
+}
+
+.contactanos,
+.datosContacto {
+    padding: 10px;
+    margin: 0 58px 0 58px;
+}
+
+.video {
+    margin-right: 16px;
+}
+
+.footer a {
+    float: right;
+    padding: 10px;
+}
