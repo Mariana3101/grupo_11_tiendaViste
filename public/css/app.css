@@ -36,18 +36,13 @@ a {
     padding: 10px;
 }
 
-.logo,
-.center-navbar {
+.logo {
     float: left;
 }
 
-
-/*
-.logo .el-logo {
-    width: 10%;
-    height: 10%;
+.center-navbar {
+    float: left;
 }
-*/
 
 .rigth-navbar {
     float: right;

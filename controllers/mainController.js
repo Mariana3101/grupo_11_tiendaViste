@@ -21,10 +21,12 @@ const controller = {
         res.send(html);
     },
     carrito: (req, res) => {
-        res.send('Carrito');
+        let html = readHTML('carrito')
+        res.send(html);
     },
     detalleProducto: (req, res) => {
-        res.send('Detalle Producto');
+        let html = readHTML('detalleProducto')
+        res.send(html);
     },
 };
 
