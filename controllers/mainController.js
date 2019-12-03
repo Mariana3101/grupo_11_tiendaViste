@@ -28,6 +28,16 @@ const controller = {
         let html = readHTML('detalleProducto')
         res.send(html);
     },
+    noEncontrado: (req, res) => {
+        let html = readHTML('noEncontrado')
+        res.send(html);
+    },
+    errorServidor: (req, res) => {
+        let html = readHTML('errorServidor')
+        res.send(html);
+    },
+
+
 };
 
 module.exports = controller

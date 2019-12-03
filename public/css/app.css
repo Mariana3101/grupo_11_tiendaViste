@@ -5,6 +5,7 @@
 
 body {
     font-family: Nunito, sans-serif;
+    background-color: #FFFFFF;
 }
 
 ul,
@@ -22,7 +23,6 @@ a {
 .contenedor {
     width: 100%;
     margin: auto;
-    border: solid 1px red;
 }
 
 .float-fix {
@@ -38,10 +38,12 @@ a {
 
 .logo {
     float: left;
+    margin-right: 10px;
 }
 
 .center-navbar {
     float: left;
+    padding: 10px;
 }
 
 .rigth-navbar {
@@ -72,7 +74,7 @@ a {
 }
 
 .imagenes {
-    background-color: blue;
+    /* background-color: blue;*/
     padding: 10px;
 }
 
@@ -81,7 +83,7 @@ a {
 }
 
 .main-bottom {
-    background-color: brown;
+    /*background-color: brown;*/
     padding: 10px;
 }
 
@@ -91,6 +93,7 @@ a {
     margin: 10px 0 10px 0;
 }
 
+.formulario,
 .contactanos,
 .video,
 .datosContacto,
@@ -111,4 +114,27 @@ a {
 .footer a {
     float: right;
     padding: 10px;
+}
+
+.footer {
+    background-color: grey;
+    padding: 10px;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    margin: auto;
+}
+
+
+/*formulario carga producto*/
+
+.formulario {
+    padding: 10px;
+    margin-left: 50px;
+    width: 100%;
+}
+
+.formulario a {
+    float: left;
 }

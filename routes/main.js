@@ -20,5 +20,10 @@ router.get('/carrito', mainController.carrito);
 /* GET - Detalle producto. */
 router.get('/detalleProducto', mainController.detalleProducto);
 
+/* GET - 404. */
+router.get('/noEncontrado', mainController.noEncontrado);
+
+/* GET - 500. */
+router.get('/errorServidor', mainController.errorServidor);
 
 module.exports = router;

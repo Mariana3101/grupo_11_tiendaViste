@@ -10,38 +10,55 @@
 	<div class="contenedor">
 		<!--Header-->
 		<header class="main-header float-fix">
-			<div class="logo">
-				<a href="/">
-					<img src="/images/remera.png" alt="logo">
-				</a>
-			</div>
-			
+		
 
 			<nav class="center-navbar">
 				<ul>
-					<li><a href="#">Home</a><li>
+					<li><a href="/">Home</a><li>
 					<li><a href="#">Colecciones</a><li>
 					<li><a href="#">Nosotros</a><li>
 					<li><a href="#">Contacto</a><li>
 				<ul>
 			</nav>
-			<nav class="rigth-navbar">
-				<ul>
-					<li><a href="#">Ingresar/Registar</a><li>
-					<li><a href="#">Mi Carrito</a><li>
-					
-				<ul>
-			</nav>
+			
 		</header>
 
 		<!--Main Content-->
 		<main class="main-content float-fix">
 
-			<section class="imagenes">
-				<h1>carga producto</h1>
-		
+			<section class="formulario"  >
+				<form class="carga-producto">
+					<p>
+						<label>Formulario de Producto</label>
+					</p>
+					<p>
+					<label for="td">Producto</label>
+ 						
+ 							<select id="td">
+ 								<option value="RE" >Remera</option>
+ 								<option value="PA">Pantalon</option>
+ 								<option value="VE">Vestido</option>
+ 								<option value="SW">Sweater</option>
+							</select>
+					</p>
+					<p class="cantidad">
+						<label  for="cantidad">Cantidad:</label>
+						<input type="number" name="cantidad" id="cantidad" required>
+					</p>
+					<p class="precio">
+						<label  for="precio">Precio: </label>
+						<input type="decimal" name="precio" id="precio" min="1" required>
+					</p>
+					<p>
+						<img src="/images/remeraRosa.png" alt="Remera Rosa">
+					</p>
+					<p>
+						<input type="submit" value="Enviar">
+						<input type="submit" value="Eliminar">
+					</p>
+				</form>
+				<a href="">Volver</a>
 			</section>
-			
 			
 		</main>
 		<footer class="footer">
@@ -51,9 +68,10 @@
 				<a href="#">Facebook</a>
 				<a href="#">Instagram</a>
 			</div>
+			<p>Domicilio:Grecia 2830 Buenos Aires | Telefono:1563646364 | Email: viste@gmail.com</p> 
 		</footer>
 
 	</div>
-
+	
 </body>
 </html>
