@@ -119,7 +119,7 @@ a {
 .footer {
     background-color: grey;
     padding: 10px;
-    position: fixed;
+    
     left: 0px;
     bottom: 0px;
     width: 100%;
@@ -133,8 +133,10 @@ a {
     padding: 10px;
     margin-left: 50px;
     width: 100%;
+    
 }
 
 .formulario a {
     float: left;
 }
+
