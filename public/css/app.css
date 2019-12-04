@@ -119,6 +119,10 @@ a {
 .footer {
     background-color: grey;
     padding: 10px;
+<<<<<<< HEAD
+=======
+    
+>>>>>>> f9b63b9d69801bf365674aea1c2416f0c445e712
     left: 0px;
     bottom: 0px;
     width: 100%;
@@ -132,12 +136,14 @@ a {
     padding: 10px;
     margin-left: 50px;
     width: 100%;
+    
 }
 
 .formulario a {
     float: left;
 }
 
+<<<<<<< HEAD
 /*registro de cliente*/
 
 .registrar {
@@ -149,3 +155,5 @@ a {
 
 
 
+=======
+>>>>>>> f9b63b9d69801bf365674aea1c2416f0c445e712
