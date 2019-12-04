@@ -16,6 +16,10 @@ const controller = {
         let html = readHTML('registrar');
         res.send(html);
     },
+    ingresar: (req, res) => {
+        let html = readHTML('ingresar');
+        res.send(html);
+    },
     cargaProducto: (req, res) => {
         let html = readHTML('cargaProducto');
         res.send(html);

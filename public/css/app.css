@@ -119,7 +119,6 @@ a {
 .footer {
     background-color: grey;
     padding: 10px;
-    position: fixed;
     left: 0px;
     bottom: 0px;
     width: 100%;
@@ -138,3 +137,15 @@ a {
 .formulario a {
     float: left;
 }
+
+/*registro de cliente*/
+
+.registrar {
+    float: right;
+    padding: 3px;
+    border: 1px red dotted;
+}
+
+
+
+

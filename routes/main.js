@@ -11,6 +11,9 @@ router.get('/', mainController.root);
 /* GET - Registracion. */
 router.get('/registrar', mainController.registrar);
 
+/* GET - Ingresar. */
+router.get('/ingresar', mainController.ingresar);
+
 /* GET - Carga Producto. */
 router.get('/cargaProducto', mainController.cargaProducto);
 
