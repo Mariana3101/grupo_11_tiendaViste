@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,400i&display=swap');
+@import url(carrito.css);
+@import url(carga-producto.css);
+@import url(registrar.css);
+@import url(detalle-producto.css);
 * {
     box-sizing: border-box;
 }
@@ -32,8 +36,14 @@ a {
 
 /*Header*/
 
-.main-header {
-    padding: 10px;
+@media(max-width:319px) {
+    .main-header {
+        padding: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 .logo {
@@ -70,16 +80,18 @@ a {
 /*Main Content*/
 
 .main-content {
-    margin-top: 30px;
+    margin-top: 30px 10px;
+    width: 100%;
 }
 
-.imagenes {
+.imagen-central {
     /* background-color: blue;*/
     padding: 10px;
 }
 
-.imagenes .nena1 {
-    width: 100%;
+.imagen-central .nena1 {
+    max-width: 100%;
+    height: auto;
 }
 
 .main-bottom {
@@ -119,39 +131,7 @@ a {
 .footer {
     background-color: grey;
     padding: 10px;
-    <<<<<<< HEAD=======>>>>>>>f9b63b9d69801bf365674aea1c2416f0c445e712 left: 0px;
     bottom: 0px;
     width: 100%;
     margin: auto;
-}
-
-
-/*formulario carga producto*/
-
-.formulario {
-    padding: 10px;
-    margin-left: 50px;
-    width: 100%;
-}
-
-.formulario a {
-    float: left;
-}
-
-<<<<<<< HEAD
-/*registro de cliente*/
-
-.registrar {
-    float: right;
-    padding: 3px;
-    border: 1px red dotted;
-}
-
-
-/*Detalle producto*/
-
-.vestido1 {
-    padding: 2px;
-    width: 5px;
-    height: 5px;
 }

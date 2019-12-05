@@ -1,0 +1,11 @@
+/*formulario carga producto*/
+
+.formulario {
+    padding: 10px;
+    margin-left: 50px;
+    width: 100%;
+}
+
+.formulario a {
+    float: left;
+}
