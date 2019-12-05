@@ -36,8 +36,20 @@ Seleccionamos estos sites para usar como referentes a la hora de armar nuestro s
 
 *Wireframes
 
-*home
-![home](https://github.com/Mariana3101/grupo_11_tiendaViste/blob/master/wireframe/home.png)
+*Home
+![Home](https://github.com/Mariana3101/grupo_11_tiendaViste/blob/master/wireframe/home.png)
+
+*Registrar
+![Registrar](https://github.com/Mariana3101/grupo_11_tiendaViste/blob/master/wireframe/registrar.png)
+
+*Detalle producto
+![Detalle Producto](https://github.com/Mariana3101/grupo_11_tiendaViste/blob/master/wireframe/detalleProducto.png)
+
+*Carga de Producto
+![Carga de Producto](https://github.com/Mariana3101/grupo_11_tiendaViste/blob/master/wireframe/cargaProducto.png)
+
+*Carrito
+![Carrito](https://github.com/Mariana3101/grupo_11_tiendaViste/blob/master/wireframe/carrito.png
 
 *Logo
  ![Logo](https://github.com/Mariana3101/grupo_11_tiendaViste/blob/master/public/images/logo.jpg) 
