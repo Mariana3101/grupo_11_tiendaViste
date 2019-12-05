@@ -36,5 +36,8 @@ Seleccionamos estos sites para usar como referentes a la hora de armar nuestro s
 
 *Wireframes
 
-*
+*home
+![home](https://github.com/Mariana3101/grupo_11_tiendaViste/blob/master/wireframe/home.jpg)
+
+*Logo
  ![Logo](https://github.com/Mariana3101/grupo_11_tiendaViste/blob/master/public/images/logo.jpg) 
