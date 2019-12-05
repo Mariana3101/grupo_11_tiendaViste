@@ -119,11 +119,7 @@ a {
 .footer {
     background-color: grey;
     padding: 10px;
-<<<<<<< HEAD
-=======
-    
->>>>>>> f9b63b9d69801bf365674aea1c2416f0c445e712
-    left: 0px;
+    <<<<<<< HEAD=======>>>>>>>f9b63b9d69801bf365674aea1c2416f0c445e712 left: 0px;
     bottom: 0px;
     width: 100%;
     margin: auto;
@@ -136,7 +132,6 @@ a {
     padding: 10px;
     margin-left: 50px;
     width: 100%;
-    
 }
 
 .formulario a {
@@ -152,15 +147,11 @@ a {
     border: 1px red dotted;
 }
 
+
 /*Detalle producto*/
 
 .vestido1 {
     padding: 2px;
     width: 5px;
     height: 5px;
-    
 }
-
-
-=======
->>>>>>> f9b63b9d69801bf365674aea1c2416f0c445e712
