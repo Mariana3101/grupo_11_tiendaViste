@@ -33,3 +33,8 @@ Seleccionamos estos sites para usar como referentes a la hora de armar nuestro s
 •	https://shop.gepetto.com.ar/
 •	https://www.simpakids.com/
 •   https://facheritos.com.ar/
+
+*Wireframes
+
+*Logo
+ ![logo](/images/logo.png) 
