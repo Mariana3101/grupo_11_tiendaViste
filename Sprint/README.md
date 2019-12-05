@@ -49,7 +49,7 @@ Seleccionamos estos sites para usar como referentes a la hora de armar nuestro s
 ![Carga de Producto](https://github.com/Mariana3101/grupo_11_tiendaViste/blob/master/wireframe/cargaProducto.png)
 
 *Carrito
-![Carrito](https://github.com/Mariana3101/grupo_11_tiendaViste/blob/master/wireframe/carrito.png
+![Carrito](https://github.com/Mariana3101/grupo_11_tiendaViste/blob/master/wireframe/carrito.png)
 
 *Logo
  ![Logo](https://github.com/Mariana3101/grupo_11_tiendaViste/blob/master/public/images/logo.jpg) 
