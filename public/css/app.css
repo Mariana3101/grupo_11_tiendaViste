@@ -1,137 +1,50 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,400i&display=swap');
-@import url(carrito.css);
-@import url(carga-producto.css);
-@import url(registrar.css);
-@import url(detalle-producto.css);
-* {
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Nunito, sans-serif;
-    background-color: #FFFFFF;
-}
-
-ul,
-ol {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-a {
-    text-decoration: none;
-    display: inline-block;
-}
-
-.contenedor {
-    width: 100%;
-    margin: auto;
-}
-
-.float-fix {
-    overflow: hidden;
-}
-
-
-/*Header*/
-
-@media(max-width:319px) {
-    .main-header {
-        padding: 10px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-}
-
-.logo {
-    float: left;
-    margin-right: 10px;
-}
-
-.center-navbar {
-    float: left;
-    padding: 10px;
-}
-
-.rigth-navbar {
-    float: right;
-}
-
-.center-navbar,
-.rigth-navbar {
-    margin-top: 10px;
-}
-
-.center-navbar li,
-.rigth-navbar li {
-    display: inline-block;
-    margin: 0 15px;
-}
-
-.center-navbar li a,
-.rigth-navbar li a {
-    text-transform: uppercase;
-}
-
-
-/*Main Content*/
-
-.main-content {
-    margin-top: 30px 10px;
-    width: 100%;
-}
-
-.imagen-central {
-    /* background-color: blue;*/
-    padding: 10px;
-}
-
-.imagen-central .nena1 {
-    max-width: 100%;
-    height: auto;
-}
-
-.main-bottom {
-    /*background-color: brown;*/
-    padding: 10px;
-}
-
-.todosProductos {
-    text-align: center;
-    padding: 10px;
-    margin: 10px 0 10px 0;
-}
-
-.formulario,
-.contactanos,
-.video,
-.datosContacto,
-.main-bottom {
-    float: left;
-}
-
-.contactanos,
-.datosContacto {
-    padding: 10px;
-    margin: 0 58px 0 58px;
-}
-
-.video {
-    margin-right: 16px;
-}
-
-.footer a {
-    float: right;
-    padding: 10px;
-}
-
-.footer {
-    background-color: grey;
-    padding: 10px;
-    bottom: 0px;
-    width: 100%;
-    margin: auto;
-}
+        /* Fonts */
+        
+        @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Roboto", sans-serif;
+            background-color: #ebebeb;
+            margin: 0;
+            font-size: 15px;
+        }
+        /*
+        [class*=col-] {
+            border: solid 1px red;
+        }
+        */
+        
+        ul,
+        ol {
+            margin: 0;
+            padding: o;
+            list-style: none;
+        }
+        
+        a {
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .main-header {
+            background-color: white;
+            padding: 10px 0;
+            display: flex;
+            flex-wrap: wrap;
+            height: 100px;
+        }
+        
+        .carrito {
+            text-align: center;
+            display: block;
+        }
+        /* tablet */
+        
+        @media (min-width: 460px) {
+            .main-header {
+                height: 20%;
+            }
+        }
