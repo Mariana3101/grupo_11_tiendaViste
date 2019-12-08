@@ -56,11 +56,72 @@
         .registrar {
             font-size: 15px;
             letter-spacing: 1px;
+            margin: 0;
+        }
+        
+        .carrusel {
+            display: block;
+            height: 80%;
+            width: 100%;
+            margin: 0;
+        }
+        
+        .container-niña {
+            background-color: white;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding-bottom: 5px;
+            padding-top: 5px;
+        }
+        
+        .niña-home {
+            background-color: white;
+            justify-content: center;
+            display: flex;
+            flex-wrap: wrap;
+            padding-bottom: 5px;
+        }
+        
+        .container-bebe {
+            background-color: white;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding-bottom: 5px;
+        }
+        
+        .bebe-home {
+            background-color: white;
+            justify-content: center;
+            flex-wrap: wrap;
+            display: flex;
+            padding-bottom: 5px;
+        }
+        
+        .listaProductos {
+            background-color: white;
+            justify-content: center;
+            align-content: center;
+            display: flex;
+        }
+        
+        .final-body {
+            background-color: white;
+            display: flex;
         }
         
         .carrito {
             text-align: center;
             display: block;
+            padding-top: 5px;
+        }
+        
+        .i {
+            font-family: "Roboto", sans-serif;
+            color: gray;
+            margin: 0;
+            font-size: 15px;
         }
         
         .class-footer {
