@@ -10,12 +10,12 @@
             background-color: #ebebeb;
             margin: 0;
             font-size: 15px;
+            text-transform: uppercase
         }
-        /*
+        
         [class*=col-] {
             border: solid 1px red;
         }
-        */
         
         ul,
         ol {
@@ -35,16 +35,49 @@
             display: flex;
             flex-wrap: wrap;
             height: 100px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .promocion {
+            z-index: 3;
+            font-size: 11px;
+            padding: 6px;
+            background-color: #F5F5DC;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        
+        .logo {
+            align-items: center;
+        }
+        
+        .ingresar,
+        .registrar {
+            font-size: 15px;
+            letter-spacing: 1px;
         }
         
         .carrito {
             text-align: center;
             display: block;
         }
+        
+        .class-footer {
+            letter-spacing: 1px;
+            text-align: center;
+        }
         /* tablet */
         
         @media (min-width: 460px) {
             .main-header {
                 height: 20%;
+                font-size: 20px;
+            }
+            .promocion {
+                padding: 6px 20px;
+            }
+            .class-footer {
+                text-align: justify;
             }
         }
