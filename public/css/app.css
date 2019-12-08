@@ -12,10 +12,11 @@
             font-size: 15px;
             text-transform: uppercase
         }
-        
+        /*
         [class*=col-] {
             border: solid 1px red;
         }
+        */
         
         ul,
         ol {
@@ -131,6 +132,17 @@
             letter-spacing: 1px;
             text-align: center;
         }
+        
+        .video,
+        .final-body,
+        .conteiner-final-body {
+            padding: 5px 0 5px 5px;
+        }
+        
+        .formulario-contacto,
+        .datos-contacto {
+            background-color: #ffffff;
+        }
         /* tablet */
         
         @media (min-width: 460px) {
@@ -143,5 +155,6 @@
             }
             .class-footer {
                 text-align: justify;
+                padding: 10px;
             }
         }
