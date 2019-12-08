@@ -84,7 +84,12 @@
             padding-bottom: 5px;
         }
         
-        .container-bebe {
+        .responsive {
+            width: 100%;
+            height: auto;
+        }
+        
+        .re .container-bebe {
             background-color: white;
             display: flex;
             flex-wrap: wrap;
