@@ -81,16 +81,17 @@
         }
 
         .listaProductos {
-            background-color: white;
-            justify-content: center;
-            align-content: center;
             display: flex;
-                                  
+            flex-wrap: wrap;
+            background-color: white;
+            justify-content: center;                      
         }
       
         .final-body {
             background-color: white;
             display: flex;
+            border-block-end-color: hotpink;
+            align-content: space-around;
         }
         
         .carrito {
@@ -101,9 +102,10 @@
 
         .i {
             font-family: "Roboto", sans-serif;
+            align-content: space-around;
             color:gray;
             margin: 0;
-            font-size: 15px;
+            font-size: 30px;
         }
 
     
