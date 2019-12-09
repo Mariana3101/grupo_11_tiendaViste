@@ -10,7 +10,8 @@
             background-color: #ebebeb;
             margin: 0;
             font-size: 15px;
-            text-transform: uppercase
+            text-transform: uppercase;
+            text-align: justify;
         }
         /*
         [class*=col-] {
@@ -146,12 +147,14 @@
             display: flex;
             border-block-end-color: hotpink;
             align-content: space-around;
+            
         }
         
         .carrito {
-            text-align: center;
+            text-align: justify;
             display: block;
-            padding-top: 5px;
+            padding-top: 20px;
+            margin-top: 20px;
         }
         
         .i {
@@ -189,7 +192,7 @@
                 padding: 6px 20px;
             }
             .class-footer {
-                text-align: justify;
+                text-align: center;
                 padding: 10px;
             }
         }
