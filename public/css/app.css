@@ -29,6 +29,7 @@
             display: inline-block;
             text-decoration: none;
         }
+        /* header */
         
         .main-header {
             background-color: white;
@@ -59,12 +60,26 @@
             letter-spacing: 1px;
             margin: 0;
         }
+        /*body*/
         
-        .carrusel {
+        .boby-mobile {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        
+        .container-carrusel {
             display: block;
             height: 80%;
             width: 100%;
             margin: 0;
+            padding-right: 0;
+        }
+        
+        .carousel-item {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
         }
         
         .container-niña {
@@ -82,6 +97,20 @@
             display: flex;
             flex-wrap: wrap;
             padding-bottom: 5px;
+        }
+        
+        .button-niña,
+        .button-bebe {
+            background-color: white;
+            color: blue;
+            border: 2px solid gray;
+            font-size: 20px;
+        }
+        
+        .button-niña:hover,
+        .button-bebe:hover {
+            background-color: blue;
+            color: #ffffff;
         }
         
         .responsive {
@@ -133,11 +162,6 @@
             font-size: 30px;
         }
         
-        .class-footer {
-            letter-spacing: 1px;
-            text-align: center;
-        }
-        
         .video,
         .final-body,
         .conteiner-final-body {
@@ -147,6 +171,12 @@
         .formulario-contacto,
         .datos-contacto {
             background-color: #ffffff;
+        }
+        /*footer*/
+        
+        .class-footer {
+            letter-spacing: 1px;
+            text-align: center;
         }
         /* tablet */
         
