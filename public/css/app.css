@@ -191,6 +191,18 @@
                 width: 95%;
             }
             
+            .container-formulario {
+                background-color: #ffffff;
+                float: right;
+                overflow: hidden;
+                box-sizing: border-box;
+                font-size: 12px;
+                padding-left: 30px;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                width: 95%;
+            }
+
             .contactanos {
                 font-size: 14px;
             }
@@ -217,7 +229,7 @@
                     padding: 15px;
                 }
                 .datos-contacto,
-                .formulario-contacto {
+                .formulario-contacto  {
                     text-align: justify;
                     font-size: 15px;
                 }
@@ -229,6 +241,24 @@
                 .formulario-contacto,
                 .datos-contacto {
                     width: 33.33em;
+                }
+
+                .container-formulario {
+                    float: left;
+                    overflow: hidden;
+                    width: fit-content;
+
+                }
+
+                .container-formulario form-group {
+                    float: left;
+                    overflow: hidden;
+                                   
+                }
+                .nena1 {
+                    opacity: 40%;
+                    width: fit-content;
+                    
                 }
             }
             
