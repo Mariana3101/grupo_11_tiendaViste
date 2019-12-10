@@ -17,9 +17,12 @@ body {
     text-align: justify;
 }
 
+
+/*
 [class*=col-] {
     border: solid 1px red;
 }
+*/
 
 ul,
 ol {
