@@ -1,11 +1,27 @@
 /*formulario carga producto*/
 
+.body {}
+
 .formulario {
     padding: 10px;
-    margin-left: 50px;
+    padding-left: 50px;
     width: 100%;
 }
 
 .formulario a {
     float: left;
+}
+
+.container-footer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.class-footer {
+    padding-top: 20px;
+}
+
+td,
+input {
+    size: 20em;
 }

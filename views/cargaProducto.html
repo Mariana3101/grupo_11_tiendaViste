@@ -20,28 +20,28 @@
 			<!-- promocion menu logo carrito -->
 			<!--promocion--> 
 		<div class="row justify-content-between ">
-			<div class="col-12 col-md-12 d-block d-md-none promocion"><b>Promociones: 3, 6 o 12 cuotas sin interes!!!</b></div>
-				<!--Aca va  a ir el menu desplegable, -->
 			
-		<div class="dropdown">
-			<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<i class="fas fa-bars "></i>
-				</a>
+				<!--Aca va  a ir el menu desplegable, -->
+			<div class="col-2 col-md-2 ">
+				<div class="dropdown">
+					<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<i class="fas fa-bars "></i>
+					</a>
 					  
-			<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-			<a class="dropdown-item" href="/ingresar">Ingresar</a>
-			<a class="dropdown-item" href="/registrar">Registrarse</a>
-			<a class="dropdown-item" href="/">Home</a>
-			<a class="dropdown-item" href="#">Colecciones</a>
-			<a class="dropdown-item" href="/carrito">Comprar</a>
-			<a class="dropdown-item" href="#">Nosotros</a>
-				</div>
-			</div>	
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+						<a class="dropdown-item" href="/ingresar">Ingresar</a>
+						<a class="dropdown-item" href="/registrar">Registrarse</a>
+						<a class="dropdown-item" href="/">Home</a>
+						<a class="dropdown-item" href="#">Colecciones</a>
+						<a class="dropdown-item" href="/carrito">Comprar</a>
+						<a class="dropdown-item" href="#">Nosotros</a>
+					</div>
+				</div>	
 
-				</div>
+			</div>
 				<!--Logo-->
 				
-				<div class="justify-content-center col-6 col-md-8 ">
+				<div class="justify-content-center col-4 col-md-8 ">
 					<!--imagen logo a partir de md-->
 					<img src="/images/logo.jpg" class="d-none d-sm-block logo">
 					<!--Imagen de logo mobile-->
@@ -82,10 +82,21 @@
 	</header>
 	<!--Main content-->
 	<main class= "carga-producto">
-		<section class="formulario"  >
+		<div class="row">
+		<section class="formulario col-12"  >
 			<form class="carga-producto">
 				<p>
 					<label>Formulario de Producto</label>
+				</p>
+				<p>
+					<label for="td">Categoria</label>
+ 						
+ 						<select id="td">
+ 							<option value="bb-niña" >Bebe-niña</option>
+ 							<option value="bb-niño">Bebe-niño</option>
+ 							<option value="niño">Niño</option>
+ 							<option value="niña">niña</option>
+						</select>
 				</p>
 				<p>
 					<label for="td">Producto</label>
@@ -113,21 +124,23 @@
 					<input type="submit" value="Eliminar">
 				</p>
 			</form>
-			<div>
-				<a href="" class="volver">Volver</a>
-			</div>
+			
 		</section>
+		</div>
 		
+		<div class="col-12">
+			<button type="button">Volver</button>
+		</div>
 	
 	
 	</main>
-<!--Footer-->
-<footer>
-		<div class="container">
+	<!--Footer-->
+	<footer>
+		<div class="container-footer">
 			<div class="row justify-content-between  class-footer">
 			
 				<!--Enlace a iconos-redes-->
-				<div class="col-12 ">
+				<div class="col-12 col-md-12 ">
 					¡¡¡ Seguinos !!!
 					<i class="fab fa-facebook"></i>
 					<i class="fab fa-instagram"></i>
@@ -151,5 +164,5 @@
 
 
 
-	</body>
+</body>
 </html>

@@ -1,0 +1,18 @@
+.contenedor-error500 {
+    background-color: #ffffff;
+    padding-bottom: 20px;
+}
+
+.error-500 {
+    padding: 10px;
+    padding-left: 50px;
+    width: 40%;
+    text-align: center;
+}
+
+.class-nosotros,
+.acceso-iconos,
+.acceso-link,
+.footer-contacto {
+    width: 60px;
+}

@@ -1,6 +1,9 @@
 /* Fonts */
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
+@import url(carga-producto.css);
+@import url(carrito.css);
+@import url(errores-home.css);
 * {
     box-sizing: border-box;
 }
@@ -215,7 +218,7 @@ nav li a {
 .class-footer {
     letter-spacing: 1px;
     text-align: center;
-    font-size: 11px;
+    font-size: 13px;
     padding-top: 10px;
 }
 
