@@ -2,70 +2,80 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>Home Page</title>
 	<!-- Font Awesome Stylesheet -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	<!-- Bootstrap Grid Stylesheet -->
 	<link rel="stylesheet" href="/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
 	<!--Mi css-->
 	<link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
+
 	<header class="main-header">
+	
 		<div class="container">
 			<!-- promocion menu logo carrito -->
-			<!--promocion-->
-			<div class="row justify-content-between ">
-				<div class="col-12 col-md-12 d-block d-md-none promocion"><b>Promociones: 3, 6 o 12 cuotas sin interes!!!</b></div>
-				<!--Aca va  a ir el menu desplegable, pero todavia no sabemos como codearlo, por lo tanto colocamos un icono-->
-				<div class="col-3 col-md-2 ">
-					<a href="#"><img src="/images/menu-icono.png" alt="menu-desplegable"></a>
-				</div>
-				<div class="col-6 col-md-5 ">
-					<!--imagen logo a partir de md-->
-					<img src="/images/logo.jpg" class="d-none d-sm-block logo">
-					<!--Imagen de logo mobile-->
-					<img src="/images/mini-logo.jpg" class="d-block d-sm-none">
-					
-				</div>
-				<!--Link a Ingresar Registrar visible a partir de md-->
-				<div class="col-md- 3 d-none d-md-block">
-					<a href="#" class="ingresar">
-						ingresar
-					</a>
-					<a href="/registrar" class="registrar">
-						registrar
-					</a>
-				</div>
-				<!--Link a carrito-->
-				<div class="col-3 col-md-2">
-					<a href="/carrito" class="carrito" >
-						<img src="/images/mini-carrito.png">
-					</a>
-				</div>
-			</div>
-			<!-- navegacion -->
-			<div class="row justify-content-between">
-				
-					<!--barra de navegacion visible a partir md-->
-					<div class=" col-md-3 d-none d-md-block">
-						<a href="/" class="home">Home</a>
-					</div>
-					<div class=" col-md-3 d-none d-md-block">
-						<a href="#" class="colecciones">Colecciones</a>
-					</div>
-					<div class=" col-md-3 d-none d-md-block">
-						<a href="#" class="nosotros">Nosotros</a>
-					</div>
-					<div class=" col-md-3 d-none d-md-block">
-						<a href="#" class="contacto">Contacto</a>
-					</div>
-				
-			</div>
+			<!--promocion--> 
+		<div class="row justify-content-between ">
+			<div class="col-12 col-md-12 d-block d-md-none promocion"><b>Promociones: 3, 6 o 12 cuotas sin interes!!!</b></div>
+				<!--Aca va  a ir el menu desplegable, -->
 			
-		</div>
+		<div class="dropdown">
+			<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<i class="fas fa-bars "></i>
+				</a>
+					  
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+			<a class="dropdown-item" href="/ingresar">Ingresar</a>
+			<a class="dropdown-item" href="/registrar">Registrarse</a>
+			<a class="dropdown-item" href="/index">Home</a>
+			<a class="dropdown-item" href="#">Colecciones</a>
+			<a class="dropdown-item" href="/carrito">Comprar</a>
+			<a class="dropdown-item" href="#">Nosotros</a>
+				</div>
+			</div>	
 
+			
+			<div class="justify-content-center col-6 col-md-5 ">
+				<!--imagen logo a partir de md-->
+				<img src="/images/logo.jpg" class="d-none d-sm-block logo">
+				<!--Imagen de logo mobile-->
+				<img src="/images/mini-logo.jpg" class="d-block d-sm-none">
+					
+			</div>
+			<!--Link a Ingresar Registrar visible a partir de md-->
+			<div class="col-md- 3 d-none d-md-block">
+				<a href="/ingresar" class="ingresar">
+					Ingresar /
+				</a>
+
+				<a href="/registrar" class="registrar">
+				Registrar
+				</a>
+			</div>
+			<!--Link a carrito-->
+			<div class="col-2 col-md-2">
+				
+				<a href="/carrito"><i class="fas fa-cart-plus"></i></a>
+					
+			</div>
+			<!--Barra de navegacion-->
+			<div class="col-md-12 d-none d-md-block">
+				<nav>
+  						<ul>
+    						<li><a href="/">Home</a></li>
+    						<li><a href="#">Colecciones</a></li>
+   							<li><a href="#">Nosotros</a></li>
+   							<li><a href="#">Contáctanos</a></li>
+  						</ul>
+					</nav>
+
+			</div>
+		</div>	
+		</div>
 	</header>
 	<!--Main content-->
 	<main>
@@ -130,5 +140,9 @@
 			</div>
 		</div>
 	</footer>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 </body>
 </html>

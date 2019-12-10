@@ -23,20 +23,22 @@
 			<div class="col-12 col-md-12 d-block d-md-none promocion"><b>Promociones: 3, 6 o 12 cuotas sin interes!!!</b></div>
 				<!--Aca va  a ir el menu desplegable, -->
 			
-			<div class="dropdown">
-				<div class="justify-content-center col-2 col-md-1 ">
-					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<i class="fas fa-bars "></i>
-					</button>
-				<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-					<button class="dropdown-item" type="button">Ingresar</button>
-					<button class="dropdown-item" type="button">Registrarse</button>
-					<button class="dropdown-item" type="button">Home</button>
-					<button class="dropdown-item" type="button">Colecciones</button>
+		<div class="dropdown">
+			<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<i class="fas fa-bars "></i>
+				</a>
+					  
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+			<a class="dropdown-item" href="/ingresar">Ingresar</a>
+			<a class="dropdown-item" href="/registrar">Registrarse</a>
+			<a class="dropdown-item" href="/index">Home</a>
+			<a class="dropdown-item" href="#">Colecciones</a>
+			<a class="dropdown-item" href="/carrito">Comprar</a>
+			<a class="dropdown-item" href="#">Nosotros</a>
 				</div>
-				</div>
-			</div>
+			</div>	
 
+			
 			<div class="justify-content-center col-6 col-md-5 ">
 				<!--imagen logo a partir de md-->
 				<img src="/images/logo.jpg" class="d-none d-sm-block logo">
@@ -46,12 +48,12 @@
 			</div>
 			<!--Link a Ingresar Registrar visible a partir de md-->
 			<div class="col-md- 3 d-none d-md-block">
-				<a href="#" class="ingresar">
+				<a href="/ingresar" class="ingresar">
 					Ingresar 
 				</a>
 
 				<a href="/registrar" class="registrar">
-				Registrar
+				Registrar /
 				</a>
 			</div>
 			<!--Link a carrito-->
@@ -152,7 +154,7 @@
 								<input type = "text"  id = "nombre"  name= "nombre" required></p>
 							<p><label for="email" > Email </label><br>
 								<input type = "email"  id = "email"  name= "email"required></p>
-							<label for="nombre" > Nombre </label><br>
+							<label for="nombre" > Mensaje </label><br>
 								<textarea type = "Mensaje"></textarea><br> 
 							<button type="button" class="btn btn-outline-primary">Enviar</button><br>
 					</div>
