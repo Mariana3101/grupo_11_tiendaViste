@@ -37,7 +37,7 @@
 				<!--Logo-->
 				
 				<div class="justify-content-center col-6 col-md-8 ">
-					<!--imagen logo a partir de md
+					<!--imagen logo a partir de md-->
 					<img src="/images/logo.jpg" class="d-none d-sm-block logo">
 					<!--Imagen de logo mobile-->
 					<img src="/images/mini-logo1.jpg" class="d-block d-sm-none">
@@ -54,19 +54,18 @@
 			</div>
 
 			<!--barra de navegacion -->
-			<div class="row">
+			<div cl>
 				<div class="col-md-12 d-none d-md-block">
-					<nav>
+				<nav>
   						<ul>
     						<li><a href="/">Home</a></li>
     						<li><a href="#">Colecciones</a></li>
-							<img src="/images/logo.jpg" class="d-none d-sm-block logo">
    							<li><a href="#">Nosotros</a></li>
    							<li><a href="#">Contáctanos</a></li>
   						</ul>
 					</nav>
 
-				</div>
+			</div>
 			</div>
 			
 			
@@ -77,7 +76,42 @@
 		</div>
 	</header>
 	<!--Main content-->
-	<main class= "body-mobile">
+	<main class= "carga-producto">
+		<section class="formulario"  >
+			<form class="carga-producto">
+				<p>
+					<label>Formulario de Producto</label>
+				</p>
+				<p>
+					<label for="td">Producto</label>
+ 						
+ 						<select id="td">
+ 							<option value="RE" >Remera</option>
+ 							<option value="PA">Pantalon</option>
+ 							<option value="VE">Vestido</option>
+ 							<option value="SW">Sweater</option>
+						</select>
+				</p>
+				<p class="cantidad">
+					<label  for="cantidad">Cantidad:</label>
+						<input type="number" name="cantidad" id="cantidad" required>
+				</p>
+				<p class="precio">
+					<label  for="precio">Precio: </label>
+						<input type="decimal" name="precio" id="precio" min="1" required>
+				</p>
+				<p>
+					<img src="/images/remeraRosa.png" alt="Remera Rosa">
+				</p>
+				<p>
+					<input type="submit" value="Enviar">
+					<input type="submit" value="Eliminar">
+				</p>
+			</form>
+			<div>
+				<a href="" class="volver">Volver</a>
+			</div>
+		</section>
 		
 	
 	
