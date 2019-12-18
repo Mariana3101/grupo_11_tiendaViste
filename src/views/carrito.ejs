@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Inicio'}) %>
+
+    <body class="page-carrito">
+        <!-- Header -->
+        <%- include('partials/headerNavbar-interno') %>
+            <main>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 ">
+                            <h5>Carrito</h5>
+                        </div>
+                        <div class="carrito">
+
+                            <div class="carrito-labels">
+
+                                <ul>
+                                    <li class="item item-heading">Producto</li>
+
+                                    <li class="price">Precio Unitario</li>
+                                    <li class="quantity">Cantidad</li>
+                                    <li class="subtotal">Subtotal</li>
+                                </ul>
+                            </div>
+                            <!--Primer producto en el carrito-->
+                            <div class="carrito-product">
+                                <div class="item">
+                                    <div class="product-image">
+                                        <img src="/images/productos/remeraRosa.png" alt="Placholder Image 2" class="product-frame">
+                                    </div>
+                                    <div class="product-details">
+                                        <h1><strong><span class="item-quantity">4</span> x Remera MC Daisy</strong></h1>
+
+                                        <p><strong>Talle: 6 </strong></p>
+                                        <p>Color: Rosa</p>
+                                    </div>
+                                </div>
+                                <div class="price">690</div>
+                                <div class="quantity">
+                                    <input type="number" value="4" min="1" class="quantity-field">
+                                </div>
+                                <div class="subtotal">2760</div>
+                                <div class="remove">
+                                    <button>Remove</button>
+                                </div>
+                            </div>
+                            <!--Segundo Producto en el carrito-->
+                            <div class="carrito-product">
+                                <div class="item">
+                                    <div class="product-image">
+                                        <img src="/images/productos/enterito.png" alt="Placholder Image 2" class="product-frame">
+                                    </div>
+                                    <div class="product-details">
+                                        <h1><strong><span class="item-quantity">1</span>x BY-Enterito STP</strong> Ailin XS-L</h1>
+                                        <p><strong>Talle: XS</strong></p>
+                                        <p>Color: Rosa</p>
+                                    </div>
+                                </div>
+                                <div class="price">990</div>
+                                <div class="quantity">
+                                    <input type="number" value="1" min="1" class="quantity-field">
+                                </div>
+                                <div class="subtotal">990</div>
+                                <div class="remove">
+                                    <button>Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Seccion del total y subtotal-->
+                        <aside>
+                            <div class="summary">
+
+                                <div class="summary-subtotal">
+                                    <div class="subtotal-title">Subtotal</div>
+                                    <div class="subtotal-value final-value" id="carrito-subtotal">3750</div>
+
+                                </div>
+
+                                <div class="summary-total">
+                                    <div class="total-title">Total</div>
+                                    <div class="total-value final-value" id="carrito-total">3750</div>
+                                </div>
+                                <div class="summary-checkout">
+
+                                    <button class="btn btn-primary btn-sm ">¡Comprar ahora!</button>
+                                </div>
+                            </div>
+                        </aside>
+                        <div class="col-12 ">
+                            <button type="button" class="btn btn-primary  ">Seguir Comprando</button>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+            <!-- footer -->
+            <%- include('partials/footer') %>
+                <!-- /footer -->

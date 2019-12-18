@@ -17,12 +17,9 @@ body {
     text-align: justify;
 }
 
-
-/*
 [class*=col-] {
     border: solid 1px red;
 }
-*/
 
 ul,
 ol {
@@ -140,6 +137,9 @@ nav li a {
     color: #ffffff;
 }
 
+
+/*Hace imagen responsive*/
+
 .responsive {
     width: 100%;
     height: auto;
@@ -161,6 +161,9 @@ nav li a {
     padding-bottom: 5px;
 }
 
+
+/* Button todos los productos*/
+
 .listaProductos {
     display: flex;
     flex-wrap: wrap;
@@ -171,6 +174,7 @@ nav li a {
 .container-final-body {
     background-color: white;
     display: flex;
+    flex-wrap: wrap;
     border-block-end-color: hotpink;
     align-content: space-around;
 }
@@ -181,18 +185,10 @@ nav li a {
     padding-top: 50px;
 }
 
-.i {
-    font-family: "Roboto", sans-serif;
-    color: gray;
-    align-content: space-around;
-    margin: 0;
-    font-size: 30px;
-}
-
 .formulario-contacto,
 .datos-contacto {
     background-color: #ffffff;
-    font-size: 12px;
+    font-size: 15px;
     padding-left: 30px;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -225,6 +221,14 @@ nav li a {
     padding-top: 10px;
 }
 
+.i {
+    font-family: "Roboto", sans-serif;
+    color: gray;
+    align-content: space-around;
+    margin: 0;
+    font-size: 30px;
+}
+
 
 /* tablet */
 
@@ -249,10 +253,9 @@ nav li a {
         display: flex;
         justify-content: center;
     }
-    .video,
     .formulario-contacto,
     .datos-contacto {
-        width: 33.33em;
+        width: auto;
     }
     .container-formulario {
         float: left;

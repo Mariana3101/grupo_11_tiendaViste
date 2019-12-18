@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Inicio'}) %>
+
+    <body class="page-carga-producto">
+        <!-- Header -->
+        <%- include('partials/headerNavbar-interno') %>
+
+            <main class="carga-producto">
+                <form>
+                    <div class="row">
+                        <!--Selector de categoria-->
+                        <div class="col-6">
+                            <label for="categoria">Categoria</label>
+                        </div>
+                        <div class="col-6">
+                            <select id="categoria" name="categoria">
+                            <option value="bb-niña">bb-niña</option>
+                            <option value="bb-niño">bb-niño</option>
+                            <option value="niño">niño</option>
+                            <option value="niña">niña</option>
+                          </select>
+                        </div>
+                    </div>
+                    <!--Falta agregar un campo para elegir el  talle y color del producto seleccionado-->
+
+
+
+
+                    <!--Selector de producto-->
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="producto">Producto </label>
+                        </div>
+                        <div class="col-6">
+                            <select id="producto" name="producto">
+                            <option value="remera">Remera</option>
+                            <option value="pantalon">Pantalón</option>
+                            <option value="sweater">Sweater</option>
+                          </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!--Label Cantidad-->
+                        <div class="col-6">
+                            <label for="cantidad">Cantidad</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="number" id="cantidad" name="cantidad" placeholder="Ingrese un numero" required>
+                        </div>
+                        <!--Label precio-->
+                        <div class="col-6">
+                            <label for="precio">Precio</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="number" id="precio" name="precio" placeholder="Ingrese un numero" required>
+                        </div>
+                    </div>
+                    <!--Imagen del producto-->
+                    <div class="row">
+                        <img src="/images/productos/remeraRosa.png" alt="remra" class="col-6 col-md-3">
+                    </div>
+
+                    <div class="row">
+                        <!--Guardar y Eliminar-->
+                        <input type="submit" class="col-6" value="Guardar">
+                        <input type="submit" class="col-6" value="Eliminar">
+                    </div>
+
+
+                </form>
+                <div class="col-12">
+                    <button type="button" class="btn btn-primary back-button ">Volver</button>
+                </div>
+
+
+            </main>
+
+            <!-- footer -->
+            <%- include('partials/footer') %>
+                <!-- /footer -->
