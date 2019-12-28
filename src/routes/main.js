@@ -11,6 +11,7 @@ const mainController = require('../controllers/mainController');
 
 router.get('/', mainController.root); /* GET - home page */
 router.get('/cargaProducto', mainController.cargaProducto); /* GET - carga-producto*/
+router.post("/cargaProducto", mainController.cargaProducto);/* POST - carga-producto*/
 router.get('/carrito', mainController.carrito); /* GET -carrito*/
 router.get('/registrar', mainController.registrar); /* registrar*/
 router.get('/detalleProducto', mainController.detalleProducto); /* detalle-producto*/
