@@ -10,7 +10,16 @@
             <main class="carga-producto">
                 <form action="/productos/crear" method="POST">
                     <div class="row">
-                        <!--Selector de categoria-->
+
+                        <!--Creador del Producto-->
+                        <div class="col-6">
+                            <label for="creador">Creador</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" id="creador" name="Creado por..." required>
+                        </div>
+
+                    <!--Selector de categoria-->
                         <div class="col-6">
                             <label for="categoria">Categoria</label>
                         </div>
@@ -77,9 +86,10 @@
                             <label for="precio">Precio</label>
                         </div>
                         <div class="col-6">
-                            <input type="text" id="color" name="Ingrese un color" required>
+                            <input type="text" id="precio" name="Ingrese el precio" required>
                         </div>
                     </div>
+                    
                     <!--Imagen del producto-->
 
                     <div class="row">
@@ -92,7 +102,7 @@
                         </div>
                     </div>
                 </div>
-                </div>
+                 </div>
 
                     <div class="row">
                         <!--Guardar y Eliminar-->

@@ -1,0 +1,38 @@
+[
+ {
+  "id": 1,
+  "creador": "Producto guardado"
+ },
+ {
+  "id": 2,
+  "creador": "Producto guardado"
+ },
+ {
+  "id": 3,
+  "creador": "Producto guardado"
+ },
+ {
+  "id": 4,
+  "creador": "Producto guardado"
+ },
+ {
+  "id": 5,
+  "creador": "Producto guardado"
+ },
+ {
+  "id": 6,
+  "creador": "Producto guardado"
+ },
+ {
+  "id": 7,
+  "categoria": "bb-niña",
+  "talle": "xs",
+  "Ingrese un color": [
+   "sss",
+   "1000"
+  ],
+  "producto": "sweater",
+  "cantidad": "1",
+  "creador": "Producto guardado"
+ }
+]

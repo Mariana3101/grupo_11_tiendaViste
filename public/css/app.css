@@ -17,9 +17,9 @@ body {
     text-align: justify;
 }
 
-//*[class*=col-] {
+/*[class*=col-] {
     border: solid 1px red;
-}*//
+}*/
 
 ul,
 ol {
