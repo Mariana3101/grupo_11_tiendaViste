@@ -2,21 +2,23 @@ const fs = require('fs');
 const path = require('path');
 
 const ubicacionProductosJSON = path.join(__dirname, '../data/productos.json');
-
 let contenidoProductosJSON = fs.readFileSync(ubicacionProductosJSON, 'utf-8');
+
 
 const controller = {
     root: (req, res) => {
-        let productos = JSON.parse(contenidoProductosJSON);
-		res.render('index', { productos });
+        	res.render('index');
     },
     
     mostrarCargaProducto: (req, res) => {
-        res.render('cargaProducto');
+        let productos = JSON.parse(contenidoProductosJSON);
+        res.render('cargaProducto', { productos });
     },
     
 
+
     cargaProducto: (req, res) => {
+        
 		let arrayDeProductos = [];
 		
 		if (contenidoProductosJSON != '') {
@@ -35,8 +37,8 @@ const controller = {
 		let contenidoAGuardar = JSON.stringify(arrayDeProductos, null, ' ');
 		fs.writeFileSync(ubicacionProductosJSON, contenidoAGuardar);
 		
-		res.send('¡Producto guardado!')
-
+		res.send("¡Producto guardado!");
+        
     },
 
     carrito: (req, res) => {
