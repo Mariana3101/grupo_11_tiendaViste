@@ -8,9 +8,10 @@
         <%- include('partials/headerNavbar-interno') %>
 
             <main class="carga-producto">
-                <form>
+                <form action="/productos/crear" method="POST">
                     <div class="row">
-                        <!--Selector de categoria-->
+
+                       <!--Selector de categoria-->
                         <div class="col-6">
                             <label for="categoria">Categoria</label>
                         </div>
@@ -23,10 +24,31 @@
                           </select>
                         </div>
                     </div>
-                    <!--Falta agregar un campo para elegir el  talle y color del producto seleccionado-->
+                    
+                <!--Selector de talle-->
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="talle">Talle </label>
+                        </div>
+                        <div class="col-6">
+                            <select id="talle" name="talle">
+                            <option value="xs">XS</option>
+                            <option value="s">S</option>
+                            <option value="m">M</option>
+                            <option value="l">L</option>
+                            <option value="l">XL</option>
+                          </select>
+                        </div>
+                    </div>
 
-
-
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="color">Color </label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" id="color" name="Ingrese un color" required>
+                        </div>
+                    </div>
 
                     <!--Selector de producto-->
                     <div class="row">
@@ -38,6 +60,7 @@
                             <option value="remera">Remera</option>
                             <option value="pantalon">Pantalón</option>
                             <option value="sweater">Sweater</option>
+                            <option value="vestido">Vestido</option>
                           </select>
                         </div>
                     </div>
@@ -55,13 +78,23 @@
                             <label for="precio">Precio</label>
                         </div>
                         <div class="col-6">
-                            <input type="number" id="precio" name="precio" placeholder="Ingrese un numero" required>
+                            <input type="text" id="precio" name="Ingrese el precio" required>
                         </div>
                     </div>
+                    
                     <!--Imagen del producto-->
+
                     <div class="row">
-                        <img src="/images/productos/remeraRosa.png" alt="remra" class="col-6 col-md-3">
+                    <div class="imagen">
+                    <div id="divInputLoad">
+                    <div id="divFileUpload">
+                        <input id="file-upload" type="file" accept="image/*" />
+                        </div>
+                        <div id="file-preview-zone">
+                        </div>
                     </div>
+                </div>
+                 </div>
 
                     <div class="row">
                         <!--Guardar y Eliminar-->
@@ -75,7 +108,32 @@
                     <button type="button" class="btn btn-primary back-button ">Volver</button>
                 </div>
 
-
+                <script>
+                    function readFile(input) {
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+                 
+                            reader.onload = function (e) {
+                                var filePreview = document.createElement('img');
+                                filePreview.id = 'file-preview';
+                                //e.target.result contents the base64 data from the image uploaded
+                                filePreview.src = e.target.result;
+                                console.log(e.target.result);
+                 
+                                var previewZone = document.getElementById('file-preview-zone');
+                                previewZone.appendChild(filePreview);
+                            }
+                 
+                            reader.readAsDataURL(input.files[0]);
+                        }
+                    }
+                 
+                    var fileUpload = document.getElementById('file-upload');
+                    fileUpload.onchange = function (e) {
+                        readFile(e.srcElement);
+                    }
+                 
+                </script>                
             </main>
 
             <!-- footer -->

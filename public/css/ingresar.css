@@ -1,7 +1,9 @@
 /*registro de cliente*/
 
-.registrar {
+.container-formulario {
+    display: flex;
     float: right;
     padding: 3px;
-    border: 1px red dotted;
-}
+   };
+
+
