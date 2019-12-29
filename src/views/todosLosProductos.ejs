@@ -3,26 +3,41 @@
 <!-- Include Head -->
 <%- include('partials/head', {title: 'registrar'}) %>
 
-    <body class="page-registrar">
+    <body class="page-product">
         <!-- Header -->
         <%- include('partials/headerNavbar-interno') %>
+            <div class="container">
+                <main>
+                    <h1>Todos los Productos</h1>
+                    <div class="row lista-productos">
+                        <!--Muestra todos los productos-->
+                        <% todosLosProductos.forEach(product =>{ %>
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <article class="product">
+                                    <div class="product-image">
+                                        <img src="/images/productos/<%= product.imagen %>" alt="<%= product.producto %>">
+                                        <h4>
+                                            <%= product.producto %>
+                                        </h4>
+                                    </div>
+                                    <div class="product-desc">
+                                        <p> Talle:
+                                            <%= product.talle %>
+                                        </p>
+                                        <p> $
+                                            <%= product.precio %>
+                                        </p>
+                                    </div>
 
-            <main>
-                <!--Imagen Nena -->
-                <div class="row">
-                    <div class="col-12">
-                        <img src="/images/fotohome4.jpg">
-
+                                </article>
+                            </div>
+                            <% }) %>
                     </div>
-                    <div class="col-12">
-                        <!-- button comprar nena-->
-                        <div class="niña-home ">
-                            <button type="button" class="d-md-none align-content-around button-niña" class="btn btn-outline-primary">Shop Now</button>
-                        </div>
-                    </div>
+                </main>
+            </div>
 
-                </div>
-            </main>
+
+
 
             <!-- footer -->
             <%- include('partials/footer') %>
