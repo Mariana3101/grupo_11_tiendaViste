@@ -84,6 +84,36 @@ nav li a {
 }
 
 
+/* button buscar */
+
+.buscar-form {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.buscar-form_input {
+    border: solid 1px var(--light-gray);
+    display: block;
+    width: 80%;
+    padding: 10px;
+    border-radius: 3px;
+    height: 35px;
+    font-size: 17px;
+}
+
+.buscar-form_button {
+    position: absolute;
+    right: 2px;
+    height: 60%;
+    background-color: #ffffff;
+    border: none;
+    border-left: solid 1px var(--light-gray);
+    color: var(--gray);
+    cursor: pointer;
+}
+
+
 /*body*/
 
 .boby-mobile {

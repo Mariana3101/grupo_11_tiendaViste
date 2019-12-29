@@ -23,7 +23,11 @@ const controller = {
     },
     ingresar: (req, res) => {
         res.render('ingresar')
-    }
+    },
+    todosLosProductos: (req, res) => {
+        res.render('todosLosProductos')
+    },
+
 };
 
 module.exports = controller;

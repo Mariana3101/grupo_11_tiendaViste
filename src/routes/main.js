@@ -16,5 +16,7 @@ router.get('/registrar', mainController.registrar); /* registrar*/
 router.get('/detalleProducto', mainController.detalleProducto); /* detalle-producto*/
 router.get('/ingresar', mainController.ingresar); /* Ingresar-Login*/
 
+router.get('/todosLosProductos', mainController.todosLosProductos);
+
 
 module.exports = router;
