@@ -1,7 +1,14 @@
 .registrar {
-    background-image: url("/images/nena1.png");
     background-repeat: no-repeat;
     background-size: cover;
-    padding-top: 10px;
     width: 100%;
+}
+
+.fondo-imagen {
+    background-image: url("/images/nena1.png");
+}
+
+.formulario-registrar {
+    display: flex;
+    justify-content: flex-end;
 }
