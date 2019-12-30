@@ -50,22 +50,23 @@ const controller = {
         res.render('registrar')
     },
     detalleProducto: (req, res) => {
-        let categoria = req.params.categoria;
-        let pdtoID = req.params.id;
-        let productFind = null;
+        let idProducto = req.params.id;
+        let elProducto = todosLosProductos.find(function(unProducto) {
+            return unProducto.id == idProducto;
+        })
 
         res.render('detalleProducto', {
-            pageClass: 'page-Detalle-producto',
+            idProducto: idProducto,
+            elProducto: elProducto,
 
-            todosLosProductos
-
-        })
+        });
     },
 
     ingresar: (req, res) => {
 
         res.render('ingresar')
     },
+
     todosLosProductos: (req, res) => {
         res.render('todosLosProductos', {
             pageClass: 'page-product',

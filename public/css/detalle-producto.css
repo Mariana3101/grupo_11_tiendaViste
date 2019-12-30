@@ -1,2 +1,4 @@
-
-
+.button-volver {
+    display: flex;
+    justify-content: center;
+}

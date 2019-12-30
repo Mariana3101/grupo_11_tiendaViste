@@ -13,9 +13,9 @@
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="/ingresar">Ingresar</a>
-                        <a class="dropdown-item" href="/registrar">Registrarse</a>
                         <a class="dropdown-item" href="/">Home</a>
+                        <a class="dropdown-item" href="/registrar">Registrarse</a>
+                        <a class="dropdown-item" href="ingresar">Ingresar</a>
                         <a class="dropdown-item" href="#">Colecciones</a>
                         <a class="dropdown-item" href="/carrito">Comprar</a>
                         <a class="dropdown-item" href="#">Nosotros</a>
@@ -31,16 +31,11 @@
                 <img src="/images/mini-logo1.jpg" class="d-block d-sm-none">
 
             </div>
-            <!--Salir-->
-            <div class="col-2 col-md-2 ">
 
-                <a href="#"><img src="/images/salir.png">
-                </a>
-
+            <!--Link a carrito-->
+            <div class="col-2 col-md-2">
+                <a href="/carrito"><i class="fas fa-cart-plus"></i></a>
             </div>
-
-
-        </div>
 
         <!--barra de navegacion -->
         <div cl>
@@ -51,17 +46,18 @@
                         <li><a href="#">Colecciones</a></li>
                         <!--imagen logo a partir de md-->
                         <li><img src="/images/logo.jpg" class="d-none d-sm-block logo">
-                            <li>
-
-
+                            
                                 <li><a href="#">Nosotros</a></li>
                                 <li><a href="#">Contáctanos</a></li>
+                        </li>
+                   
 
-                                <!--Button buscar -->
-                                <form action="" method="get" class="buscar-form">
-                                    <input type="text" name="buscar" placeholder="" class="buscar-form_input">
-                                    <button type="submit" class="buscar-form_button"><i class="fas fa-search"></i></button>
-                                </form>
+        <!--Button buscar -->
+        <form action="" accept-chaset="utf-8" method="get" class="buscar-form">
+            <i class="fas fa-search"></i><button type="submit" class="buscar-form_button"></button>
+            <input type="text" name="buscar" placeholder="Buscar" class="buscar-form_input">
+                        
+        </form>
                     </ul>
                 </nav>
 

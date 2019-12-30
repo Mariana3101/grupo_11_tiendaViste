@@ -1,68 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Include Head -->
-<%- include('partials/head', {title: 'detalle-producto'}) %>
+<%- include('partials/head', {title: 'producto'}) %>
 
-    <body class="page-Detalle-Producto">
-        <!-- product detail -->
-        <div class="container ">
-            <div class="row">
-                <% todosLosProductos.forEach(product =>{ %>
+    <body>
+        <!-- Header -->
+        <%- include('partials/headerNavbar-interno') %>
+            <div class="container products-wrapper">
+                <div class="row">
                     <div class="col-12">
                         <h2 class="products-title">Detalle del producto:
-                            <%= product.producto %>
+                            <%= idProducto %>
                         </h2>
-
-
                     </div>
-            </div>
-            <div class="product-detail">
-                <div class="row">
-                    <div class="col-12 col-lg-8">
-                        <img src="/images/productos/" alt="product image" class="product-detail-img">
-                        <p class="product-detail-description">
-                            ZxXZ
-                        </p>
-                    </div>
-                    <div class="col-12 col-lg-4">
-                        <article class="product-detail-info">
-                            <h2 class="product-detail-title">
-                                xzczdf
-                            </h2>
-
-                            <p class="product-detail-price small">
-                                <span>sdasdasdasd/b>
-                            </p>
-                            <p class="product-detail-price">
-                                $
-                               
-                            </p>
-                           
-                                <p class="product-detail-price">
-                                  
-                                </p>
-                           
-
-                                    <ul class="actions-list">
-                                        <li>
-                                            <i class="fas fa-credit-card"></i>
-                                            <p>Pagá en 12 cuotas sin interes</p>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-store"></i>
-                                            <p>Retiro gratis en locales del vendedor</p>
-                                        </li>
-                                    </ul>
-
-                                    <a href="#" class="buy-now-button">COMPRAR AHORA</a>
-                    </article>
                 </div>
-                <% }) %>
+                <div class="product-detail">
+                    <div class="row">
+                        <div class="col-12 col-lg-8">
+                            <img src="/images/productos/<%= elProducto.imagen %>" alt="<%= elProducto.producto %>" class="responsive">
+
+
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <article class="product-detail-info">
+                                <p class="product-detail-description">
+                                    <%= elProducto.producto %>
+
+                                </p>
+                                <p>Precio: $
+                                    <%= elProducto.precio %>
+                                </p>
+
+                                <ul class="actions-list">
+                                    <li>
+                                        <i class="fas fa-credit-card"></i>
+                                        <p>Pagá en 12 cuotas sin interes</p>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-store"></i>
+                                        <p>Retiro gratis en locales del vendedor</p>
+                                    </li>
+                                </ul>
+
+                                <a href="/carrito" class="buy-now-button">COMPRAR AHORA</a>
+                            </article>
+                        </div>
+                        <div class="col-12 container-listaProductos responsive">
+
+
+                            <a href="/todosLosProductos" class="btn btn-primary btn-sm button-volver" role="button" aria-pressed="true">Volver</a>
+
+
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <!-- /product detail -->
-</body>
+    </body>
     <!-- footer -->
     <%- include('partials/footer') %>
         <!-- /footer -->

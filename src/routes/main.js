@@ -28,7 +28,7 @@ router.get('/cargaProducto', mainController.mostrarCargaProducto); /* GET - carg
 router.post("/productos/crear", mainController.cargaProducto); /* POST - carga-producto CREACION PRODUCTO*/
 router.get('/carrito', mainController.carrito); /* GET -carrito*/
 router.get('/registrar', mainController.registrar); /* registrar*/
-router.get('/detalleProducto', mainController.detalleProducto); /* detalle-producto falta !!!!!*/
+router.get('/productos/detalleProducto/:id', mainController.detalleProducto); /* detalle-producto falta !!!!!*/
 router.get('/ingresar', mainController.ingresar); /* Ingresar-Login*/
 
 router.get('/todosLosProductos', mainController.todosLosProductos); //Listado de productos que ve el usuario

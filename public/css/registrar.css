@@ -6,9 +6,15 @@
 
 .fondo-imagen {
     background-image: url("/images/nena1.png");
+    padding: 2rem;
+    margin: auto;
+    
 }
 
 .formulario-registrar {
     display: flex;
     justify-content: flex-end;
+    text-align: justify;
+    margin-right: 5rem;
+    padding: 2rem;
 }

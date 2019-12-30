@@ -10,26 +10,29 @@
                 <main>
                     <h1>Todos los Productos</h1>
                     <div class="row lista-productos">
+
                         <!--Muestra todos los productos-->
                         <% todosLosProductos.forEach(product =>{ %>
-                            <div class="col-12 col-md-6 col-lg-3">
-                                <article class="product">
-                                    <div class="product-image">
-                                        <img src="/images/productos/<%= product.imagen %>" alt="<%= product.producto %>">
-                                        <h4>
-                                            <%= product.producto %>
-                                        </h4>
-                                    </div>
-                                    <div class="product-desc">
-                                        <p> Talle:
-                                            <%= product.talle %>
-                                        </p>
-                                        <p> $
-                                            <%= product.precio %>
-                                        </p>
-                                    </div>
 
-                                </article>
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <a href="/productos/detalleProducto/<%= product.id %>">
+                                    <article class="product">
+                                        <div class="product-image">
+                                            <img src="/images/productos/<%= product.imagen %>" alt="<%= product.producto %>">
+                                            <h4>
+                                                <%= product.producto %>
+                                            </h4>
+                                        </div>
+                                        <div class="product-desc">
+                                            <p> Talle:
+                                                <%= product.talle %>
+                                            </p>
+                                            <p> $
+                                                <%= product.precio %>
+                                            </p>
+                                        </div>
+
+                                    </article>
                             </div>
                             <% }) %>
                     </div>

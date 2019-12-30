@@ -29,7 +29,29 @@
   "producto": "pantalon",
   "cantidad": "15",
   "precio": "500",
-  "imagen": "",
+  "imagen": "pantalon1.png",
+  "creador": "Producto guardado por equipo Viste"
+ },
+ {
+  "id": 4,
+  "categoria": "niña",
+  "talle": "m",
+  "color": "rosa",
+  "producto": "pantalon",
+  "cantidad": "50",
+  "precio": "650",
+  "imagen": "pantalon2.png",
+  "creador": "Producto guardado por equipo Viste"
+ },
+ {
+  "id": 5,
+  "categoria": "bb-niña",
+  "talle": "xs",
+  "color": "rosa",
+  "producto": "remera",
+  "cantidad": "20",
+  "precio": "500",
+  "imagen": "remeraRosa.png",
   "creador": "Producto guardado por equipo Viste"
  }
 ]
