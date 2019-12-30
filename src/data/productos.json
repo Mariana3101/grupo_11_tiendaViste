@@ -53,5 +53,16 @@
   "precio": "500",
   "imagen": "remeraRosa.png",
   "creador": "Producto guardado por equipo Viste"
+ },
+ {
+  "id": 6,
+  "categoria": "niña",
+  "talle": "s",
+  "color": "celeste",
+  "producto": "pantalon",
+  "cantidad": "450",
+  "precio": "800",
+  "imagen": "pantalon3.png",
+  "creador": "Producto guardado por equipo Viste"
  }
 ]
