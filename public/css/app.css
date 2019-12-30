@@ -5,6 +5,7 @@
 @import url(carrito.css);
 @import url(errores-home.css);
 @import url(registrar.css);
+@import url(detalle-producto.css);
 * {
     box-sizing: border-box;
 }
@@ -18,10 +19,9 @@ body {
     text-align: justify;
 }
 
-
-/*[class*=col-] {
+[class*=col-] {
     border: solid 1px red;
-}*/
+}
 
 ul,
 ol {

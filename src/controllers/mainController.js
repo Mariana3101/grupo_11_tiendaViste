@@ -50,9 +50,20 @@ const controller = {
         res.render('registrar')
     },
     detalleProducto: (req, res) => {
-        res.render('detalleProducto')
+        let categoria = req.params.categoria;
+        let pdtoID = req.params.id;
+        let productFind = null;
+
+        res.render('detalleProducto', {
+            pageClass: 'page-Detalle-producto',
+
+            todosLosProductos
+
+        })
     },
+
     ingresar: (req, res) => {
+
         res.render('ingresar')
     },
     todosLosProductos: (req, res) => {

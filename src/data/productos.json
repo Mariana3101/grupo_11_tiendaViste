@@ -1,23 +1,35 @@
-[{
-        "id": 1,
-        "categoria": "bb-niña",
-        "talle": "xs",
-        "color": "azul",
-        "producto": "remera",
-        "cantidad": "1",
-        "precio": "12000",
-        "imagen": "remeraRoja.png",
-        "creador": "Producto guardado por equipo Viste"
-    },
-    {
-        "id": 2,
-        "categoria": "bb-niña",
-        "talle": "xs",
-        "color": "rosa",
-        "producto": "remera",
-        "cantidad": "1200",
-        "precio": "450",
-        "imagen": "remeraRosa.png",
-        "creador": "Producto guardado por equipo Viste"
-    }
+[
+ {
+  "id": 1,
+  "categoria": "bb-niña",
+  "talle": "xs",
+  "color": "azul",
+  "producto": "remera",
+  "cantidad": "1",
+  "precio": "12000",
+  "imagen": "remeraRoja.png",
+  "creador": "Producto guardado por equipo Viste"
+ },
+ {
+  "id": 2,
+  "categoria": "bb-niña",
+  "talle": "xs",
+  "color": "rosa",
+  "producto": "remera",
+  "cantidad": "1200",
+  "precio": "450",
+  "imagen": "remeraRosa.png",
+  "creador": "Producto guardado por equipo Viste"
+ },
+ {
+  "id": 3,
+  "categoria": "bb-niña",
+  "talle": "s",
+  "color": "naranja",
+  "producto": "pantalon",
+  "cantidad": "15",
+  "precio": "500",
+  "imagen": "",
+  "creador": "Producto guardado por equipo Viste"
+ }
 ]

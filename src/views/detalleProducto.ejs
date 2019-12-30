@@ -1,12 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Include Head -->
-<%- include('partials/head', {title: 'registrar'}) %>
+<%- include('partials/head', {title: 'detalle-producto'}) %>
 
-    <body class="page-registrar">
-        <!-- Header -->
-        <%- include('partials/headerNavbar-interno') %>
+    <body class="page-Detalle-Producto">
+        <!-- product detail -->
+        <div class="container ">
+            <div class="row">
+                <% todosLosProductos.forEach(product =>{ %>
+                    <div class="col-12">
+                        <h2 class="products-title">Detalle del producto:
+                            <%= product.producto %>
+                        </h2>
 
-            <!-- footer -->
-            <%- include('partials/footer') %>
-                <!-- /footer -->
+
+                    </div>
+            </div>
+            <div class="product-detail">
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <img src="/images/productos/" alt="product image" class="product-detail-img">
+                        <p class="product-detail-description">
+                            ZxXZ
+                        </p>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <article class="product-detail-info">
+                            <h2 class="product-detail-title">
+                                xzczdf
+                            </h2>
+
+                            <p class="product-detail-price small">
+                                <span>sdasdasdasd/b>
+                            </p>
+                            <p class="product-detail-price">
+                                $
+                               
+                            </p>
+                           
+                                <p class="product-detail-price">
+                                  
+                                </p>
+                           
+
+                                    <ul class="actions-list">
+                                        <li>
+                                            <i class="fas fa-credit-card"></i>
+                                            <p>Pagá en 12 cuotas sin interes</p>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-store"></i>
+                                            <p>Retiro gratis en locales del vendedor</p>
+                                        </li>
+                                    </ul>
+
+                                    <a href="#" class="buy-now-button">COMPRAR AHORA</a>
+                    </article>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+    <!-- /product detail -->
+</body>
+    <!-- footer -->
+    <%- include('partials/footer') %>
+        <!-- /footer -->
