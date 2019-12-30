@@ -55,6 +55,7 @@ const controller = {
     ingresar: (req, res) => {
         res.render('ingresar')
     },
+    
     todosLosProductos: (req, res) => {
         res.render('todosLosProductos', {
             pageClass: 'page-product',
