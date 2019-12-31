@@ -61,15 +61,39 @@ a {
 
 .logo {
     align-items: center;
+    width: 30vh;
+    margin-bottom: 3rem;
+    justify-content: space-between;
 }
 
 .ingresar,
 .registrar {
     font-size: 15px;
     letter-spacing: 1px;
-    margin: 0;
-    padding-top: 20px;
+    margin-top: 30px;
 }
+
+.nav,
+.nav-link active,
+.nav-link,
+.m15 {
+    margin-top: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+    text-transform: capitalize;
+    justify-content: flex-start;
+}
+
+.nav-estilo {
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+    text-transform: capitalize;
+}
+.dropdown {
+    margin-left: 90px;
+    margin-top: 30px;
+}
+
 
 
 /*Barra de navegacion*/
@@ -81,10 +105,13 @@ nav ul {
 }
 
 nav li a {
-    color: blue;
+    color: gray;
     display: block;
     text-decoration: none;
     padding: .5em 1em;
+    text-transform: capitalize;
+    justify-content: center;
+    text-align: center;
 }
 
 

@@ -64,5 +64,16 @@
   "precio": "800",
   "imagen": "pantalon3.png",
   "creador": "Producto guardado por equipo Viste"
+ },
+ {
+  "id": 7,
+  "categoria": "bb-niña",
+  "talle": "xs",
+  "color": "amarillo",
+  "producto": "remera",
+  "cantidad": "1",
+  "precio": "3000",
+  "avatar": "IMG_20191214_114513581_HDR.jpg",
+  "creador": "Producto guardado por equipo Viste"
  }
 ]

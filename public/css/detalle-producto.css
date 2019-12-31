@@ -1,4 +1,40 @@
 .button-volver {
     display: flex;
-    justify-content: center;
+    overflow: hidden;
+}
+
+.product-detail {
+    display: flex;
+    float:center;
+    width: 30%;
+    height: 30%;
+}
+
+.products-title {
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    color: violet;
+    padding-top: 2rem;
+
+}
+
+.product-detail-info {
+    text-transform: none;
+}
+
+.product-detail-description {
+    text-transform: capitalize;
+    font-weight: bold ;
+}
+
+.p  {
+    display: inline-block;
+    text-decoration: none;
+} 
+
+.actions-list {
+    text-align: left;
+    margin: auto;
+    justify-content: space-around;
+    width: auto;
 }
