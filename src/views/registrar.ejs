@@ -6,7 +6,8 @@
     <body class="page-registrar">
         <!-- Header -->
         <%- include('partials/headerNavbar-interno') %>
-            <main class="registrar fondo-imagen">
+            <main>
+                <div class="registrar fondo-imagen">
                 <!--Registracion-->
                 <form action="/registrar" method="POST" enctype="multipart/form-data" class="formulario-registrar">
 
@@ -38,6 +39,8 @@
                     </div>
 
                 </form>
+                </div>
             </main>
+
     </body>
     <%- include('partials/footer') %>
