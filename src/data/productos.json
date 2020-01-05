@@ -75,5 +75,47 @@
   "precio": "3000",
   "avatar": "IMG_20191214_114513581_HDR.jpg",
   "creador": "Producto guardado por equipo Viste"
+ },
+ {
+  "id": 8,
+  "categoria": "bb-niña",
+  "talle": "xs",
+  "color": "Verde",
+  "producto": "sweater",
+  "cantidad": "4",
+  "precio": "15000",
+  "avatar": "IMG_20191214_114806951_HDR.jpg",
+  "creador": "Producto guardado por equipo Viste"
+ },
+ {
+  "id": 9,
+  "categoria": "bb-niña",
+  "talle": "xs",
+  "color": "azul",
+  "producto": "sweater",
+  "cantidad": "3",
+  "precio": "5000",
+  "avatar": "IMG_20191214_114503850_HDR.jpg",
+  "creador": "Producto guardado por equipo Viste"
+ },
+ {
+  "id": 10,
+  "categoria": "bb-niña",
+  "talle": "xs",
+  "color": "violeta",
+  "producto": "remera",
+  "cantidad": "2",
+  "precio": "20",
+  "creador": "Producto guardado por equipo Viste"
+ },
+ {
+  "id": 11,
+  "categoria": "bb-niña",
+  "talle": "xs",
+  "color": "verde",
+  "producto": "remera",
+  "cantidad": "3",
+  "precio": "30",
+  "creador": "Producto guardado por equipo Viste"
  }
 ]

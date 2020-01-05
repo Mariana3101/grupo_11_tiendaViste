@@ -5,6 +5,21 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const methodOverride = require('method-override');
+const multer = require ("multer"); //Necesario para poder subir archivos// 
+
+const storageDisk = multer.diskStorage({
+	destination: (req, file, cb) => {
+    cb(null,"public/images/avatars");
+    console.log();
+  },
+  filename: (req, file, cb) => {
+		let imageFinalName = `producto_avatar_${Date.now()}${path.extname(file.originalname)}`;
+		cb(null, imageFinalName);
+	}
+	
+});
+
+const upload = multer({ storage: storageDisk });
 
 // ************ express() - (don't touch) ************
 const app = express();
@@ -16,6 +31,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(cookieParser());
 app.use(methodOverride("_method")); // Necesario para poder sobreescribir (PUT/DELETE)
+
 
 // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs');

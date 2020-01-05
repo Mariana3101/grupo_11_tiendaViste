@@ -3,12 +3,14 @@
 <!-- Include Head -->
 <%- include('partials/head', {title: 'registrar'}) %>
 
-    <body class="page-product">
+    <body class="page-todosLosProductos">
         <!-- Header -->
         <%- include('partials/headerNavbar-interno') %>
-            <div class="container">
+            <div class="container-productos">
                 <main>
+                    <div class="titulo-productos">
                     <h1>Todos los Productos</h1>
+                    </div>
                     <div class="row lista-productos">
 
                         <!--Muestra todos los productos-->
@@ -18,7 +20,7 @@
                                 <a href="/productos/detalleProducto/<%= product.id %>">
                                     <article class="product">
                                         <div class="product-image">
-                                            <img src="/images/productos/<%= product.imagen %>" alt="<%= product.producto %>">
+                                            <img src="/images/avatars/<%= product.imagen %>" alt="<%= product.producto %>">
                                             <h4>
                                                 <%= product.producto %>
                                             </h4>
@@ -38,7 +40,7 @@
                     </div>
                 </main>
             </div>
-
+    </body>
 
 
 

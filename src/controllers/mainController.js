@@ -19,7 +19,7 @@ const controller = {
 
 
 
-    cargaProducto: (req, res) => {
+    cargaProducto: (req, res, next) => {
 
         let arrayDeProductos = [];
 

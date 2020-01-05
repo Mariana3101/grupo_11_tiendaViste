@@ -1,4 +1,13 @@
 
+.container-productos {
+  background-color: whitesmoke;
+  position: absolute;
+}
+
+.titulo-productos,
+.h1 {
+  text-transform: none;
+}
 
 .h6 {
   background-color: violet;
