@@ -17,7 +17,7 @@
                 <div class="product-detail">
                     <div class="row">
                         <div class="col-12 col-lg-8">
-                            <img src="/images/productos/<%= elProducto.avatar %>" alt="<%= elProducto.producto %>" class="responsive">
+
 
 
                         </div>
@@ -52,6 +52,8 @@
                         <form action="/productos/borrar/<%= elProducto.id %>?_method=DELETE" method="POST">
                             <button type="submit">BORRAR</button>
                         </form>
+
+                        <button><a href="/productos/editar/<%= elProducto.id %>">Modificar</a></button>
 
 
                         <div class="col-12 container-listaProductos responsive">

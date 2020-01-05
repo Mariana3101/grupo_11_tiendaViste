@@ -15,16 +15,27 @@
     font-family: Arial, Helvetica, sans-serif;
     color: violet;
     padding-top: 2rem;
+    text-transform: none;
 
 }
 
-.product-detail-info {
+.p {
+    justify-content: center;
+    text-align: center;
+    
+
+}
+.actions-list {
     text-transform: none;
+    width: 50vh;
+     
 }
 
 .product-detail-description {
     text-transform: capitalize;
     font-weight: bold ;
+    width: 30%;
+    height: 30%;
 }
 
 .p  {

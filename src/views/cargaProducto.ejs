@@ -8,7 +8,7 @@
         <%- include('partials/headerNavbar-interno') %>
 
             <main class="carga-producto">
-                <form action="/productos/crear" method="POST">
+                <form action="/productos/crear"   enctype="multipart/form-data" method="POST">
                     <div class="row">
 
                         <!--Selector de categoria-->
@@ -88,7 +88,7 @@
                         <div class="imagen">
                             <div id="divInputLoad">
                                 <div id="divFileUpload">
-                                    <input id="file-upload" type="file" accept="image/*" name="avatar" />
+                                <input id="file-upload" type="file" accept="image/*" name="avatar" />
                                 </div>
                                 <div id="file-preview-zone">
                                 </div>
