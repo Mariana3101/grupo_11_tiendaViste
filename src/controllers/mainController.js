@@ -73,6 +73,23 @@ const controller = {
             todosLosProductos
         });
     },
+    /*
+    editarProductos: (req, res) => {
+
+    },
+    productoEdidtado: (req, res) => {
+
+    },*/
+    borrarProducto: (req, res) => {
+        let productosArray = JSON.parse(contenidoProductosJSON);
+        let productosSinElQueBorramos = productosArray.filter(function(unProducto) {
+                return unProducto.id != req.params.id;
+            })
+            // guardo el array con los productos finales
+        fs.writeFileSync(ubicacionProductosJSON, JSON.stringify(productosSinElQueBorramos, null, ' '));
+        res.redirect('/todosLosProductos');
+    },
+
 
 };
 

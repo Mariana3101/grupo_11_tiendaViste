@@ -17,7 +17,7 @@
                 <div class="product-detail">
                     <div class="row">
                         <div class="col-12 col-lg-8">
-                            <img src="/images/productos/<%= elProducto.imagen %>" alt="<%= elProducto.producto %>" class="responsive">
+                            <img src="/images/productos/<%= elProducto.avatar %>" alt="<%= elProducto.producto %>" class="responsive">
 
 
                         </div>
@@ -27,7 +27,7 @@
                                     <%= elProducto.producto %>
 
                                 </p>
-                                <p>Precio: $
+                                <p>Precio:$
                                     <%= elProducto.precio %>
                                 </p>
 
@@ -45,10 +45,19 @@
                                 <a href="/carrito" class="buy-now-button">COMPRAR AHORA</a>
                             </article>
                         </div>
+
+
+                        <!--Borrar Producto -->
+
+                        <form action="/productos/borrar/<%= elProducto.id %>?_method=DELETE" method="POST">
+                            <button type="submit">BORRAR</button>
+                        </form>
+
+
                         <div class="col-12 container-listaProductos responsive">
 
 
-                        <a href="/todosLosProductos" class="btn btn-primary btn-sm button-volver" role="button" aria-pressed="true">Volver</a>
+                            <a href="/todosLosProductos" class="btn btn-primary btn-sm button-volver" role="button" aria-pressed="true">Volver</a>
 
 
                         </div>
