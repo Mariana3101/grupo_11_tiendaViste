@@ -12,22 +12,79 @@
  },
  {
   "id": 2,
-  "categoria": "bb-niña",
+  "categoria": "niño",
   "talle": "xs",
-  "color": "naranja",
+  "color": "azul",
   "producto": "pantalon",
-  "cantidad": "50007",
-  "precio": "5008",
+  "cantidad": "50010",
+  "precio": "5009",
+  "avatar": "pantalon1.png",
   "creador": "Producto guardado por equipo Viste"
  },
  {
   "id": 3,
   "categoria": "bb-niña",
   "talle": "xs",
-  "color": "rosa",
+  "color": "rojo",
   "producto": "vestido",
   "cantidad": "50000",
   "precio": "3000",
+  "avatar": "vestido1.jpg",
+  "creador": "Producto guardado por equipo Viste"
+ },
+ {
+  "id": 4,
+  "categoria": "niña",
+  "talle": "l",
+  "color": "rosa",
+  "producto": "remera",
+  "cantidad": "1000",
+  "precio": "800",
+  "avatar": "remeraRosa.png",
+  "creador": "Producto guardado por equipo Viste"
+ },
+ {
+  "id": 6,
+  "categoria": "bb-niña",
+  "talle": "xs",
+  "color": "roja",
+  "producto": "remera",
+  "cantidad": "1000",
+  "precio": "500",
+  "avatar": "producto_avatar_1578234920000.png",
+  "creador": "Producto guardado por equipo Viste"
+ },
+ {
+  "id": 7,
+  "categoria": "niña ",
+  "talle": "m ",
+  "color": "azul",
+  "producto": "pantalon ",
+  "cantidad": "1000",
+  "precio": "500",
+  "avatar": "pantalon4.png",
+  "creador": "Producto guardado por equipo Viste"
+ },
+ {
+  "id": 8,
+  "categoria": "niña",
+  "talle": "xs",
+  "color": "celeste",
+  "producto": "remera",
+  "cantidad": "1000",
+  "precio": "454",
+  "avatar": "producto_avatar_1578253006381.png",
+  "creador": "Producto guardado por equipo Viste"
+ },
+ {
+  "id": 9,
+  "categoria": "bb-niña",
+  "talle": "xs",
+  "color": "celeste",
+  "producto": "remera",
+  "cantidad": "1000",
+  "precio": "1000",
+  "avatar": "producto_avatar_1578236451402.png",
   "creador": "Producto guardado por equipo Viste"
  }
 ]

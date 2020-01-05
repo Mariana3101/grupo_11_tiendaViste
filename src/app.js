@@ -5,27 +5,13 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const methodOverride = require('method-override');
-const multer = require ("multer"); //Necesario para poder subir archivos// 
-
-const storageDisk = multer.diskStorage({
-	destination: (req, file, cb) => {
-    cb(null,"public/images/avatars");
-    console.log();
-  },
-  filename: (req, file, cb) => {
-		let imageFinalName = `producto_avatar_${Date.now()}${path.extname(file.originalname)}`;
-		cb(null, imageFinalName);
-	}
-	
-});
-
-const upload = multer({ storage: storageDisk });
+const multer = require("multer"); //Necesario para poder subir archivos// 
 
 // ************ express() - (don't touch) ************
 const app = express();
 
 // ************ Middlewares - (don't touch) ************
-app.use(express.static(path.join(__dirname, '../public')));  // Necesario para los archivos estáticos en el folder /public
+app.use(express.static(path.join(__dirname, '../public'))); // Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
 app.use(express.json());
@@ -52,14 +38,14 @@ app.use((req, res, next) => next(createError(404)));
 
 // ************ error handler ************
 app.use((err, req, res, next) => {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.path = req.path;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.path = req.path;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 // ************ exports app - dont'touch ************

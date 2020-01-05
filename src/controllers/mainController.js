@@ -19,7 +19,7 @@ const controller = {
 
 
 
-    cargaProducto: (req, res, next) => {
+    cargaProducto: (req, res) => {
 
         let arrayDeProductos = [];
 
@@ -29,8 +29,10 @@ const controller = {
 
         req.body = {
             id: arrayDeProductos.length + 1,
-            ...req.body
+            ...req.body,
+
         };
+
 
         req.body.creador = 'Producto guardado por equipo Viste';
 
@@ -95,14 +97,8 @@ const controller = {
             arrayDeProductos = JSON.parse(contenidoProductosJSON);
         }
 
-        //req.body = {
-        //    id: arrayDeProductos.length + 1,
-        //    ...req.body
-        //};
-        console.log('ema');
 
-        console.log(req.body);
-        req.body.creador = 'Producto guardado por equipo Viste';
+
         arrayDeProductos.forEach(element => {
             console.log(req.body.avatar);
             if (element.id == req.body.id) {
@@ -112,11 +108,12 @@ const controller = {
                 element.producto = req.body.producto;
                 element.cantidad = req.body.cantidad;
                 element.precio = req.body.precio;
+                element.avatar = req.body.avatar;
             }
         });
 
 
-        //arrayDeProductos.push(req.body);
+
 
         let contenidoAGuardar = JSON.stringify(arrayDeProductos, null, ' ');
         fs.writeFileSync(ubicacionProductosJSON, contenidoAGuardar);

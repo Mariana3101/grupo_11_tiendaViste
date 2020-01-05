@@ -9,11 +9,13 @@ const storageDisk = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, __dirname + '/../../public/images/avatars');
     },
+
     filename: (req, file, cb) => {
         let imageFinalName = `producto_avatar_${Date.now()}${path.extname(file.originalname)}`;
         cb(null, imageFinalName);
     }
 });
+
 
 const upload = multer({ storage: storageDisk })
 
@@ -25,11 +27,10 @@ const mainController = require('../controllers/mainController');
 
 router.get('/', mainController.root); /* GET - home page */
 
-/*router.get('/cargaProducto', mainController.mostrarCargaProducto); /* GET - carga-producto  CREACION PRODUCTO 1*/
-/*router.post("/productos/crear", mainController.cargaProducto); /* POST - carga-producto CREACION PRODUCTO 2*/
 
-router.get('/cargaProducto', mainController.mostrarCargaProducto); /* GET - carga-producto  CREACION PRODUCTO*/
-router.post("/productos/crear", upload.any("avatar"), mainController.cargaProducto); /* POST - carga-producto CREACION PRODUCTO*/
+
+router.get('/cargaProducto', mainController.mostrarCargaProducto); /* GET - carga-producto  CREACION PRODUCTO 1*/
+router.post("/productos/crear", upload.any('avatar'), mainController.cargaProducto); /* POST - carga-producto CREACION PRODUCTO 2*/
 
 router.get('/carrito', mainController.carrito); /* GET -carrito*/
 router.get('/registrar', mainController.registrar); /* registrar*/
