@@ -34,8 +34,11 @@ router.post("/productos/crear", upload.any('avatar'), mainController.cargaProduc
 
 router.get('/carrito', mainController.carrito); /* GET -carrito*/
 router.get('/registrar', mainController.registrar); /* registrar*/
+router.post('/registrar', mainController.store);
 router.get('/productos/detalleProducto/:id', mainController.detalleProducto); /* detalle-producto 3*/
-router.get('/ingresar', mainController.ingresar); /* Ingresar-Login*/
+router.get('/ingresar', mainController.ingresarFormulario); /* Ingresar-Login*/
+router.post('/ingresar', mainController.ingresarFormulario); 
+router.get('/profile/:id', mainController.profile);
 
 router.get('/todosLosProductos', mainController.todosLosProductos); //Listado de productos que ve el usuario 4
 
