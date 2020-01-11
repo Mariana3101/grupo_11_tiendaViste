@@ -56,5 +56,37 @@
   "email": "mariajuarez@gmail.com",
   "password": "$2b$10$LYBCC7HNswj.mSvU90VvFur6ickW8XBDEYuea1R8jxiBGKUgak2em",
   "avatar": "mariauserAvatar1578777975405.jpg"
+ },
+ {
+  "id": 8,
+  "name": "Maria",
+  "lastname": "Juarez",
+  "email": "mariajuarez@gmail.com",
+  "password": "$2b$10$06MWZKckRkPSTh1u5OKxi.XkxfxAMajIA9yhlua9o4bLhyI/Ra0Cy",
+  "avatar": "mariauserAvatar1578778705684.jpg"
+ },
+ {
+  "id": 9,
+  "name": "Ana",
+  "lastname": "Dominguez",
+  "email": "ad@gmail.com",
+  "password": "$2b$10$gXwPisWniqJ9Dur5T/FbQe/9hY9KyNzvjxYeMjHfKDnSEKOFaMm36",
+  "avatar": "anauserAvatar1578779929386.jpg"
+ },
+ {
+  "id": 10,
+  "name": "Ana",
+  "lastname": "Dominguez",
+  "email": "ad@gmail.com",
+  "password": "$2b$10$xtMsAzWnuEXHGOA6N6SWb.Z5BvgUVOSQiXIRQ8q.983hyUbqAoRyK",
+  "avatar": "anauserAvatar1578779939255.jpg"
+ },
+ {
+  "id": 11,
+  "name": "Ana",
+  "lastname": "Dominguez",
+  "email": "ad@gmail.com",
+  "password": "$2b$10$v9wAD7SjZDk8ir99.KWCOeXzgydAHMpLGfx1IOIcs5thRtXJAhgt.",
+  "avatar": "anauserAvatar1578780263862.jpg"
  }
 ]

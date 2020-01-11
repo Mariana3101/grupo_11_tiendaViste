@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(methodOverride("_method")); // Necesario para poder sobreescribir (PUT/DELETE)
 app.use(session({
-  secret: 'registrar-login',
+  secret: 'register-login',
   resave: false,
   saveUninitialized: true
 }));
