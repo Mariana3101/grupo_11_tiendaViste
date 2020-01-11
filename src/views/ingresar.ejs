@@ -11,7 +11,7 @@
 
                 <!--Ingresar-->
                 <div>
-                    <form action="/registrar" method="POST" enctype="multipart/form-data" class="formulario-registrar">
+                    <form action="/ingresar" method="POST" enctype="multipart/form-data" class="formulario-registrar">
 
                         <div class="container-formulario">
                             <div class="form-group">
@@ -28,6 +28,12 @@
                                 <label for="exampleInputPassword1">Contraseña</label>
                                 <input type="password" class="form-control" name="password" placeholder="**********">
                             </div>
+                            
+                            <div class="form-group form-check">
+								<label class="form-check-label">
+									<input type="checkbox" class="form-check-input" name="remember_user">Recordar mi usuario
+								</label>
+							</div>
                           
                             <button type="submit" class="btn btn-primary">Ingresar</button>
 

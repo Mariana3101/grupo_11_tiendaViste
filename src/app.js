@@ -6,6 +6,7 @@ const logger = require('morgan');
 const path = require('path');
 const methodOverride = require('method-override');
 const multer = require("multer"); //Necesario para poder subir archivos// 
+const session = require('express-session');
 
 // ************ express() - (don't touch) ************
 const app = express();
@@ -17,7 +18,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(cookieParser());
 app.use(methodOverride("_method")); // Necesario para poder sobreescribir (PUT/DELETE)
-
+app.use(session({
+  secret: 'registrar-login',
+  resave: false,
+  saveUninitialized: true
+}));
+/*app.use(userCookieMiddleware);*/
 
 // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs');
@@ -28,8 +34,9 @@ app.set('views', './src/views'); // Define la ruta de la carpeta "views"
 // ************ WRITE YOUR CODE FROM HERE ************
 // ************ Route System require and use() ************
 const mainRouter = require('./routes/main');
+const usersRoutes = require('./routes/usersRoutes');
 app.use('/', mainRouter);
-
+app.use('/', usersRoutes);
 
 
 // ************ DON'T TOUCH FROM HERE ************

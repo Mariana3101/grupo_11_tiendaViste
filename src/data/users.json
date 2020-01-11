@@ -1,0 +1,60 @@
+[
+ {
+  "id": 1,
+  "name": "Alejandra",
+  "lastname": "Serrano",
+  "email": "alejaserra07@gmail.com",
+  "password": "$2b$10$FmhJ3kKsspLc9DBI332v5uLZXvMwYIUm1HQk/qFfOYj035Z5JvwqC",
+  "rePassword": "1234",
+  "avatar": "alejandrauserAvatar1578711330330.jpg"
+ },
+ {
+  "id": 2,
+  "name": "Jose",
+  "lastname": "Perez",
+  "email": "jose@perez.com",
+  "password": "$2b$10$efFU5Ynwy5zxr/hxOIRltulFPu99uA3qyfpeeHS0pgFa5J5AgIhve",
+  "rePassword": "1234",
+  "avatar": "joseuserAvatar1578749589610.jpg"
+ },
+ {
+  "id": 3,
+  "name": "Jose",
+  "lastname": "Perez",
+  "email": "jose@perez.com",
+  "password": "$2b$10$DqIZUrIkE5DcMU1gqGVS9O8dIFg3oz1Cfflv0mOub9ANhADSEiojy",
+  "avatar": "joseuserAvatar1578749693431.jpg"
+ },
+ {
+  "id": 4,
+  "name": "Maria",
+  "lastname": "Juarez",
+  "email": "mariajuarez@gmail.com",
+  "password": "$2b$10$pgUFVfVZ0x1urFg2.S5zJOeKJ6T70S/jtOoEL9wiWFfMcB2G5O.Qy",
+  "avatar": "mariauserAvatar1578776960795.jpg"
+ },
+ {
+  "id": 5,
+  "name": "Maria",
+  "lastname": "Juarez",
+  "email": "mariajuarez@gmail.com",
+  "password": "$2b$10$w/34piIGzIXPknrNKQU4suPsUXbVvOFUGdM9MCHUtsKiDqUg4Nuna",
+  "avatar": "mariauserAvatar1578777169030.jpg"
+ },
+ {
+  "id": 6,
+  "name": "Maria",
+  "lastname": "Juarez",
+  "email": "mariajuarez@gmail.com",
+  "password": "$2b$10$/O085vU2e/V2kiueMZ9w3utzZk1qaZd1DkCtULGNqvX43VMZiNbti",
+  "avatar": "mariauserAvatar1578777706480.jpg"
+ },
+ {
+  "id": 7,
+  "name": "Maria",
+  "lastname": "Juarez",
+  "email": "mariajuarez@gmail.com",
+  "password": "$2b$10$LYBCC7HNswj.mSvU90VvFur6ickW8XBDEYuea1R8jxiBGKUgak2em",
+  "avatar": "mariauserAvatar1578777975405.jpg"
+ }
+]

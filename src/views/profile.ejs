@@ -6,12 +6,19 @@ CTYPE html>
     <body class="page-profile">
         <!-- Header -->
         <%- include('partials/headerNavbar-interno') %>
+        
 
-<main>
-
-    <h1>Bienvenido a Viste</h1>
-
-</main>
+        <div class="container" style="margin-top: 40px;">
+            <div class="row">
+                <div class="col-md-3">
+                    <h2>Hola <%= userLogged.name %></h2>
+                    <img src="/images/usersAvatars/<%= userLogged.avatar %>" width="100%">
+                    <br>
+                    <br>
+                    <div class="alert alert-success"><%= userLogged.email %></div>
+                </div>
+            </div>
+        </div>
 
 </body>
 <%- include('partials/footer') %>
