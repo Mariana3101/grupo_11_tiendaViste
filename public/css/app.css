@@ -6,6 +6,7 @@
 @import url(errores-home.css);
 @import url(registrar.css);
 @import url(detalle-producto.css);
+@import url(todosLosProductos.css);
 * {
     box-sizing: border-box;
 }
@@ -89,11 +90,11 @@ a {
     color: gray;
     text-transform: capitalize;
 }
-.dropdown {
-    margin-left: 90px;
-    margin-top: 30px;
-}
 
+.dropdown {
+    margin-left: 5px;
+    margin-top: 10px;
+}
 
 
 /*Barra de navegacion*/

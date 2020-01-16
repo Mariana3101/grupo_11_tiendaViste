@@ -1,4 +1,4 @@
-CTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <!-- Include Head -->
 <%- include('partials/head', {title: 'Registrar'}) %>
@@ -6,19 +6,23 @@ CTYPE html>
     <body class="page-profile">
         <!-- Header -->
         <%- include('partials/headerNavbar-interno') %>
-        
 
-        <div class="container" style="margin-top: 40px;">
-            <div class="row">
-                <div class="col-md-3">
-                    <h2>Hola <%= userLogged.name %></h2>
-                    <img src="/images/usersAvatars/<%= userLogged.avatar %>" width="100%">
-                    <br>
-                    <br>
-                    <div class="alert alert-success"><%= userLogged.email %></div>
+
+            <div class="container" style="margin-top: 40px;">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h2>Hola
+                            <%= userLogged.name %>
+                        </h2>
+                        <img src="/images/usersAvatars/<%= userLogged.avatar %>" width="100%">
+                        <br>
+                        <br>
+                        <div class="alert alert-success">
+                            <%= userLogged.email %>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-</body>
-<%- include('partials/footer') %>
+    </body>
+    <%- include('partials/footer') %>

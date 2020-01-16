@@ -1,13 +1,13 @@
 [
  {
   "id": 1,
-  "categoria": "niñ0",
+  "categoria": "niña",
   "talle": "x",
   "color": "rosa",
   "producto": "remera",
   "cantidad": "20",
   "precio": "500",
-  "avatar": "remeraRosa.png",
+  "avatar": "producto_avatar_1578243994587.png",
   "creador": "Producto guardado por equipo Viste"
  },
  {
@@ -18,7 +18,7 @@
   "producto": "pantalon",
   "cantidad": "50010",
   "precio": "5009",
-  "avatar": "pantalon1.png",
+  "avatar": "pantalon4.png",
   "creador": "Producto guardado por equipo Viste"
  },
  {
@@ -27,8 +27,8 @@
   "talle": "xs",
   "color": "rojo",
   "producto": "vestido",
-  "cantidad": "50000",
-  "precio": "3000",
+  "cantidad": "3000",
+  "precio": "2000",
   "avatar": "vestido1.jpg",
   "creador": "Producto guardado por equipo Viste"
  },
@@ -55,17 +55,6 @@
   "creador": "Producto guardado por equipo Viste"
  },
  {
-  "id": 7,
-  "categoria": "niña ",
-  "talle": "m ",
-  "color": "azul",
-  "producto": "pantalon ",
-  "cantidad": "1000",
-  "precio": "500",
-  "avatar": "pantalon4.png",
-  "creador": "Producto guardado por equipo Viste"
- },
- {
   "id": 8,
   "categoria": "niña",
   "talle": "xs",
@@ -74,17 +63,6 @@
   "cantidad": "1000",
   "precio": "454",
   "avatar": "producto_avatar_1578253006381.png",
-  "creador": "Producto guardado por equipo Viste"
- },
- {
-  "id": 9,
-  "categoria": "bb-niña",
-  "talle": "xs",
-  "color": "celeste",
-  "producto": "remera",
-  "cantidad": "1000",
-  "precio": "1000",
-  "avatar": "producto_avatar_1578236451402.png",
   "creador": "Producto guardado por equipo Viste"
  }
 ]

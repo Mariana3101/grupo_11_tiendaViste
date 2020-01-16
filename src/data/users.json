@@ -88,5 +88,21 @@
   "email": "ad@gmail.com",
   "password": "$2b$10$v9wAD7SjZDk8ir99.KWCOeXzgydAHMpLGfx1IOIcs5thRtXJAhgt.",
   "avatar": "anauserAvatar1578780263862.jpg"
+ },
+ {
+  "id": 12,
+  "name": "maria",
+  "lastname": "gomez",
+  "email": "maria@gmail.com",
+  "password": "$2b$10$pe5vxzJ0LuFrtQ1WlDBZLOUAb.8s0mXCDRUVmKtj1mO8h7bgEmRnC",
+  "avatar": "mariauserAvatar1579122117378.jpg"
+ },
+ {
+  "id": 13,
+  "name": "jorge",
+  "lastname": "perez",
+  "email": "jorge@gmail.com",
+  "password": "$2b$10$iHPQtB.F3wAiNPFHVntVQOCcbqi30pSBNys9YA.lQApMce2gFEHfS",
+  "avatar": "jorgeuserAvatar1579126785062.jpg"
  }
 ]

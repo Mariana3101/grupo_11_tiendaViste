@@ -8,15 +8,15 @@ const todosLosProductos = JSON.parse(fs.readFileSync(ubicacionProductosJSON, 'ut
 
 // Helper Functions
 function getAllUsers() {
-	let usersFileContent = fs.readFileSync(userFilePath, 'utf-8');
-	let finalUsers = usersFileContent == '' ? [] : JSON.parse(usersFileContent);
-	return finalUsers;
+    let usersFileContent = fs.readFileSync(userFilePath, 'utf-8');
+    let finalUsers = usersFileContent == '' ? [] : JSON.parse(usersFileContent);
+    return finalUsers;
 }
 
 function getUserById(id) {
-	let allUsers = getAllUsers();
-	let userById = allUsers.find(oneUser => oneUser.id == id);
-	return userById;
+    let allUsers = getAllUsers();
+    let userById = allUsers.find(oneUser => oneUser.id == id);
+    return userById;
 }
 
 const controller = {
@@ -25,10 +25,10 @@ const controller = {
     },
 
     index: (req, res) => {
-		const isLogged = req.session.userId ? true : false;
-		let userLogged = getUserById(req.session.userId);
-		res.render('index', { isLogged, userLogged });
-	},
+        const isLogged = req.session.userId ? true : false;
+        let userLogged = getUserById(req.session.userId);
+        res.render('index', { isLogged, userLogged });
+    },
 
     mostrarCargaProducto: (req, res) => {
         let productos = JSON.parse(contenidoProductosJSON);
@@ -52,6 +52,7 @@ const controller = {
 
 
         req.body.creador = 'Producto guardado por equipo Viste';
+        //req.body.avatar = req.file.filename;
 
         arrayDeProductos.push(req.body);
 
@@ -80,10 +81,11 @@ const controller = {
 
         });
     },
-         
+
     todosLosProductos: (req, res) => {
         res.render('todosLosProductos', {
             pageClass: 'page-product',
+
             todosLosProductos
         });
     },
@@ -122,7 +124,7 @@ const controller = {
             }
         });
 
-        
+
         let contenidoAGuardar = JSON.stringify(arrayDeProductos, null, ' ');
         fs.writeFileSync(ubicacionProductosJSON, contenidoAGuardar);
 
