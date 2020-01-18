@@ -26,11 +26,12 @@ const upload = multer({ storage: storageDisk })
 const mainController = require('../controllers/mainController');
 
 router.get('/', mainController.root); /* GET - home page */
+router.get('/', mainController.index);
 router.get('/cargaProducto', mainController.mostrarCargaProducto); /* GET - carga-producto  CREACION PRODUCTO 1*/
 router.post("/productos/crear", upload.any('avatar'), mainController.cargaProducto); /* POST - carga-producto CREACION PRODUCTO 2*/
 router.get('/carrito', mainController.carrito); /* GET -carrito*/
 router.get('/productos/detalleProducto/:id', mainController.detalleProducto); /* detalle-producto 3*/
-router.get('/todosLosProductos', mainController.todosLosProductos); //Listado de productos que ve el usuario 4
+router.get('/todosLosProductos', mainController.todosLosProductos); //Listado de productos que ve el usuarioso 4
 router.get('/productos/editar/:id', mainController.editarProducto); /*GET Formulario de edicion 5 */
 router.put('/productos/editar', mainController.productoEditado); /* PUT Accion de edicion 6  */
 router.delete('/productos/borrar/:id', mainController.borrarProducto); /*DELETE Accion de borrado  7*/
