@@ -104,5 +104,13 @@
   "email": "jorge@gmail.com",
   "password": "$2b$10$iHPQtB.F3wAiNPFHVntVQOCcbqi30pSBNys9YA.lQApMce2gFEHfS",
   "avatar": "jorgeuserAvatar1579126785062.jpg"
+ },
+ {
+  "id": 14,
+  "name": "ana",
+  "lastname": "perez",
+  "email": "ana@gmail.com",
+  "password": "$2b$10$/9XAm2pAuq/RbPm8sgkLPOzK8n4AJvlS1a4P4mJ9j5B2GE4vjeRC6",
+  "avatar": "anauserAvatar1579368024875.jpg"
  }
 ]

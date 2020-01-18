@@ -52,10 +52,10 @@ function getUserById(id) {
 // Controller Methods
 const controller = {
     register: (req, res) => {
-        //const isLogged = req.session.userId ? true : false;
+        const isLogged = req.session.userId ? true : false;
 
-        //res.render('registrar', { isLogged });
-        res.render('registrar');
+        res.render('registrar', { isLogged });
+        //res.render('registrar');
     },
 
     store: (req, res) => {
@@ -83,9 +83,9 @@ const controller = {
     },
 
     login: (req, res) => {
-        //const isLogged = req.session.userId ? true : false;
-        //res.render('ingresar', { isLogged });
-        res.render('ingresar');
+        const isLogged = req.session.userId ? true : false;
+        res.render('ingresar', { isLogged });
+        //res.render('ingresar');
     },
 
     processLogin: (req, res) => {
