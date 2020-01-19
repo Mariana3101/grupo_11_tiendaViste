@@ -14,8 +14,8 @@
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="/">Home</a>
-                    <a class="dropdown-item" href="/registrar">Registrarse</a>
-                    <a class="dropdown-item" href="ingresar">Ingresar</a>
+                    <a class="dropdown-item" href="/usuarios/registrar">Registrarse</a>
+                    <a class="dropdown-item" href="/usuarios/ingresar">Ingresar</a>
                     <a class="dropdown-item" href="#">Colecciones</a>
                     <a class="dropdown-item" href="/carrito">Comprar</a>
                     <a class="dropdown-item" href="#">Nosotros</a>
@@ -32,11 +32,32 @@
             </div>
             <!--Link a Ingresar Registrar visible a partir de md-->
             <div class="col-md- 3 d-none d-md-block">
-                <nav class="nav">
-                    <a class="nav-link active" href="/usuarios/ingresar">Ingresar</a>
-                    <!-- <span class="m15">/</span>-->
-                    <a class="nav-link" href="/usuarios/registrar">Registrar</a>
-                </nav>
+
+                <ul class="navbar-nav ml-auto align-items-center ">
+                    <% if (isLogged) { %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="/images/usersAvatars/<%= userLogged.avatar %>" width="40" style="border-radius: 100%;">
+            Hola <%= userLogged.name %>
+        </a>
+                            <div class="dropdown-menu" aria-labelledby="dropUser" style="left: auto; right: 0;">
+                                <a class="dropdown-item" href="/usuarios/perfil">Mi perfil</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/usuarios/cerrarSesion">Cerrar Sesion</a>
+                            </div>
+                        </li>
+                        <% } else { %>
+                            <nav class="nav">
+
+                                <a class="nav-link active nav-ingresar" href="/usuarios/ingresar" style="padding: 5px;">
+                                    Ingresar </a>
+
+                                <a class="nav-link nav-registrar" href="/usuarios/registrar" style="padding: 5px;"> Registrar </a>
+
+                            </nav>
+                            <% } %>
+                </ul>
+
             </div>
             <!--Link a carrito-->
             <div class="col-2 col-md-2">
@@ -44,6 +65,21 @@
                 <a href="/carrito"><i class="fas fa-cart-plus"></i></a>
 
             </div>
+            <!--Barra de navegacion -->
+            <div>
+                <div class="col-md-12 d-none d-md-block ">
+                    <nav>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="#">Colecciones</a></li>
+                            <li><a href="#">Nosotros</a></li>
+                            <li><a href="#">Contáctanos</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+
 
         </div>
     </div>

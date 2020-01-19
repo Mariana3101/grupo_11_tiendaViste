@@ -6,6 +6,10 @@ const contenidoProductosJSON = fs.readFileSync(ubicacionProductosJSON, 'utf-8');
 //parseo para llamarlo en el metodo todosLosProductos
 const todosLosProductos = JSON.parse(fs.readFileSync(ubicacionProductosJSON, 'utf-8'));
 
+// Constants
+const userFilePath = path.join(__dirname, "../data/users.json");
+
+
 // Helper Functions
 function getAllUsers() {
     let usersFileContent = fs.readFileSync(userFilePath, 'utf-8');
@@ -64,13 +68,17 @@ const controller = {
     },
 
     carrito: (req, res) => {
-        res.render('carrito')
+        const isLogged = req.session.userId ? true : false;
+        let userLogged = getUserById(req.session.userId);
+        res.render('carrito', { isLogged, userLogged });
+
     },
     registrar: (req, res) => {
         res.render('registrar')
     },
     detalleProducto: (req, res) => {
         let idProducto = req.params.id;
+
         let elProducto = todosLosProductos.find(function(unProducto) {
             return unProducto.id == idProducto;
         })

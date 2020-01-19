@@ -5,7 +5,7 @@
 
     <body class="page-todosLosProductos">
         <!-- Header -->
-        <%- include('partials/headerNavbar-interno') %>
+        <%- include('partials/headerNavbar') %>
             <div class="container-productos">
                 <main>
                     <div class="titulo-productos">
@@ -20,7 +20,7 @@
                                 <a href="/productos/detalleProducto/<%= product.id %>">
                                     <article class="product">
                                         <div class="product-image">
-                                            <img src="/images/avatars/<%= product.avatar %>" alt="<%= product.producto %>">
+                                            <img class="carrito-imagen" src="/images/avatars/<%= product.avatar %>" alt="<%= product.producto %>">
                                             <h4>
                                                 <%= product.producto %>
                                             </h4>

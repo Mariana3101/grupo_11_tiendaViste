@@ -76,8 +76,7 @@ a {
 
 .nav,
 .nav-link active,
-.nav-link,
-.m15 {
+.nav-link {
     margin-top: 15px;
     font-family: Arial, Helvetica, sans-serif;
     color: gray;
@@ -295,6 +294,23 @@ nav li a {
     align-content: space-around;
     margin: 0;
     font-size: 30px;
+}
+
+
+/* barra de navegacion headerNavbar*/
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav li a {
+    color: gray;
+    justify-content: space-evenly;
+    text-decoration: none;
+    padding: .5em 1em;
 }
 
 
