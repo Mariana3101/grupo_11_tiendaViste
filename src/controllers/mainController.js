@@ -25,14 +25,17 @@ function getUserById(id) {
 
 const controller = {
     root: (req, res) => {
-        res.render('index');
-    },
-
-    index: (req, res) => {
         const isLogged = req.session.userId ? true : false;
         let userLogged = getUserById(req.session.userId);
         res.render('index', { isLogged, userLogged });
+
     },
+
+    /*index: (req, res) => {
+        const isLogged = req.session.userId ? true : false;
+        let userLogged = getUserById(req.session.userId);
+        res.render('index', { isLogged, userLogged });
+    },*/
 
     mostrarCargaProducto: (req, res) => {
         let productos = JSON.parse(contenidoProductosJSON);
@@ -91,6 +94,7 @@ const controller = {
     },
 
     todosLosProductos: (req, res) => {
+
         res.render('todosLosProductos', {
             pageClass: 'page-product',
 
@@ -136,7 +140,7 @@ const controller = {
         let contenidoAGuardar = JSON.stringify(arrayDeProductos, null, ' ');
         fs.writeFileSync(ubicacionProductosJSON, contenidoAGuardar);
 
-        res.send("¡Producto guardado!");
+        return res.redirect('/');
     },
 
     borrarProducto: (req, res) => {
@@ -146,7 +150,7 @@ const controller = {
             })
             // guardo el array con los productos finales
         fs.writeFileSync(ubicacionProductosJSON, JSON.stringify(productosSinElQueBorramos, null, ' '));
-        res.redirect('/todosLosProductos');
+        return res.redirect('/');
     },
 
 

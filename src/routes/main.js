@@ -26,7 +26,7 @@ const upload = multer({ storage: storageDisk })
 const mainController = require('../controllers/mainController');
 
 router.get('/', mainController.root); /* GET - home page */
-router.get('/', mainController.index);
+//router.get('/', mainController.index);
 router.get('/cargaProducto', mainController.mostrarCargaProducto); /* GET - carga-producto  CREACION PRODUCTO 1*/
 router.post("/productos/crear", upload.any('avatar'), mainController.cargaProducto); /* POST - carga-producto CREACION PRODUCTO 2*/
 router.get('/carrito', mainController.carrito); /* GET -carrito*/
