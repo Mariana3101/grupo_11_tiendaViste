@@ -94,13 +94,12 @@ const controller = {
     },
 
     todosLosProductos: (req, res) => {
-
+        const isLogged = req.session.userId ? true : false;
+        let userLogged = getUserById(req.session.userId);
         res.render('todosLosProductos', {
             pageClass: 'page-product',
-
-            todosLosProductos
-        });
-    },
+            todosLosProductos,isLogged, userLogged});        
+        },
 
     editarProducto: (req, res) => {
         let idProducto = req.params.id;
@@ -153,7 +152,11 @@ const controller = {
         return res.redirect('/');
     },
 
-
+    nosotros: (req, res) => {
+        const isLogged = req.session.userId ? true : false;
+        let userLogged = getUserById(req.session.userId);
+        res.render('nosotros', { isLogged, userLogged });
+    },
 };
 
 module.exports = controller;

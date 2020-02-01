@@ -115,10 +115,10 @@ const controller = {
     },
 
     perfil: (req, res) => {
-        //const isLogged = req.session.userId ? true : false;
+        const isLogged = req.session.userId ? true : false;
         let userLogged = getUserById(req.session.userId);
-        // res.render('perfil', { isLogged, userLogged });
-        res.render('perfil', { userLogged });
+        res.render('perfil', { isLogged, userLogged });
+        
     },
     cerrarSesion: (req, res) => {
         /*Destruir la session*/

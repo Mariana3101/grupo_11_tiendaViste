@@ -35,6 +35,6 @@ router.get('/todosLosProductos', mainController.todosLosProductos); //Listado de
 router.get('/productos/editar/:id', mainController.editarProducto); /*GET Formulario de edicion 5 */
 router.put('/productos/editar', mainController.productoEditado); /* PUT Accion de edicion 6  */
 router.delete('/productos/borrar/:id', mainController.borrarProducto); /*DELETE Accion de borrado  7*/
-
+router.get("/nosotros",mainController.nosotros); /*nosotros página*/
 
 module.exports = router;

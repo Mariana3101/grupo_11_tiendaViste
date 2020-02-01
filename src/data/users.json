@@ -120,5 +120,13 @@
   "email": "mariana@gmail.com",
   "password": "$2b$10$VSakBsgfgmRycs7r2fyS5eQbz5eO7/KoqLH1q.tWOXkYLQIFM8P1q",
   "avatar": "marianauserAvatar1579452777054.jpg"
+ },
+ {
+  "id": 16,
+  "name": "Amelia",
+  "lastname": "DWindt",
+  "email": "amelia@gmail.com",
+  "password": "$2b$10$BwyIeKnaYZDFomgYucn5v.jXEYbzBotTgckR1p7J8Sk9ZG0xy6J2a",
+  "avatar": "ameliauserAvatar1580594925978.jpg"
  }
 ]
