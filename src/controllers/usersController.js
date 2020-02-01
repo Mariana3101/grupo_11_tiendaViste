@@ -125,9 +125,9 @@ const controller = {
         req.session.destroy();
 
         //Destruir la cookie
-        // res.cookie('userIdCookie', null, { maxAge: 1 });
+        res.cookie('userIdCookie', null, { maxAge: 1 });
         // return res.redirect('/usuariosperfil');
-        res.cookie('userCookie', null, { maxAge: 1 });
+        /*res.cookie('userCookie', null, { maxAge: 1 });*/
 
         return res.redirect('/usuarios/perfil');
     }

@@ -32,7 +32,6 @@ router.post('/usuarios/registrar', upload.single("avatar"), usersController.stor
 router.get('/usuarios/ingresar', guestMiddleware, usersController.login); /* Ingresar-Login*/
 router.post('/usuarios/ingresar', usersController.processLogin);
 router.get("/usuarios/perfil", authMiddleware, usersController.perfil);
-
 router.get('/usuarios/cerrarSesion', usersController.cerrarSesion);
 
 
