@@ -44,7 +44,8 @@ const controller = {
 
 
     cargaProducto: (req, res) => {
-
+        const isLogged = req.session.userId ? true : false;
+        let userLogged = getUserById(req.session.userId);
         let arrayDeProductos = [];
 
         if (contenidoProductosJSON != '') {
@@ -53,7 +54,7 @@ const controller = {
 
         req.body = {
             id: arrayDeProductos.length + 1,
-            ...req.body,
+            ...req.body,isLogged,userLogged
 
         };
 
@@ -80,6 +81,8 @@ const controller = {
         res.render('registrar')
     },
     detalleProducto: (req, res) => {
+        const isLogged = req.session.userId ? true : false;
+        let userLogged = getUserById(req.session.userId);
         let idProducto = req.params.id;
 
         let elProducto = todosLosProductos.find(function(unProducto) {
@@ -89,6 +92,7 @@ const controller = {
         res.render('detalleProducto', {
             idProducto: idProducto,
             elProducto: elProducto,
+            isLogged, userLogged
 
         });
     },
@@ -102,6 +106,8 @@ const controller = {
         },
 
     editarProducto: (req, res) => {
+        const isLogged = req.session.userId ? true : false;
+        let userLogged = getUserById(req.session.userId);
         let idProducto = req.params.id;
         let elProducto = todosLosProductos.find(function(unProducto) {
             return unProducto.id == idProducto;
@@ -110,12 +116,15 @@ const controller = {
         res.render('editar', {
             idProducto: idProducto,
             elProducto: elProducto,
+            isLogged, userLogged
 
         });
 
     },
 
     productoEditado: (req, res) => {
+        const isLogged = req.session.userId ? true : false;
+        let userLogged = getUserById(req.session.userId);
         let arrayDeProductos = [];
 
         if (contenidoProductosJSON != '') {
@@ -139,17 +148,19 @@ const controller = {
         let contenidoAGuardar = JSON.stringify(arrayDeProductos, null, ' ');
         fs.writeFileSync(ubicacionProductosJSON, contenidoAGuardar);
 
-        return res.redirect('/');
+        return res.redirect('/',{ isLogged, userLogged });
     },
 
     borrarProducto: (req, res) => {
+        const isLogged = req.session.userId ? true : false;
+        let userLogged = getUserById(req.session.userId);
         let productosArray = JSON.parse(contenidoProductosJSON);
         let productosSinElQueBorramos = productosArray.filter(function(unProducto) {
                 return unProducto.id != req.params.id;
             })
             // guardo el array con los productos finales
         fs.writeFileSync(ubicacionProductosJSON, JSON.stringify(productosSinElQueBorramos, null, ' '));
-        return res.redirect('/');
+        return res.redirect('/', { isLogged, userLogged });
     },
 
     nosotros: (req, res) => {
