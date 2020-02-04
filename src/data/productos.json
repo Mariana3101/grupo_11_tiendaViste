@@ -1,24 +1,35 @@
 [
  {
-  "id": 1,
+  "id": 4,
   "categoria": "bb-niña",
   "talle": "xs",
-  "color": "naranja",
-  "producto": "remera ",
-  "cantidad": "50005",
-  "precio": "454",
-  "avatar": "enterito.png",
-  "creador": "Producto guardado por equipo Viste"
+  "color": "Verde",
+  "producto": "remera",
+  "cantidad": "1",
+  "precio": "3000",
+  "creador": "Producto guardado por equipo Viste",
+  "avatar": "producto_avatar_1580783240266.jpg"
  },
  {
   "id": 2,
   "categoria": "niña",
+  "talle": "l",
+  "color": "amarillo",
+  "producto": "remera",
+  "cantidad": "10",
+  "precio": "800",
+  "creador": "Producto guardado por equipo Viste",
+  "avatar": "producto_avatar_1580789733638.jpg"
+ },
+ {
+  "id": 3,
+  "categoria": "niña",
   "talle": "xs",
-  "color": "rosa",
-  "producto": "pantalon ",
-  "cantidad": "50001",
-  "precio": "454",
-  "avatar": "pantalon3.png",
-  "creador": "Producto guardado por equipo Viste"
+  "color": "azul",
+  "producto": "pantalon",
+  "cantidad": "10",
+  "precio": "3000",
+  "creador": "Producto guardado por equipo Viste",
+  "avatar": "producto_avatar_1580789878769.jpg"
  }
 ]

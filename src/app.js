@@ -36,8 +36,10 @@ app.set('views', './src/views'); // Define la ruta de la carpeta "views"
 // ************ Route System require and use() ************
 const mainRouter = require('./routes/main');
 const usersRoutes = require('./routes/usersRoutes');
+const productRoutes = require('./routes/productRoutes');
 app.use('/', mainRouter);
 app.use('/', usersRoutes);
+app.use('/', productRoutes);
 
 
 // ************ DON'T TOUCH FROM HERE ************
