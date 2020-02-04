@@ -24,14 +24,19 @@ function getUserById(id) {
 }
 
 const controller = {
-   
+
     mostrarCargaProducto: (req, res) => {
+        const isLogged = req.session.userId ? true : false;
+        let userLogged = getUserById(req.session.userId);
+
         let productos = JSON.parse(contenidoProductosJSON);
-        res.render('cargaProducto', { productos });
+        res.render('cargaProducto', { productos, isLogged, userLogged });
     },
 
     cargaProducto: (req, res) => {
-       
+        const isLogged = req.session.userId ? true : false;
+        let userLogged = getUserById(req.session.userId);
+
         let arrayDeProductos = [];
 
         if (contenidoProductosJSON != '') {
@@ -52,7 +57,8 @@ const controller = {
         let contenidoAGuardar = JSON.stringify(arrayDeProductos, null, ' ');
         fs.writeFileSync(ubicacionProductosJSON, contenidoAGuardar);
 
-        res.send("¡Producto guardado!");
+        // res.send("¡Producto guardado!");
+        return res.render('todosLosProductos', { isLogged, userLogged, todosLosProductos })
 
     },
 
@@ -62,8 +68,8 @@ const controller = {
         res.render('carrito', { isLogged, userLogged });
 
     },
- 
-    
+
+
     detalleProducto: (req, res) => {
         const isLogged = req.session.userId ? true : false;
         let userLogged = getUserById(req.session.userId);
@@ -76,7 +82,8 @@ const controller = {
         res.render('detalleProducto', {
             idProducto: idProducto,
             elProducto: elProducto,
-            isLogged, userLogged
+            isLogged,
+            userLogged
 
         });
     },
@@ -86,11 +93,16 @@ const controller = {
         let userLogged = getUserById(req.session.userId);
         res.render('todosLosProductos', {
             pageClass: 'page-product',
-            todosLosProductos,isLogged, userLogged});        
-        },
+            todosLosProductos,
+            isLogged,
+            userLogged
+        });
+    },
 
     editarProducto: (req, res) => {
-     
+        const isLogged = req.session.userId ? true : false;
+        let userLogged = getUserById(req.session.userId);
+
         let idProducto = req.params.id;
         let elProducto = todosLosProductos.find(function(unProducto) {
             return unProducto.id == idProducto;
@@ -99,14 +111,17 @@ const controller = {
         res.render('editar', {
             idProducto: idProducto,
             elProducto: elProducto,
-        
+            isLogged,
+            userLogged
 
         });
 
     },
 
     productoEditado: (req, res) => {
-        
+        const isLogged = req.session.userId ? true : false;
+        let userLogged = getUserById(req.session.userId);
+
         let arrayDeProductos = [];
 
         if (contenidoProductosJSON != '') {
@@ -114,7 +129,7 @@ const controller = {
         }
 
         arrayDeProductos.forEach(element => {
-            console.log(req.body.avatar);
+
             if (element.id == req.body.id) {
                 element.categoria = req.body.categoria;
                 element.talle = req.body.talle;
@@ -130,18 +145,21 @@ const controller = {
         let contenidoAGuardar = JSON.stringify(arrayDeProductos, null, ' ');
         fs.writeFileSync(ubicacionProductosJSON, contenidoAGuardar);
 
-        return res.redirect('todosLosProductos');
+        return res.redirect('todosLosProductos', { isLogged, userLogged, todosLosProductos });
     },
 
     borrarProducto: (req, res) => {
-        
+        const isLogged = req.session.userId ? true : false;
+        let userLogged = getUserById(req.session.userId);
+
         let productosArray = JSON.parse(contenidoProductosJSON);
         let productosSinElQueBorramos = productosArray.filter(function(unProducto) {
                 return unProducto.id != req.params.id;
             })
             // guardo el array con los productos finales
         fs.writeFileSync(ubicacionProductosJSON, JSON.stringify(productosSinElQueBorramos, null, ' '));
-        return res.redirect('/');
+
+        return res.redirect('todosLosProductos', { isLogged, userLogged, todosLosProductos });
     },
 };
-    module.exports = controller;
+module.exports = controller;

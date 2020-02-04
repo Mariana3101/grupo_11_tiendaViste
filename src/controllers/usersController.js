@@ -1,6 +1,7 @@
 const fs = require('fs');
 const bcrypt = require('bcrypt');
 const path = require('path');
+let { check, validationResult, body } = require('express-validator');
 
 // Constants
 const userFilePath = path.join(__dirname, "../data/users.json");
@@ -59,27 +60,34 @@ const controller = {
     },
 
     store: (req, res) => {
-        // Hash del password
-        req.body.password = bcrypt.hashSync(req.body.password, 10);
+        let errors = (validationResult(req));
+        if (errors.isEmpty()) {
 
-        // Eliminar la propiedad rePassword
-        delete req.body.rePassword;
 
-        // Asignar el nombre final de la imagen
-        req.body.avatar = req.file.filename;
+            // Hash del password
+            req.body.password = bcrypt.hashSync(req.body.password, 10);
 
-        // Guardar al usario y como la función retorna la data del usuarioso lo almacenamos en ela variable "user"
-        let user = storeUser(req.body);
+            // Eliminar la propiedad rePassword
+            delete req.body.rePassword;
 
-        // Setear en session el ID del usuarioso nuevo para auto loguearlo
-        req.session.userId = user.id;
+            // Asignar el nombre final de la imagen
+            req.body.avatar = req.file.filename;
 
-        // Setear la cookie para mantener al usuarioso logueado
-        res.cookie('userIdCookie', user.id, { maxAge: 60000 * 60 });
+            // Guardar al usario y como la función retorna la data del usuarioso lo almacenamos en ela variable "user"
+            let user = storeUser(req.body);
 
-        // Redirección al login
-        // res.redirect('perfil');
-        res.redirect('/usuarios/perfil');
+            // Setear en session el ID del usuarioso nuevo para auto loguearlo
+            req.session.userId = user.id;
+
+            // Setear la cookie para mantener al usuarioso logueado
+            res.cookie('userIdCookie', user.id, { maxAge: 60000 * 60 });
+
+            // Redirección al login
+            // res.redirect('perfil');
+            res.redirect('/usuarios/perfil');
+        } else {
+            return res.render('registrar', { errors: errors.errors });
+        }
     },
 
     login: (req, res) => {
@@ -89,28 +97,35 @@ const controller = {
     },
 
     processLogin: (req, res) => {
-        // Buscar usuarioso por email
-        let user = getUserByEmail(req.body.email);
 
-        // Si encontramos al usuarioso
-        if (user != undefined) {
-            // Al ya tener al usuarioso, comparamos las contraseñas
-            if (bcrypt.compareSync(req.body.password, user.password)) {
-                // Setear en session el ID del usuarioso
-                req.session.userId = user.id;
+        let errors = (validationResult(req));
+        if (errors.isEmpty()) {
 
-                // Setear la cookie
-                if (req.body.remember_user) {
-                    res.cookie('userIdCookie', user.id, { maxAge: 60000 * 60 });
+            // Buscar usuarioso por email
+            let user = getUserByEmail(req.body.email);
+
+            // Si encontramos al usuarioso
+            if (user != undefined) {
+                // Al ya tener al usuarioso, comparamos las contraseñas
+                if (bcrypt.compareSync(req.body.password, user.password)) {
+                    // Setear en session el ID del usuarioso
+                    req.session.userId = user.id;
+
+                    // Setear la cookie
+                    if (req.body.remember_user) {
+                        res.cookie('userIdCookie', user.id, { maxAge: 60000 * 60 });
+                    }
+
+                    // Redireccionamos al visitante a su perfil
+                    return res.redirect('/usuarios/perfil');
+                } else {
+                    res.send('Credenciales inválidas');
                 }
-
-                // Redireccionamos al visitante a su perfil
-                return res.redirect('/usuarios/perfil');
             } else {
-                res.send('Credenciales inválidas');
+                res.send('No hay usuarios registrados con ese email');
             }
         } else {
-            res.send('No hay usuarios registrados con ese email');
+            return res.render('registrar', { errors: errors.errors });
         }
     },
 
@@ -118,7 +133,7 @@ const controller = {
         const isLogged = req.session.userId ? true : false;
         let userLogged = getUserById(req.session.userId);
         res.render('perfil', { isLogged, userLogged });
-        
+
     },
     cerrarSesion: (req, res) => {
         /*Destruir la session*/

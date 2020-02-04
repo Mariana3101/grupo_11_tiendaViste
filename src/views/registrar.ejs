@@ -8,39 +8,50 @@
         <%- include('partials/headerNavbar') %>
             <main>
                 <div class="registrar fondo-imagen">
+
                     <!--Registracion-->
                     <form action="/usuarios/registrar" method="POST" enctype="multipart/form-data" class="formulario-registrar">
 
                         <div class="container-formulario">
-                            <div class="form-group">
-                                <label for="inputNombre">Nombre</label>
-                                <input type="text" class="form-control" name="name" placeholder="Ej. Ana " required>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputApellido">Apellido</label>
-                                <input type="text" class="form-control" name="lastname" placeholder="Ej. Perez" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email</label>
-                                <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Ej. email@server.com">
-                                <small id="emailHelp" class="form-text text-muted"></small>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Contraseña</label>
-                                <input type="password" class="form-control" name="password" placeholder="**********">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Repetir Contraseña</label>
-                                <input type="password" class="form-control" name="rePassword" placeholder="**********">
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" name="avatar">
-                                <label class="custom-file-label">Elegi una foto...</label>
-                                <div class="invalid-feedback">
-                                </div>
-                            </div>
+                            <% if (typeof errors != 'undefined') { %>
+                                <p style="color: red">Error</p>
+                                <ul>
+                                    <% for (let i = 0; i < errors.length; i++)  { %>
+                                        <li>
+                                            <%= errors[i].msg %>
+                                        </li>
+                                        <% } %>
+                                </ul>
+                                <% } %>
+                                    <div class="form-group">
+                                        <label for="inputNombre">Nombre</label>
+                                        <input type="text" class="form-control" name="name" placeholder="Ej. Ana " required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputApellido">Apellido</label>
+                                        <input type="text" class="form-control" name="lastname" placeholder="Ej. Perez" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email</label>
+                                        <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Ej. email@server.com">
+                                        <small id="emailHelp" class="form-text text-muted"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Contraseña</label>
+                                        <input type="password" class="form-control" name="password" placeholder="**********">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Repetir Contraseña</label>
+                                        <input type="password" class="form-control" name="rePassword" placeholder="**********">
+                                    </div>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="avatar">
+                                        <label class="custom-file-label">Elegi una foto...</label>
+                                        <div class="invalid-feedback">
+                                        </div>
+                                    </div>
 
-                            <button type="submit" class="btn btn-primary">Registrar</button>
+                                    <button type="submit" class="btn btn-primary">Registrar</button>
 
                         </div>
 
