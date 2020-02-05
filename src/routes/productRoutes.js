@@ -25,8 +25,8 @@ router.post("/productos/crear", upload.single('avatar'), productController.carga
 router.get('/productos/detalleProducto/:id', productController.detalleProducto); /* detalle-producto 3*/
 router.get('/todosLosProductos', productController.todosLosProductos); //Listado de productos que ve el usuarioso 4
 router.get('/productos/editar/:id', productController.editarProducto); /*GET Formulario de edicion 5 */
-//router.put('/productos/editar/:id', upload.single('avatar'), productController.productoEditado); /* PUT Accion de edicion 6  */
-router.put('/productos/editar/', productController.productoEditado); /* PUT Accion de edicion 6  */
+router.put('/productos/editar/:id', upload.single('avatar'), productController.productoEditado); /* PUT Accion de edicion 6  */
+//router.put('/productos/editar/', productController.productoEditado); /* PUT Accion de edicion 6  */
 router.delete('/productos/borrar/:id', productController.borrarProducto); /*DELETE Accion de borrado  7*/
 router.get('/carrito', productController.carrito); /* GET -carrito*/
 

@@ -2,9 +2,14 @@ const fs = require('fs');
 const path = require('path');
 
 const ubicacionProductosJSON = path.join(__dirname, '../data/productos.json');
-const contenidoProductosJSON = fs.readFileSync(ubicacionProductosJSON, 'utf-8');
+const todosLosProductos = getProducts();
+
 //parseo para llamarlo en el metodo todosLosProductos
-const todosLosProductos = JSON.parse(fs.readFileSync(ubicacionProductosJSON, 'utf-8'));
+
+function getProducts() {
+    const contenidoProductosJSON = fs.readFileSync(ubicacionProductosJSON, 'utf-8');
+    return JSON.parse(contenidoProductosJSON);
+}
 
 // Constants
 const userFilePath = path.join(__dirname, "../data/users.json");
@@ -29,13 +34,15 @@ const controller = {
         const isLogged = req.session.userId ? true : false;
         let userLogged = getUserById(req.session.userId);
 
-        let productos = JSON.parse(contenidoProductosJSON);
+        let productos = getProducts();
         res.render('cargaProducto', { productos, isLogged, userLogged });
     },
 
     cargaProducto: (req, res) => {
         const isLogged = req.session.userId ? true : false;
         let userLogged = getUserById(req.session.userId);
+
+        const contenidoProductosJSON = fs.readFileSync(ubicacionProductosJSON, 'utf-8');
 
         let arrayDeProductos = [];
 
@@ -57,6 +64,7 @@ const controller = {
         let contenidoAGuardar = JSON.stringify(arrayDeProductos, null, ' ');
         fs.writeFileSync(ubicacionProductosJSON, contenidoAGuardar);
 
+
         // res.send("¡Producto guardado!");
         return res.render('todosLosProductos', { isLogged, userLogged, todosLosProductos })
 
@@ -73,7 +81,10 @@ const controller = {
     detalleProducto: (req, res) => {
         const isLogged = req.session.userId ? true : false;
         let userLogged = getUserById(req.session.userId);
+
         let idProducto = req.params.id;
+
+        const todosLosProductos = getProducts();
 
         let elProducto = todosLosProductos.find(function(unProducto) {
             return unProducto.id == idProducto;
@@ -91,6 +102,9 @@ const controller = {
     todosLosProductos: (req, res) => {
         const isLogged = req.session.userId ? true : false;
         let userLogged = getUserById(req.session.userId);
+
+        const todosLosProductos = getProducts();
+
         res.render('todosLosProductos', {
             pageClass: 'page-product',
             todosLosProductos,
@@ -102,6 +116,8 @@ const controller = {
     editarProducto: (req, res) => {
         const isLogged = req.session.userId ? true : false;
         let userLogged = getUserById(req.session.userId);
+
+        const todosLosProductos = getProducts();
 
         let idProducto = req.params.id;
         let elProducto = todosLosProductos.find(function(unProducto) {
@@ -122,44 +138,47 @@ const controller = {
         const isLogged = req.session.userId ? true : false;
         let userLogged = getUserById(req.session.userId);
 
-        let arrayDeProductos = [];
+        let todosLosProductos = getProducts();
 
-        if (contenidoProductosJSON != '') {
-            arrayDeProductos = JSON.parse(contenidoProductosJSON);
-        }
-
-        arrayDeProductos.forEach(element => {
-
-            if (element.id == req.body.id) {
-                element.categoria = req.body.categoria;
-                element.talle = req.body.talle;
-                element.color = req.body.color;
-                element.producto = req.body.producto;
-                element.cantidad = req.body.cantidad;
-                element.precio = req.body.precio;
-                element.avatar = req.body.avatar;
+        todosLosProductos = todosLosProductos.map(function(unProducto) {
+            if (unProducto.id == req.params.id) {
+                unProducto = {
+                    categoria: req.body.categoria,
+                    talle: req.body.talle,
+                    color: req.body.color,
+                    producto: req.body.producto,
+                    cantidad: req.body.cantidad,
+                    precio: req.body.precio,
+                    avatar: req.file ? req.file.filename : unProducto.avatar,
+                }
+                return unProducto;
             }
-        });
+            return unProducto;
+        })
+
+        console.log(todosLosProductos);
 
 
-        let contenidoAGuardar = JSON.stringify(arrayDeProductos, null, ' ');
+        let contenidoAGuardar = JSON.stringify(todosLosProductos, null, ' ');
         fs.writeFileSync(ubicacionProductosJSON, contenidoAGuardar);
 
-        return res.redirect('todosLosProductos', { isLogged, userLogged, todosLosProductos });
+        return res.redirect('/todosLosProductos');
     },
 
     borrarProducto: (req, res) => {
         const isLogged = req.session.userId ? true : false;
         let userLogged = getUserById(req.session.userId);
 
-        let productosArray = JSON.parse(contenidoProductosJSON);
-        let productosSinElQueBorramos = productosArray.filter(function(unProducto) {
-                return unProducto.id != req.params.id;
-            })
-            // guardo el array con los productos finales
+        const todosLosProductos = getProducts();
+        let productosSinElQueBorramos = todosLosProductos.filter(function(unProducto) {
+            return unProducto.id != req.params.id;
+        })
+
+        // return res.send(productosSinElQueBorramos)
+        // guardo el array con los productos finales
         fs.writeFileSync(ubicacionProductosJSON, JSON.stringify(productosSinElQueBorramos, null, ' '));
 
-        return res.redirect('todosLosProductos', { isLogged, userLogged, todosLosProductos });
+        return res.redirect('/todosLosProductos');
     },
 };
 module.exports = controller;

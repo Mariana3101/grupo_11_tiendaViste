@@ -92,6 +92,7 @@ const controller = {
 
     login: (req, res) => {
         const isLogged = req.session.userId ? true : false;
+
         res.render('ingresar', { isLogged });
         //res.render('ingresar');
     },
