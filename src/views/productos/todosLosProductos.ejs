@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('../partials/head.ejs', {title: 'todosLosProductos'}) %>
+
+    <body class="page-todosLosProductos">
+        <!-- Header -->
+        <%- include('../partials/headerNavbar.ejs') %>
+            <div class="container-productos">
+                <main>
+                    <div class="titulo-productos">
+                        <h1>Todos los Productos</h1>
+                    </div>
+                    <ul>
+                        <% products.forEach(oneProduct => { %>
+                            <li>
+                                <b>Id:</b>
+                                <a href="/productos/detalleProducto/ <%= oneProduct.id %>"><br>
+
+                                    <b>Nombre:</b>
+                                    <%= oneProduct.name %> <br>
+                                        <b>Precio:</b>
+                                        <%= oneProduct.price %> <br>
+
+                                            <b>Usuario:</b>
+                                            <%= oneProduct.user ? oneProduct.user.getFullName() : 'Sin usuario asignado' %> <br>
+                                                <% if (oneProduct.categories.length > 0) { %>
+                                                    <h5>Categorías</h5>
+                                                    <ul>
+                                                        <% oneProduct.categories.forEach(category => { %>
+                                                            <li>
+                                                                <%= category.name %>
+                                                            </li>
+                                                            <% }) %>
+                                                    </ul>
+                                                    <br>
+                                                    <% } %>
+                                                        <img src="/images/<%= oneProduct.image %>" width="100">
+                                                        <form action="/products/<%= oneProduct.id %>?_method=DELETE" method="POST">
+                                                            <button type="submit">Eliminar</button>
+                                                        </form>
+                                                        <br><br>
+                            </li>
+                            <% }) %>
+                    </ul>
+                </main>
+            </div>
+    </body>
+
+
+
+    <!-- footer -->
+    <%- include('../partials/footer.ejs') %>
+        <!-- /footer -->

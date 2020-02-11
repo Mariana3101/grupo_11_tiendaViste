@@ -55,7 +55,7 @@ const controller = {
     register: (req, res) => {
         const isLogged = req.session.userId ? true : false;
 
-        res.render('registrar', { isLogged });
+        res.render('usuarios/registrar', { isLogged });
         //res.render('registrar');
     },
 
@@ -86,14 +86,14 @@ const controller = {
             // res.redirect('perfil');
             res.redirect('/usuarios/perfil');
         } else {
-            return res.render('registrar', { errors: errors.errors });
+            return res.render('/usuarios/registrar', { errors: errors.errors });
         }
     },
 
     login: (req, res) => {
         const isLogged = req.session.userId ? true : false;
 
-        res.render('ingresar', { isLogged });
+        res.render('usuarios/ingresar', { isLogged });
         //res.render('ingresar');
     },
 
@@ -126,14 +126,14 @@ const controller = {
                 res.send('No hay usuarios registrados con ese email');
             }
         } else {
-            return res.render('registrar', { errors: errors.errors });
+            return res.render('usuarios/registrar', { errors: errors.errors });
         }
     },
 
     perfil: (req, res) => {
         const isLogged = req.session.userId ? true : false;
         let userLogged = getUserById(req.session.userId);
-        res.render('perfil', { isLogged, userLogged });
+        res.render('usuarios/perfil', { isLogged, userLogged });
 
     },
     cerrarSesion: (req, res) => {

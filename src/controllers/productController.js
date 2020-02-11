@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const db = require('../database/models');
+const sequelize = db.sequelize;
 
 const ubicacionProductosJSON = path.join(__dirname, '../data/productos.json');
 const todosLosProductos = getProducts();
@@ -28,15 +30,32 @@ function getUserById(id) {
     return userById;
 }
 
+
+
 const controller = {
 
-    mostrarCargaProducto: (req, res) => {
-        const isLogged = req.session.userId ? true : false;
-        let userLogged = getUserById(req.session.userId);
+    create: (req, res) => {
 
-        let productos = getProducts();
-        res.render('cargaProducto', { productos, isLogged, userLogged });
+
+        db.Products
+            .findAll()
+            .then(Products => {
+                db.Categories
+                    .findAll()
+                    .then(categories => {
+                        return res.render('productos/cargaProducto', { Products, categories });
+                    })
+                    .catch(error => console.log(error));
+            })
+            .catch(error => console.log(error));
     },
+    /*
+    const isLogged = req.session.userId ? true : false;
+    let userLogged = getUserById(req.session.userId);
+
+    let productos = getProducts();
+    res.render('productos/cargaProducto', { productos, isLogged, userLogged });*/
+
 
     cargaProducto: (req, res) => {
         const isLogged = req.session.userId ? true : false;
@@ -66,7 +85,7 @@ const controller = {
 
 
         // res.send("¡Producto guardado!");
-        return res.render('todosLosProductos', { isLogged, userLogged, todosLosProductos })
+        return res.render('productos/todosLosProductos', { isLogged, userLogged, todosLosProductos })
 
     },
 
@@ -90,7 +109,7 @@ const controller = {
             return unProducto.id == idProducto;
         })
 
-        res.render('detalleProducto', {
+        res.render('productos/detalleProducto', {
             idProducto: idProducto,
             elProducto: elProducto,
             isLogged,
@@ -99,18 +118,29 @@ const controller = {
         });
     },
 
-    todosLosProductos: (req, res) => {
+    show: (req, res) => {
+        db.Products
+            .findAll({
+                include: ['user', 'categories']
+            })
+            .then(products => {
+                return res.render('productos/todosLosProductos', { products });
+            })
+            .catch(error => console.log(error));
+
+        /* res.render('productos/todosLosProductos');
+
         const isLogged = req.session.userId ? true : false;
         let userLogged = getUserById(req.session.userId);
 
         const todosLosProductos = getProducts();
 
-        res.render('todosLosProductos', {
+        res.render('productos/todosLosProductos', {
             pageClass: 'page-product',
             todosLosProductos,
             isLogged,
             userLogged
-        });
+        });*/
     },
 
     editarProducto: (req, res) => {
@@ -124,7 +154,7 @@ const controller = {
             return unProducto.id == idProducto;
         })
 
-        res.render('editar', {
+        res.render('productos/editar', {
             idProducto: idProducto,
             elProducto: elProducto,
             isLogged,
@@ -162,7 +192,7 @@ const controller = {
         let contenidoAGuardar = JSON.stringify(todosLosProductos, null, ' ');
         fs.writeFileSync(ubicacionProductosJSON, contenidoAGuardar);
 
-        return res.redirect('/todosLosProductos');
+        return res.redirect('/productos/todosLosProductos');
     },
 
     borrarProducto: (req, res) => {
@@ -178,7 +208,8 @@ const controller = {
         // guardo el array con los productos finales
         fs.writeFileSync(ubicacionProductosJSON, JSON.stringify(productosSinElQueBorramos, null, ' '));
 
-        return res.redirect('/todosLosProductos');
+        return res.redirect('/productos/todosLosProductos');
     },
 };
+
 module.exports = controller;

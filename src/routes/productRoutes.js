@@ -17,17 +17,27 @@ const storageDisk = multer.diskStorage({
 const upload = multer({ storage: storageDisk })
 
 // ************ Controller Require ************
+//const controller = require('../controllers/productController');
+
+
+
 const productController = require('../controllers/productController');
 
-
-router.get('/cargaProducto', productController.mostrarCargaProducto); /* GET - carga-producto  CREACION PRODUCTO 1*/
-router.post("/productos/crear", upload.single('avatar'), productController.cargaProducto); /* POST - carga-producto CREACION PRODUCTO 2*/
-router.get('/productos/detalleProducto/:id', productController.detalleProducto); /* detalle-producto 3*/
-router.get('/todosLosProductos', productController.todosLosProductos); //Listado de productos que ve el usuarioso 4
-router.get('/productos/editar/:id', productController.editarProducto); /*GET Formulario de edicion 5 */
-router.put('/productos/editar/:id', upload.single('avatar'), productController.productoEditado); /* PUT Accion de edicion 6  */
-//router.put('/productos/editar/', productController.productoEditado); /* PUT Accion de edicion 6  */
-router.delete('/productos/borrar/:id', productController.borrarProducto); /*DELETE Accion de borrado  7*/
-router.get('/carrito', productController.carrito); /* GET -carrito*/
+/* GET - carga-producto  CREACION PRODUCTO 1*/
+router.get('/cargaProducto', productController.create);
+/* POST - carga-producto CREACION PRODUCTO 2*/
+router.post("/productos/crear", upload.single('avatar'), productController.cargaProducto);
+/* detalle-producto 3*/
+router.get('/productos/detalleProducto/:id', productController.detalleProducto);
+//Listado de productos que ve el usuarioso 4
+router.get('/todosLosProductos', productController.show);
+/*GET Formulario de edicion 5 */
+router.get('/productos/editar/:id', productController.editarProducto);
+/* PUT Accion de edicion 6  */
+router.put('/productos/editar/:id', upload.single('avatar'), productController.productoEditado);
+/*DELETE Accion de borrado  7*/
+router.delete('/productos/borrar/:id', productController.borrarProducto);
+/* GET -carrito*/
+router.get('/carrito', productController.carrito);
 
 module.exports = router;

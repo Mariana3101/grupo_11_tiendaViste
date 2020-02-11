@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Include Head -->
-<%- include('partials/head', {title: 'Inicio'}) %>
+<%- include('../partials/head.ejs', {title: 'Inicio'}) %>
 
     <body class="page-carga-producto">
         <!-- Header -->
-        <%- include('partials/headerNavbar') %>
+        <%- include('../partials/headerNavbar.ejs') %>
 
             <main class="carga-producto">
                 <form action="/productos/crear" method="POST" enctype="multipart/form-data">
@@ -16,53 +16,58 @@
                             <label for="categoria">Categoria</label>
                         </div>
                         <div class="col-6">
-                            <select id="categoria" name="categoria">
-                            <option value="bb-niña">bb-niña</option>
-                            <option value="bb-niño">bb-niño</option>
-                            <option value="niño">niño</option>
-                            <option value="niña">niña</option>
+                            <select id="categoria" name="categories">
+                                <option value="">Elegí una categorías</option>
+				<% categories.forEach(oneCategory => { %>
+				<option value="<%= oneCategory.id %>"> <%= oneCategory.name %> </option>
+                <% }) %>
+                
                           </select>
                         </div>
                     </div>
 
                     <!--Selector de talle-->
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="talle">Talle </label>
-                        </div>
-                        <div class="col-6">
-                            <select id="talle" name="talle">
-                            <option value="xs">XS</option>
-                            <option value="s">S</option>
-                            <option value="m">M</option>
-                            <option value="l">L</option>
-                            <option value="l">XL</option>
-                          </select>
-                        </div>
+                    <div class="col-6">
+                        <label for="size">Talle</label>
+                    </div>
+                    <div class="col-6">
+                        <select id="size" name="size">
+                            <option value="">Elegí un talle</option>
+            <% size.forEach(oneSize => { %>
+            <option value="<%= oneSize.id %>"> <%= oneSize.name %> </option>
+            <% }) %>
+            
+                      </select>
+                    </div>
+                    <!--Elegir un color-->
+
+                    <div class="col-6">
+                        <label for="color">Color</label>
+                    </div>
+                    <div class="col-6">
+                        <select id="color" name="color">
+                            <option value="">Elegí un Color</option>
+            <% color.forEach(oneColor=> { %>
+            <option value="<%= oneColor.id %>"> <%= oneColor.name %> </option>
+            <% }) %>
+            
+                      </select>
                     </div>
 
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="color">Color </label>
-                        </div>
-                        <div class="col-6">
-                            <input type="text" id="color" name="color" required>
-                        </div>
-                    </div>
 
                     <!--Selector de producto-->
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="producto">Producto </label>
-                        </div>
-                        <div class="col-6">
-                            <select id="producto" name="producto">
-                            <option value="remera">Remera</option>
-                            <option value="pantalon">Pantalón</option>
-                            <option value="sweater">Sweater</option>
-                            <option value="vestido">Vestido</option>
-                          </select>
-                        </div>
+                    <div class="col-6">
+                        <label for="products">Producto</label>
+                    </div>
+                    <div class="col-6">
+                        <select id="products" name="products">
+                            <option value="">Elegí un Producto</option>
+            <% products.forEach(oneProducts => { %>
+            <option value="<%= oneProducts.id %>"> <%= oneProducts.name %> </option>
+            <% }) %>
+            
+                      </select>
+                    </div>
                     </div>
 
                     <div class="row">
@@ -71,14 +76,14 @@
                             <label for="cantidad">Cantidad</label>
                         </div>
                         <div class="col-6">
-                            <input type="number" id="cantidad" name="cantidad" placeholder="Ingrese un numero" required>
+                            <input type="number" id="cantidad" name="quantity" placeholder="Ingrese un numero" required>
                         </div>
                         <!--Label precio-->
                         <div class="col-6">
                             <label for="precio">Precio</label>
                         </div>
                         <div class="col-6">
-                            <input type="number" id="precio" name="precio" required>
+                            <input type="number" id="precio" name="price" required>
                         </div>
                     </div>
 
@@ -136,5 +141,5 @@
             </main>
 
             <!-- footer -->
-            <%- include('partials/footer') %>
+            <%- include('../partials/footer.ejs') %>
                 <!-- /footer -->

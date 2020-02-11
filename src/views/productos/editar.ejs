@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Include Head -->
-<%- include('partials/head', {title: 'Editar'}) %>
+<%- include('../partials/head.ejs', {title: 'Editar'}) %>
 
     <body class="page-editar-producto">
         <!-- Header -->
-        <%- include('partials/headerNavbar') %>
+        <%- include('../partials/headerNavbar.ejs') %>
 
             <main class="editar-producto">
                 <form action="/productos/editar/<%= elProducto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
@@ -16,7 +16,7 @@
                             <label for="categoria ">Categoria</label>
                         </div>
                         <div class="col-6 ">
-                            <select id="categoria" name="categoria">
+                            <select id="categoria" name="categories">
                                 <option> <%= elProducto.categoria %></option>
                             <option value="bb-niña ">bb-niña</option>
                             <option value="bb-niño ">bb-niño</option>
@@ -32,7 +32,7 @@
                             <label for="talle ">Talle </label>
                         </div>
                         <div class="col-6 ">
-                            <select id="talle" name="talle">
+                            <select id="talle" name="size">
                                 <option> <%= elProducto.talle %></option>
                             <option value="xs ">XS</option>
                             <option value="s ">S</option>
@@ -48,7 +48,7 @@
                             <label for="color ">Color </label>
                         </div>
                         <div class="col-6 ">
-                            <input type="text " id="color" name="color" value="<%= elProducto.color %>" required>
+                            <input type="text " id="color" name="colors" value="<%= elProducto.color %>" required>
                         </div>
                     </div>
 
@@ -58,7 +58,7 @@
                             <label for="producto ">Producto </label>
                         </div>
                         <div class="col-6 ">
-                            <select id="producto" name="producto">
+                            <select id="producto" name="product">
                                 <option> <%= elProducto.producto %></option>
                             <option value="remera ">Remera</option>
                             <option value="pantalon ">Pantalón</option>
@@ -74,14 +74,14 @@
                             <label for="cantidad ">Cantidad</label>
                         </div>
                         <div class="col-6 ">
-                            <input type="number " id="cantidad" name="cantidad" placeholder="Ingrese un numero " value="<%= elProducto.cantidad %>" required>
+                            <input type="number " id="cantidad" name="quantity" placeholder="Ingrese un numero " value="<%= elProducto.cantidad %>" required>
                         </div>
                         <!--Label precio-->
                         <div class="col-6 ">
                             <label for="precio ">Precio</label>
                         </div>
                         <div class="col-6 ">
-                            <input type="text" id="precio" name="precio" value="<%= elProducto.precio %>" required>
+                            <input type="text" id="precio" name="price" value="<%= elProducto.precio %>" required>
                         </div>
                     </div>
 
@@ -140,5 +140,5 @@
             </main>
 
             <!-- footer -->
-            <%- include('partials/footer') %>
+            <%- include('../partials/footer.ejs') %>
                 <!-- /footer -->

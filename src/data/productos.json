@@ -11,15 +11,13 @@
   "avatar": "producto_avatar_1580824589788.png"
  },
  {
-  "id": 5,
   "categoria": "niño",
   "talle": "xs",
   "color": "celeste",
   "producto": "remera",
-  "cantidad": "1000",
+  "cantidad": "1000444",
   "precio": "500",
-  "creador": "Producto guardado por equipo Viste",
-  "avatar": "producto_avatar_1580858090535.png"
+  "avatar": "producto_avatar_1580863590535.png"
  },
  {
   "categoria": "niño",
@@ -42,15 +40,13 @@
   "avatar": "producto_avatar_1580862049340.png"
  },
  {
-  "id": 5,
-  "categoria": "bb-niña",
+  "categoria": "niño",
   "talle": "xs",
   "color": "celeste",
   "producto": "remera",
-  "cantidad": "1000",
-  "precio": "45422",
-  "creador": "Producto guardado por equipo Viste",
-  "avatar": "producto_avatar_1580862088925.png"
+  "cantidad": "1000444",
+  "precio": "500",
+  "avatar": "producto_avatar_1580863590535.png"
  },
  {
   "id": 6,
