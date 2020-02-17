@@ -1,3 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 50px;
+    font-family: sans-serif;
+}
+
 .container-productos {
     background-color: whitesmoke;
     /*position: absolute;*/
@@ -5,6 +14,8 @@
 
 .titulo-productos,
 .h1 {
+    display: flex;
+    justify-content: center;
     text-transform: none;
 }
 
@@ -19,4 +30,8 @@
     background-color: #ffffff;
     border-radius: 8px;
     overflow: hidden;
+}
+
+.lista {
+    margin-left: 10px;
 }

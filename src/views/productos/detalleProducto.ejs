@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-12">
                         <h3 class="products-title">Detalle del producto:
-                            <%= idProducto %>
+                            <%= products.id %>
                         </h3>
                     </div>
                 </div>
@@ -18,21 +18,19 @@
                     <div class="row">
                         <div class="col-12 col-lg-8">
 
-
+                            <img src="/images/avatars/<%= products.image %>" class="responsive">
 
                         </div>
                         <div class="col-12 col-lg-4">
                             <article class="product-detail-info">
                                 <p class="product-detail-description">
-                                    <%= elProducto.producto %>
+                                    <%= products.name %>
 
                                 </p>
                                 <p>Precio:$
-                                    <%= elProducto.precio %>
+                                    <%= products.price %>
                                 </p>
-                                <p>Talle
-                                    <%= elProducto.talle %>
-                                </p>
+
                                 <ul class="actions-list">
                                     <li>
                                         <i class="fas fa-credit-card"></i>
@@ -51,12 +49,12 @@
 
                         <!--Borrar Producto -->
 
-                        <form action="/productos/borrar/<%= elProducto.id %>?_method=DELETE" method="POST">
+                        <form action="/productos/borrar/<%= products.id %>?_method=DELETE" method="POST">
                             <button type="submit">BORRAR</button>
                         </form>
 
-                        <form action="/productos/editar/<%= elProducto.id %>?_method=PUT" method="POST">
-                            <button><a href="/productos/editar/<%= elProducto.id %>">Modificar</a></button>
+                        <form action="/productos/editar/<%= products.id %>?_method=PUT" method="POST">
+                            <button><a href="/productos/editar/<%= products.id %>">Modificar</a></button>
                         </form>
 
                         <div class="col-12 container-listaProductos responsive">

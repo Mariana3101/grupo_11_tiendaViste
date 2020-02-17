@@ -9,12 +9,21 @@ module.exports = (sequelize, dataTypes) => {
         price: dataTypes.INTEGER,
         image: dataTypes.STRING,
         user_id: dataTypes.INTEGER,
-
+        brand_id: dataTypes.INTEGER,
     });
 
     Product.associate = (models) => {
+        Product.belongsTo(models.Brands, {
+            as: 'brand',
+            foreignKey: 'brand_id'
+        });
+        /*
+        Product.belongsTo(models.Colors, {
+            as: 'colors',
+            foreignKey: 'colors_id'
+        });
 
-
+*/
         Product.belongsTo(models.Users, {
             as: 'user',
             foreignKey: 'user_id'
@@ -27,12 +36,13 @@ module.exports = (sequelize, dataTypes) => {
             otherKey: 'category_id'
         });
 
-        Product.belongsToMany(models.Color, {
-            as: 'color',
-            through: 'color_product',
+        Product.belongsToMany(models.Colors, {
+            as: 'colors',
+            through: 'colors_product',
             foreignKey: 'product_id',
-            otherKey: 'color_id'
+            otherKey: 'colors_id'
         });
+
     }
 
     return Product;

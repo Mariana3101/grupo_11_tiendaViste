@@ -24,20 +24,20 @@ const upload = multer({ storage: storageDisk })
 const productController = require('../controllers/productController');
 
 /* GET - carga-producto  CREACION PRODUCTO 1*/
-router.get('/cargaProducto', productController.create);
+router.get('/productos/crear', productController.create);
 /* POST - carga-producto CREACION PRODUCTO 2*/
-router.post("/productos/crear", upload.single('avatar'), productController.cargaProducto);
+router.post("/productos/crear", upload.single('avatar'), productController.store);
 /* detalle-producto 3*/
-router.get('/productos/detalleProducto/:id', productController.detalleProducto);
+router.get('/productos/detalleProducto/:id', productController.show);
 //Listado de productos que ve el usuarioso 4
-router.get('/todosLosProductos', productController.show);
+router.get('/todosLosProductos', productController.index);
 /*GET Formulario de edicion 5 */
-router.get('/productos/editar/:id', productController.editarProducto);
+router.get('/productos/editar/:id', productController.edit);
 /* PUT Accion de edicion 6  */
-router.put('/productos/editar/:id', upload.single('avatar'), productController.productoEditado);
+router.put('/productos/editar/:id', upload.single('avatar'), productController.update);
 /*DELETE Accion de borrado  7*/
-router.delete('/productos/borrar/:id', productController.borrarProducto);
+router.delete('/productos/borrar/:id', productController.destroy);
 /* GET -carrito*/
-router.get('/carrito', productController.carrito);
+//router.get('/carrito', productController.carrito);
 
 module.exports = router;

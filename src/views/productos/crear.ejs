@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- Include Head -->
-<%- include('../partials/head.ejs', {title: 'Editar'}) %>
+<%- include('../partials/head.ejs', {title: 'Inicio'}) %>
 
-    <body class="page-editar-producto">
+    <body class="page-carga-producto">
         <!-- Header -->
         <%- include('../partials/headerNavbar.ejs') %>
 
-            <main class="editar-producto">
-                <form action="/productos/editar/<%= products.id %>?_method=PUT" method="POST" enctype="multipart/form-data">-->
+            <!--Falta Cargar Imagen y Talle y el select de producto-->
+
+            <main class="carga-producto">
+                <form action="/productos/crear" method="POST">
+                    <div>
+                        <label>Producto: </label> <br>
+                        <input type="text" name="name" required>
+                        <br><br>
+                    </div>
 
                     <div>
-                        <label>Nombre: </label> <br>
-                        <input type="text" name="name">
+                        <label>Precio: </label> <br>
+                        <input type="number" name="price" required>
                         <br><br>
                     </div>
                     <div>
-                        <label>Precio: </label> <br>
-                        <input type="text" name="price">
+                        <label>Cantidad: </label> <br>
+                        <input type="number" name="quantity" required>
                         <br><br>
                     </div>
+
                     <div>
                         <label>Marca: </label>
                         <select name="brand_id">
@@ -31,20 +39,40 @@
                         <br><br>
                     </div>
 
-                    <div>
-                        <label>Categorías:</label>
-                        <select name="categories" multiple>
-                            <option value="">Elegí varias categorías</option>
+                    <label>Categorías:</label>
+                    <select name="categories" multiple>
+                            <option value="" required>Elegí varias categorías</option>
                             <% categories.forEach(oneCategory => { %>
                             <option value="<%= oneCategory.id %>"> <%= oneCategory.name %> </option>
                             <% }) %>
                         </select>
-                    </div>
+
                     <br>
-                    <button type="submit">Guardar</button>
+
+                    <div class="row">
+                        <div class="imagen">
+                            <div id="divInputLoad">
+                                <div id="divFileUpload">
+                                    <input id="file-upload" type="file" accept="image/*" name="avatars" />
+                                </div>
+                                <div id="file-preview-zone">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!--Guardar-->
+                        <form action="">
+                            <button type="submit" class="col-6" value="">Guardar</button>
+                        </form>
+
+
+                    </div>
+
                 </form>
                 <div class="col-12">
-                    <a href="/productos/detalleProducto/<%= products.id %>" class="btn btn-primary btn-sm button-volver" role="button" aria-pressed="true">Volver</a>
+                    <button type="button" class="btn btn-primary back-button ">Volver</button>
                 </div>
 
                 <script>
