@@ -68,7 +68,7 @@ const controller = {
     store: (req, res) => {
 
 
-        // req.body.user_id = Math.ceil(Math.random() * 3);
+
         db.Products.create({
             name: req.body.name,
             price: req.body.price,

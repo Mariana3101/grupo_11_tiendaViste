@@ -2,11 +2,14 @@ const fs = require('fs');
 const bcrypt = require('bcrypt');
 const path = require('path');
 let { check, validationResult, body } = require('express-validator');
+const db = require('../database/models');
+const sequelize = db.sequelize;
 
 // Constants
 const userFilePath = path.join(__dirname, "../data/users.json");
 
 // Helper Functions
+/*
 function getAllUsers() {
     let usersFileContent = fs.readFileSync(userFilePath, 'utf-8');
     let finalUsers = usersFileContent == '' ? [] : JSON.parse(usersFileContent);
@@ -48,55 +51,52 @@ function getUserById(id) {
     let allUsers = getAllUsers();
     let userById = allUsers.find(oneUser => oneUser.id == id);
     return userById;
-}
+}*/
 
 // Controller Methods
 const controller = {
+
+    //Get de registrar
     register: (req, res) => {
-        const isLogged = req.session.userId ? true : false;
+        db.Users
+            .findAll()
 
-        res.render('usuarios/registrar', { isLogged });
-        //res.render('registrar');
+        .then(users => {
+                return res.render('usuarios/registrar', { users });
+
+
+            })
+            .catch(error => console.log(error));
+
+
     },
 
+    // POST de registrar
     store: (req, res) => {
-        let errors = (validationResult(req));
-        if (errors.isEmpty()) {
 
 
-            // Hash del password
-            req.body.password = bcrypt.hashSync(req.body.password, 10);
+        db.Users.create({
 
-            // Eliminar la propiedad rePassword
-            delete req.body.rePassword;
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            email: req.body.email,
+            password: req.body.password
 
-            // Asignar el nombre final de la imagen
-            req.body.avatar = req.file.filename;
+        });
 
-            // Guardar al usario y como la función retorna la data del usuarioso lo almacenamos en ela variable "user"
-            let user = storeUser(req.body);
 
-            // Setear en session el ID del usuarioso nuevo para auto loguearlo
-            req.session.userId = user.id;
-
-            // Setear la cookie para mantener al usuarioso logueado
-            res.cookie('userIdCookie', user.id, { maxAge: 60000 * 60 });
-
-            // Redirección al login
-            // res.redirect('perfil');
-            res.redirect('/usuarios/perfil');
-        } else {
-            return res.render('/usuarios/registrar', { errors: errors.errors });
-        }
+        return res.render('index');
     },
 
+    // GET de ingresar
     login: (req, res) => {
-        const isLogged = req.session.userId ? true : false;
+        //const isLogged = req.session.userId ? true : false;
 
-        res.render('usuarios/ingresar', { isLogged });
+        res.render('usuarios/ingresar');
         //res.render('ingresar');
     },
 
+    // POST de ingresar
     processLogin: (req, res) => {
 
         let errors = (validationResult(req));
@@ -130,12 +130,14 @@ const controller = {
         }
     },
 
+    // GET de perfil
     perfil: (req, res) => {
-        const isLogged = req.session.userId ? true : false;
-        let userLogged = getUserById(req.session.userId);
-        res.render('usuarios/perfil', { isLogged, userLogged });
+        // const isLogged = req.session.userId ? true : false;
+        //let userLogged = getUserById(req.session.userId);
+        res.render('usuarios/perfil');
 
     },
+    // GET de cerrar sesion
     cerrarSesion: (req, res) => {
         /*Destruir la session*/
         req.session.destroy();
@@ -149,5 +151,8 @@ const controller = {
     }
 
 };
+
+
+
 
 module.exports = controller;
