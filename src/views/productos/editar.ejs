@@ -8,41 +8,52 @@
         <%- include('../partials/headerNavbar.ejs') %>
 
             <main class="editar-producto">
-                <form action="/productos/editar/<%= products.id %>?_method=PUT" method="POST" enctype="multipart/form-data">-->
+                <form action="/productos/editar/<%= products.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
-                    <div>
-                        <label>Nombre: </label> <br>
-                        <input type="text" name="name">
-                        <br><br>
+
+                    <div class="col-6 ">
+                        <label>Producto:</label>
+                        <select id="producto" name="name">
+                            <option> <%= products.name %></option>
+                        <option value="remera ">Remera</option>
+                        <option value="pantalon ">Pantalón</option>
+                        <option value="sweater ">Sweater</option>
+                        <option value="vestido ">Vestido</option>
+                      </select>
                     </div>
+
                     <div>
                         <label>Precio: </label> <br>
                         <input type="text" name="price">
                         <br><br>
                     </div>
-                    <div>
-                        <label>Marca: </label>
-                        <select name="brand_id">
-                            <option value="">Elegí una marca</option>
-                            <% brands.forEach(oneBrand => { %>
-                            <option value="<%= oneBrand.id %>"> <%= oneBrand.name %> </option>
-                            <% }) %>
-                        </select>
-                        <br><br>
-                    </div>
+
 
                     <div>
                         <label>Categorías:</label>
-                        <select name="categories" multiple>
-                            <option value="">Elegí varias categorías</option>
-                            <% categories.forEach(oneCategory => { %>
-                            <option value="<%= oneCategory.id %>"> <%= oneCategory.name %> </option>
+                        <select name="category_id">
+                            <option value="">Elegí una categoria</option>
+                            <% categories.forEach(oneCategories => { %>
+                            <option 
+                                value="<%= oneCategories.id %>"
+                                <%= products.category_id == oneCategories.id ? 'selected' : null %>
+                            >
+                                <%= oneCategories.name %>
+                            </option>
                             <% }) %>
                         </select>
                     </div>
                     <br>
-                    <button type="submit">Guardar</button>
+                    <div class="row">
+                        <!--Guardar-->
+                        <form action="">
+                            <button type="submit" class="col-6" value="">Guardar</button>
+                        </form>
+
+
+                    </div>
                 </form>
+
                 <div class="col-12">
                     <a href="/productos/detalleProducto/<%= products.id %>" class="btn btn-primary btn-sm button-volver" role="button" aria-pressed="true">Volver</a>
                 </div>
@@ -53,13 +64,13 @@
                             var reader = new FileReader();
 
                             reader.onload = function(e) {
-                                var filePreview = document.createElement('img');
-                                filePreview.id = 'file-preview';
+                                var filePreview = document.createElement(' img ');
+                                filePreview.id = 'file-preview ';
                                 //e.target.result contents the base64 data from the image uploaded
                                 filePreview.src = e.target.result;
                                 console.log(e.target.result);
 
-                                var previewZone = document.getElementById('file-preview-zone');
+                                var previewZone = document.getElementById('file-preview-zone ');
                                 previewZone.appendChild(filePreview);
                             }
 
@@ -67,7 +78,7 @@
                         }
                     }
 
-                    var fileUpload = document.getElementById('file-upload');
+                    var fileUpload = document.getElementById('file-upload ');
                     fileUpload.onchange = function(e) {
                         readFile(e.srcElement);
                     }

@@ -10,12 +10,13 @@
             <!--Falta Cargar Imagen y Talle y el select de producto-->
 
             <main class="carga-producto">
-                <form action="/productos/crear" method="POST">
+                <form action="/productos/crear " method="POST">
                     <div>
                         <label>Producto: </label> <br>
                         <input type="text" name="name" required>
                         <br><br>
                     </div>
+
 
                     <div>
                         <label>Precio: </label> <br>
@@ -40,7 +41,7 @@
                     </div>
 
                     <label>Categorías:</label>
-                    <select name="categories" multiple>
+                    <select name="categories">
                             <option value="" required>Elegí varias categorías</option>
                             <% categories.forEach(oneCategory => { %>
                             <option value="<%= oneCategory.id %>"> <%= oneCategory.name %> </option>

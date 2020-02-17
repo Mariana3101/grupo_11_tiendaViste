@@ -78,6 +78,7 @@ const controller = {
 
 
 
+
         });
         return res.redirect('/todosLosProductos');
 
@@ -106,7 +107,12 @@ const controller = {
         db.Products
             .findByPk(
                 req.params.id, {
-                    include: ['brand', 'categories', 'colors']
+                    include: [{
+
+                            association: 'categories'
+                        },
+
+                    ],
                 }
             )
             .then(products => {
@@ -116,14 +122,15 @@ const controller = {
     },
     // Editar producto por GET
     edit: (req, res) => {
+
         db.Products
             .findByPk(req.params.id)
             .then(products => {
-                // Antes de enviar al peli a al formulario, vamos a traer los géneros
+
                 sequelize
                     .query('SELECT * FROM categories')
                     .then(categoriesInDB => {
-                        return res.render('productos/editar', { product, categories: categoriesInDB[0] });
+                        return res.render('productos/editar', { products, categories: categoriesInDB[0] });
                     })
             })
             .catch(error => console.log(error));
@@ -132,15 +139,20 @@ const controller = {
     // Editar producto por POST
     update: (req, res) => {
         db.Products
-            .update(
-                req.body, {
-                    where: {
-                        id: req.params.id
-                    }
-                }
-            )
+            .update({
+                name: req.body.name,
+                price: req.body.price,
+                image: req.body.image,
+                brand_id: req.body.brand
 
-        .then(() => res.redirect('productos/todosLosProductos'));
+
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+
+        .then(() => res.redirect('todosLosProductos'));
     },
 
     // const isLogged = req.session.userId ? true : false;
