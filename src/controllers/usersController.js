@@ -6,16 +6,17 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 
 // Constants
-const userFilePath = path.join(__dirname, "../data/users.json");
+//const userFilePath = path.join(__dirname, "../data/users.json");
 
 // Helper Functions
-/*
+
+
 function getAllUsers() {
-    let usersFileContent = fs.readFileSync(userFilePath, 'utf-8');
+    let usersFileContent = fs.readFileSync(db, 'utf-8');
     let finalUsers = usersFileContent == '' ? [] : JSON.parse(usersFileContent);
     return finalUsers;
 }
-
+/*
 function storeUser(newUserData) {
     // Traer a todos los usuariosos
     let allUsers = getAllUsers();
@@ -90,50 +91,42 @@ const controller = {
 
     // GET de ingresar
     login: (req, res) => {
-        //const isLogged = req.session.userId ? true : false;
+        //  const isLogged = req.session.userId ? true : false;
 
-        res.render('usuarios/ingresar');
+        res.render('usuarios/ingresar', {
+            // isLogged
+
+        });
         //res.render('ingresar');
     },
 
     // POST de ingresar
     processLogin: (req, res) => {
+        db.Users
+            .findOne({
+                where: {
+                    email: req.body.email
 
-        let errors = (validationResult(req));
-        if (errors.isEmpty()) {
-
-            // Buscar usuarioso por email
-            let user = getUserByEmail(req.body.email);
-
-            // Si encontramos al usuarioso
-            if (user != undefined) {
-                // Al ya tener al usuarioso, comparamos las contraseñas
-                if (bcrypt.compareSync(req.body.password, user.password)) {
-                    // Setear en session el ID del usuarioso
-                    req.session.userId = user.id;
-
-                    // Setear la cookie
-                    if (req.body.remember_user) {
-                        res.cookie('userIdCookie', user.id, { maxAge: 60000 * 60 });
-                    }
-
-                    // Redireccionamos al visitante a su perfil
-                    return res.redirect('/usuarios/perfil');
-                } else {
-                    res.send('Credenciales inválidas');
                 }
-            } else {
-                res.send('No hay usuarios registrados con ese email');
-            }
-        } else {
-            return res.render('usuarios/registrar', { errors: errors.errors });
-        }
+            })
+            .then(users => {
+                if (bcrypt.compareSync(req.body.password, users.password)) {
+                    console.log(req.body.email)
+                } else {
+                    res.send("No existe el usuario")
+                }
+            })
+
+
+
+        .catch(error => console.log(error));
+
     },
 
     // GET de perfil
     perfil: (req, res) => {
-        // const isLogged = req.session.userId ? true : false;
-        //let userLogged = getUserById(req.session.userId);
+        const isLogged = req.session.userId ? true : false;
+        let userLogged = getUserById(req.session.userId);
         res.render('usuarios/perfil');
 
     },
