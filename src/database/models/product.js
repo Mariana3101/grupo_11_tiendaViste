@@ -7,9 +7,14 @@ module.exports = (sequelize, dataTypes) => {
         },
         name: dataTypes.STRING,
         price: dataTypes.INTEGER,
-        image: dataTypes.STRING,
+        image: dataTypes.STRING, // que debe devolver para que muestre la imagen
         user_id: dataTypes.INTEGER,
         brand_id: dataTypes.INTEGER,
+        size_id: dataTypes.INTEGER,
+        category_id: dataTypes.INTEGER,
+        colors_id: dataTypes.INTEGER,
+
+
     });
 
     Product.associate = (models) => {
@@ -42,6 +47,14 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: 'product_id',
             otherKey: 'colors_id'
         });
+
+        Product.belongsToMany(models.Sizes, {
+            as: 'sizes',
+            through: 'size_product',
+            foreignKey: 'product_id',
+            otherKey: 'size_id'
+        });
+
 
     }
 

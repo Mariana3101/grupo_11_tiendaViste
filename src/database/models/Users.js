@@ -15,5 +15,8 @@ module.exports = (sequelize, dataTypes) => {
         return `${this.first_name} ${this.last_name}`;
     }
 
+    User.associate = function(models) {
+        User.hasMany(models.authMiddleware);
+    };
     return User;
 }
