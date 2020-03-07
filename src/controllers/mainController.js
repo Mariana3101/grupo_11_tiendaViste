@@ -7,19 +7,21 @@ const userFilePath = path.join(__dirname, "../data/users.json");
 
 // Helper Functions
 function getAllUsers() {
-    // let usersFileContent = fs.readFileSync(userFilePath, 'utf-8');
-    //  let finalUsers = usersFileContent == '' ? [] : JSON.parse(usersFileContent);
-    db.Users
-        .findAll({
-            include: ['users']
-        })
-        .then(products => {
-            return res.render('usuarios/perfil');
-            // return finalUsers;
-        })
-        .catch(error => console.log(error));
+    let usersFileContent = fs.readFileSync(userFilePath, 'utf-8');
+    let finalUsers = usersFileContent == '' ? [] : JSON.parse(usersFileContent);
 
-    //    return finalUsers;
+    /*
+        db.Users
+            .findAll({
+                include: ['users']
+            })
+            .then(products => {
+                return res.render('usuarios/perfil');
+                // return finalUsers;
+            })
+            .catch(error => console.log(error));
+*/
+    return finalUsers;
 }
 
 function storeUser(newUserData) {
@@ -47,27 +49,30 @@ function generateUserId() {
     return lastUser.id + 1;
 }
 
-function getUserById(id) {
-    // let allUsers = getAllUsers();
-    //let userById = allUsers.find(oneUser => oneUser.id == id);
-    let userById =
-        db.Users
-        .findByPk(req.params.id)
-    return userById;
-}
+//function getUserById(id) {
+//let allUsers = getAllUsers();
+// let userById = allUsers.find(oneUser => oneUser.id == id);
+//let userById =
+//db.Users
+//.findByPk(req.params.id)
+//return userById;
+//}
 
 const controller = {
     root: (req, res) => {
-        const isLogged = req.session.userId ? true : false;
-        let userLogged = getUserById(req.session.userId);
-        res.render('index', { isLogged, userLogged });
+        //  const isLogged = req.session.userId ? true : false;
+        //let userLogged = getUserById(req.session.userId);
+        //res.render('index', { isLogged, userLogged });
+        res.render('index');
     },
 
     nosotros: (req, res) => {
         const isLogged = req.session.userId ? true : false;
-        let userLogged = getUserById(req.session.userId);
-        res.render('nosotros', { isLogged, userLogged });
+        //  let userLogged = getUserById(req.session.userId);
+        //res.render('nosotros', { isLogged, userLogged });
+        res.render('index');
     },
+
 };
 
 

@@ -85,6 +85,9 @@ const controller = {
             price: req.body.price,
             image: req.body.image,
             brand_id: req.body.brand,
+            size_id: req.body.size,
+            category_id: req.body.categories,
+            colors_id: req.body.colors_id,
 
 
 
