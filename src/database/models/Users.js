@@ -9,6 +9,8 @@ module.exports = (sequelize, dataTypes) => {
         last_name: dataTypes.STRING,
         email: dataTypes.STRING,
         password: dataTypes.STRING,
+
+
     });
 
     User.prototype.getFullName = function() {

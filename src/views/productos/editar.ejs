@@ -24,25 +24,39 @@
 
                     <div>
                         <label>Precio: </label> <br>
-                        <input type="text" name="price">
+                        <input type="text" name="price" value="<%=products.price%> ">
                         <br><br>
                     </div>
 
 
                     <div>
                         <label>Categorías:</label>
-                        <select name="category_id">
-                            <option value="">Elegí una categoria</option>
+                        <select name=" category_id ">
+                            <option value=" ">Elegí una categoria</option>
                             <% categories.forEach(oneCategories => { %>
                             <option 
-                                value="<%= oneCategories.id %>"
-                                <%= products.category_id == oneCategories.id ? 'selected' : null %>
+                                value="<%=oneCategories.id %>"
+                        <%= products.category_id == oneCategories.id ? 'selected' : null %>
                             >
-                                <%= oneCategories.name %>
-                            </option>
-                            <% }) %>
-                        </select>
+                            <%= oneCategories.name %>
+                                </option>
+                                <% }) %>
+                                    </select>
                     </div>
+
+
+                    <div class="row ">
+                        <div class="imagen">
+                            <div id="divInputLoad">
+                                <div id="divFileUpload">
+                                    <input id="file-upload" type="file" accept="image/*" name="avatar" />
+                                </div>
+                                <div id="file-preview-zone">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <br>
                     <div class="row">
                         <!--Guardar-->

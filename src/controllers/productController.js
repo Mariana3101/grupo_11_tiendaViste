@@ -15,14 +15,24 @@ function getProducts() {
 }
 
 // Constants
-const userFilePath = path.join(__dirname, "../data/users.json");
+//const userFilePath = path.join(__dirname, "../data/users.json");
 
 
 // Helper Functions
 function getAllUsers() {
-    let usersFileContent = fs.readFileSync(userFilePath, 'utf-8');
-    let finalUsers = usersFileContent == '' ? [] : JSON.parse(usersFileContent);
-    return finalUsers;
+    // let usersFileContent = fs.readFileSync(userFilePath, 'utf-8');
+    // let finalUsers = usersFileContent == '' ? [] : JSON.parse(usersFileContent);
+    // return finalUsers;
+    db.User
+        .findAll({
+            include: ['users']
+        })
+        .then(products => {
+            return res.render('usuarios/perfil');
+            // return finalUsers;
+        })
+        .catch(error => console.log(error));
+
 }
 
 function getUserById(id) {
@@ -38,7 +48,7 @@ const controller = {
     index: (req, res) => {
         db.Products
             .findAll({
-                include: ['user', 'categories', 'brand', 'colors']
+                include: ['user', 'categories', 'brand', 'colors', 'sizes']
                     //no puedo mostrar el talle
             })
             .then(products => {
@@ -49,6 +59,7 @@ const controller = {
 
     // crear producto por GET 
     create: (req, res) => {
+        // falta hacer que se agregue el resto de los campos que no se cargan en la base de datos
         db.Brands
             .findAll()
             .then(brands => {
@@ -74,6 +85,9 @@ const controller = {
             price: req.body.price,
             image: req.body.image,
             brand_id: req.body.brand,
+            size_id: req.body.size,
+            category_id: req.body.categories,
+            colors_id: req.body.colors_id,
 
 
 
@@ -136,23 +150,27 @@ const controller = {
             .catch(error => console.log(error));
 
     },
-    // Editar producto por POST
+    // Editar producto por PUT
     update: (req, res) => {
         db.Products
             .update({
                 name: req.body.name,
                 price: req.body.price,
                 image: req.body.image,
-                brand_id: req.body.brand
-
+                brand_id: req.body.brand,
+                catogory_id: req.body.Categories
 
             }, {
                 where: {
                     id: req.params.id
                 }
-            })
 
-        .then(() => res.redirect('todosLosProductos'));
+            })
+            .then((unProducto) => {
+                //No funciona este redirest, pero si se modifica la base de datos
+                return res.render('productos/editar', { unProducto });
+            })
+            .catch(error => console.log(error));
     },
 
     // const isLogged = req.session.userId ? true : false;
