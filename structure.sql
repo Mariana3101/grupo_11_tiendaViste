@@ -73,6 +73,7 @@ CREATE TABLE `colors_product` (
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
+
 -- / Populando las tablas
 INSERT INTO `brands` VALUES 
 	(DEFAULT, 'Mimo', NULL, NULL),

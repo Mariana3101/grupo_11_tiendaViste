@@ -8,6 +8,8 @@ const methodOverride = require('method-override');
 const multer = require("multer"); //Necesario para poder subir archivos// 
 const session = require('express-session');
 const userCookieMiddleware = require('./middlewares/userCookieMiddleware');
+//const passport = require('passport');
+
 
 // ************ express() - (don't touch) ************
 const app = express();
@@ -20,9 +22,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(methodOverride("_method")); // Necesario para poder sobreescribir (PUT/DELETE)
 app.use(session({
-    secret: 'register-login',
+    secret: 'register_login',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+
 }));
 app.use(userCookieMiddleware);
 
@@ -40,6 +43,8 @@ const productRoutes = require('./routes/productRoutes');
 app.use('/', mainRouter);
 app.use('/', usersRoutes);
 app.use('/', productRoutes);
+
+
 
 
 // ************ DON'T TOUCH FROM HERE ************

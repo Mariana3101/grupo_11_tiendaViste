@@ -47,7 +47,8 @@ router.post('/usuarios/ingresar', [
     ],
     usersController.processLogin);
 
-router.get("/usuarios/perfil", authMiddleware, usersController.perfil);
+//router.get("/usuarios/perfil", authMiddleware, usersController.perfil);
+router.get("/usuarios/perfil", usersController.perfil);
 router.get('/usuarios/cerrarSesion', usersController.cerrarSesion);
 
 

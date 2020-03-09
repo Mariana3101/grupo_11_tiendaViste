@@ -9,14 +9,13 @@ module.exports = (sequelize, dataTypes) => {
         last_name: dataTypes.STRING,
         email: dataTypes.STRING,
         password: dataTypes.STRING,
+
+
     });
 
     User.prototype.getFullName = function() {
-            return `${this.first_name} ${this.last_name}`;
-        }
-        /*
-        User.associate = function(models) {
-            User.hasMany(models.authMiddleware);
-        };*/
+        return `${this.first_name} ${this.last_name}`;
+    }
+
     return User;
 }
