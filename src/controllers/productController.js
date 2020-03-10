@@ -171,9 +171,10 @@ const controller = {
                 }
 
             })
-            .then((unProducto) => {
-                //No funciona este redirest, pero si se modifica la base de datos
-                return res.redirect('/productos/editar' + req.params.id);
+            .then(() => {
+
+
+                return res.redirect('/todosLosProductos');
             })
             .catch(error => console.log(error));
     },
