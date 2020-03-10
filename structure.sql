@@ -35,6 +35,13 @@ CREATE TABLE `colors` (
   `updatedAt` timestamp NULL DEFAULT NULL
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+CREATE TABLE  `sizes` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name` varchar(255) NOT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 
 -- / Creación de las tablas que tienen FK
 CREATE TABLE `products` (
@@ -44,11 +51,15 @@ CREATE TABLE `products` (
   `image` varchar(255) NULL DEFAULT 'no-image.png',
   `user_id` int(10) unsigned DEFAULT NULL,
   `colors_id` int(10) unsigned DEFAULT NULL,
+  `size_id` int(10) unsigned DEFAULT NULL,
   `brand_id` int(10) unsigned DEFAULT NULL,
+  `category_id` int (10) unsigned DEFAULT null,
   `createdAt` timestamp NULL DEFAULT NULL,
   `updatedAt` timestamp NULL DEFAULT NULL,
   FOREIGN KEY (`colors_id`) REFERENCES `colors`(`id`),
+  FOREIGN KEY (`category_id`) REFERENCES `categories`(`id`),
   FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  FOREIGN key (`size_id`) REFERENCES `sizes` (`id`), 
   FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -72,23 +83,38 @@ CREATE TABLE `colors_product` (
   FOREIGN KEY (`colors_id`) REFERENCES `colors` (`id`)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+CREATE TABLE `size_product` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `product_id` int(10) unsigned DEFAULT NULL,
+  `size_id` int(10) unsigned DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
+  FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+  FOREIGN KEY (`size_id`) REFERENCES `sizes` (`id`)
+) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+-- /  Completando tablas
 
 
--- / Populando las tablas
 INSERT INTO `brands` VALUES 
-	(DEFAULT, 'Mimo', NULL, NULL),
-	(DEFAULT, 'Zuppa', NULL, NULL),
-	(DEFAULT, 'Owoko', NULL, NULL),
-	(DEFAULT, 'Gepetto', NULL, NULL);
-	
-
+	(DEFAULT, 'Meow', NULL, NULL),
+	(DEFAULT, 'Facheritos', NULL, NULL),
+	(DEFAULT, 'Cheeky', NULL, NULL),
+	(DEFAULT, 'Litle Akiabara', NULL, NULL),
+	(DEFAULT, 'Grisino', NULL, NULL);
+​
 INSERT INTO `categories` VALUES 
-	(DEFAULT, 'nenas', NULL, NULL),
-	(DEFAULT, 'nenes', NULL, NULL),
-	(DEFAULT, 'bbNene', NULL, NULL),
-	(DEFAULT, 'bbNena', NULL, NULL);
-
-
+	(DEFAULT, 'Bebe-niña', NULL, NULL),
+	(DEFAULT, 'Bebe-niño', NULL, NULL),
+	(DEFAULT, 'Niña', NULL, NULL),
+	(DEFAULT, 'Niño', NULL, NULL);
+	
+INSERT INTO `sizes` VALUES 
+	(DEFAULT, 'S', NULL, NULL),
+	(DEFAULT, 'M', NULL, NULL),
+	(DEFAULT, 'L', NULL, NULL),
+	(DEFAULT, 'XL', NULL, NULL);
+	
+​
 INSERT INTO `colors` VALUES 
 	(DEFAULT, 'yellow', NULL, NULL),
 	(DEFAULT, 'blue', NULL, NULL),
@@ -96,8 +122,11 @@ INSERT INTO `colors` VALUES
 	(DEFAULT, 'white', NULL, NULL),
 	(DEFAULT, 'black', NULL, NULL);
 
+​
 INSERT INTO `users` VALUES 
-	(DEFAULT, 'Jon', 'Doe', 'jondoe@email.com', '123abc', NULL, NULL),
-	(DEFAULT, 'Jane', 'Doe', 'janedoe@email.com', '123abc', NULL, NULL),
-	(DEFAULT, 'Jon', 'Snow', 'jonsnow@email.com', '123abc', NULL, NULL);
-	
+	(DEFAULT, 'Maria', 'Perez', 'maria@email.com', '123abc', NULL, NULL),
+	(DEFAULT, 'Jose', 'Diaz', 'jose@email.com', '123abc', NULL, NULL),
+	(DEFAULT, 'Juan', 'Suarez', 'juan@email.com', '123abc', NULL, NULL);
+
+INSERT INTO `products` VALUES
+  (DEFAULT, 'Remera', '800','remera.png', NULL, null,null,null, NULL,null,NULL);
