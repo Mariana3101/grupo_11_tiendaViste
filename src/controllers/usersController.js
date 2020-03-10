@@ -93,7 +93,7 @@ const controller = {
                         userData.password = hash
                         db.Users.create(userData)
                             .then(users => {
-                                res.json({ status: users.email + 'Registered!' })
+                                return res.render('usuarios/ingresar', { users })
 
                                 let newSession = req.session;
                                 newSession.email = req.body.email;

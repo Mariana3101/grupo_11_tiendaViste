@@ -54,6 +54,14 @@
 
                     <br>
 
+                    <label>Color:</label>
+                    <select name="colors">
+                            <option value="" required>Elegí el color</option>
+                            <% colors.forEach(oneColor => { %>
+                            <option value="<%= oneColor.id %>"> <%= oneColor.name %> </option>
+                            <% }) %>
+                        </select>
+
                     <div class="row">
                         <div class="imagen">
                             <div id="divInputLoad">
