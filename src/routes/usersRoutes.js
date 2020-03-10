@@ -11,8 +11,10 @@ const diskStorage = multer.diskStorage({
     },
 
     filename: function(req, file, cb) {
-        let userName = req.body.name.replace(/ /g, '_').toLowerCase();
-        let imageFinalName = userName + 'userAvatar' + Date.now() + path.extname(file.originalname);
+        //  let userName = req.body.name.replace(/ /g, '_').toLowerCase();
+        // let imageFinalName = userName + 'userAvatar' + Date.now() + path.extname(file.originalname);
+        // cb(null, imageFinalName);
+        let imageFinalName = `user_avatar${Date.now()}${path.extname(file.originalname)}`;
         cb(null, imageFinalName);
     }
 });
@@ -32,7 +34,7 @@ const guestMiddleware = require('../middlewares/guestMiddleware');
 router.get('/usuarios/registrar', guestMiddleware, usersController.register); /* registrar*/
 
 router.post('/usuarios/registrar', upload.single("avatar"), [
-    check('name').isLength({ min: 3}).withMessage('Este campo debe estar completo'),
+    check('name').isLength({ min: 3 }).withMessage('Este campo debe estar completo'),
     check('lastname').isLength({ min: 3 }).withMessage('Este campo debe estar completo'),
     check('email').isEmail().withMessage('Debe ingresar un Email valido'),
     check('password').isLength({ min: 3 }).withMessage('La contraseña debe tener por lo menos 3 caracteres'),

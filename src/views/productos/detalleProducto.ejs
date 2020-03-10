@@ -48,19 +48,22 @@
 
 
                         <!--Borrar Producto -->
+                        <br> <br/>
 
                         <form action="/productos/borrar/<%= products.id %>?_method=DELETE" method="POST">
-                            <button type="submit">BORRAR</button>
+                            <button type="submit" class="btn btn-light">BORRAR</button>
                         </form>
-
+                        <br> <br/>
                         <form action="/productos/editar/<%= products.id %>?_method=PUT" method="POST">
-                            <button><a href="/productos/editar/<%= products.id %>">Modificar</a></button>
+                            <button class="btn btn-light"><a href="/productos/editar/<%= products.id %>">Modificar</a>
+                                </button>
                         </form>
+                        <br>
+                        <br/>
+                        <div class=" col-12 container-listaProductos responsive ">
 
-                        <div class="col-12 container-listaProductos responsive">
 
-
-                            <a href="/todosLosProductos" class="btn btn-primary btn-sm button-volver" role="button" aria-pressed="true">Volver</a>
+                            <a href="/todosLosProductos " class="class=" btn btn-outline-light btn-sm button-volver " role="button " aria-pressed="true ">Volver</a>
 
 
                         </div>

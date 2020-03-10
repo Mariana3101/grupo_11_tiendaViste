@@ -10,6 +10,7 @@ CREATE TABLE `users` (
   `last_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL UNIQUE,
   `password` varchar(255) NOT NULL,
+  `image` varchar(255) NULL DEFAULT 'no-image.png',
   `createdAt` timestamp NULL DEFAULT NULL,
   `updatedAt` timestamp NULL DEFAULT NULL
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

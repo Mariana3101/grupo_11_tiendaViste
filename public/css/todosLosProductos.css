@@ -12,7 +12,6 @@ body {
     /*position: absolute;*/
 }
 
-.titulo-productos,
 .h1 {
     display: flex;
     justify-content: center;
@@ -60,13 +59,6 @@ body {
     margin: 0;
 }
 
-.product-box_data span {
-    font-size: 1.5em;
-    font-weight: 300;
-    color: var(--green);
-    margin: 0 0 0 10px;
-}
-
 .product-box_data p {
     font-size: 1.5em;
     width: 100%;
@@ -75,24 +67,6 @@ body {
     height: 0;
     transition: 300ms;
     overflow: hidden;
-}
-
-.product-box_data i {
-    color: var(--green);
-    font-size: 1.8em;
-    width: 35px;
-    height: 35px;
-    text-align: center;
-    border: solid 1px;
-    border-radius: 50%;
-    position: absolute;
-    top: -15px;
-    right: 15px;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 300ms;
 }
 
 .product-box:hover {

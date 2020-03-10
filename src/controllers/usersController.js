@@ -78,6 +78,7 @@ const controller = {
             last_name: req.body.last_name,
             email: req.body.email,
             password: req.body.password,
+            image: req.file.filename
 
         }
 
@@ -95,8 +96,6 @@ const controller = {
                             .then(users => {
                                 return res.render('usuarios/ingresar', { users })
 
-                                let newSession = req.session;
-                                newSession.email = req.body.email;
 
                             })
                             .catch(err => {
@@ -153,6 +152,8 @@ const controller = {
     perfil: (req, res) => {
         console.log("hola estoy en el get de perfil");
         console.log(req.session.email);
+
+
 
 
         res.render('usuarios/perfil');
