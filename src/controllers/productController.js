@@ -159,7 +159,7 @@ const controller = {
                 product_id: req.body.product_id,
                 name: req.body.name,
                 price: req.body.price,
-                // image: req.file.filename,
+                image: req.file.filename,
                 brand_id: req.body.brands,
                 size_id: req.body.size,
                 category_id: req.body.categories,
