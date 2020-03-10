@@ -8,55 +8,59 @@
         <%- include('../partials/headerNavbar.ejs') %>
             <div class="container-productos">
                 <main>
-                    <div class="titulo-productos">
-                        <h1>Todos los Productos</h1>
+                    <div class="products-title">
+                        <h2>Todos los Productos</h2>
                     </div>
-                    <ul>
-                        <% products.forEach(oneProduct => { %>
-                            <li>
 
+                    <div class="row product-box">
+                        <section class="list-group">
 
-                                <a href="/productos/detalleProducto/ <%= oneProduct.id %>"><br>
+                            <% products.forEach(oneProduct => { %>
+                                <li>
+                                    <a href="/productos/detalleProducto/ <%= oneProduct.id %>"><br>
+                                        <figure class="product-box_image">
+                                            <img src="/images/avatars/<%= oneProduct.image %>" width="100">
+                                        </figure>
 
-                                    <!--<b>Nombre:</b>-->
-                                    <%= oneProduct.name %> <br>
-                                        <b>Precio:</b>
-                                        <%= oneProduct.price %> <br>
+                                        <article class="product-box_data">
+                                            <ul>
+                                                <h1>
+                                                    <b>Nombre:</b>
+                                                    <%= oneProduct.name %>
+                                                </h1><br/>
+                                                <br/>
+                                                <h1><b> Precio:</b>
+                                                    <%= oneProduct.price %> <br></h1>
+                                                <!-- para llamar el color -->
+                                                <% if (oneProduct.colors.length> 0) { %>
+                                                    <b> Color</b>
+                                                    <% oneProduct.colors.forEach(colors => { %>
+                                                        <%= colors.name %>
+                                                            <% }) %>
+                                                                <br>
+                                                                <% } %>
+                                                                    <!--para llamar a la categoria-->
+                                                                    <% if (oneProduct.categories.length >0) { %>
+                                                                        <b> Categoría:</b>
+                                                                        <b>
+                                        
+                                            <% oneProduct.categories.forEach(category => { %>
+                                                <li>
+                                                    <%= category.name %>
+                                                </li>
+                                                <% }) %>
+                                             </ul>
+                                        <br>
+                                        <% } %>
 
-                                            <!-- para llamar el color -->
-                                            <% if (oneProduct.colors.length> 0) { %>
-                                                <b>Color</b>
+                                            <br><br>
+                                </li>
+                                <% }) %>
 
-                                                <% oneProduct.colors.forEach(colors => { %>
+                                    </article>
 
-                                                    <%= colors.name %>
-
-                                                        <% }) %>
-
-                                                            <br>
-
-                                                            <% } %>
-
-                                                                <!--para llamar a la categoria-->
-                                                                <% if (oneProduct.categories.length >0) { %>
-                                                                    <b>Categoría:</b>
-                                                                    </!--<b>
-                                                                    <ul>
-                                                                        <% oneProduct.categories.forEach(category => { %>
-                                                                            <li>
-                                                                                <%= category.name %>
-                                                                            </li>
-
-                                                                            <% }) %>
-                                                                    </ul>
-                                                                    <br>
-                                                                    <% } %>
-                                                                        <img src="/images/avatars/<%= oneProduct.image %>" width="100">
-
-                                                                        <br><br>
-                            </li>
-                            <% }) %>
-                    </ul>
+                        </section>
+                    </div>
                 </main>
             </div>
     </body>

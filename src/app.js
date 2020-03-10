@@ -8,7 +8,7 @@ const methodOverride = require('method-override');
 const multer = require("multer"); //Necesario para poder subir archivos// 
 const session = require('express-session');
 const userCookieMiddleware = require('./middlewares/userCookieMiddleware');
-//const passport = require('passport');
+
 
 
 // ************ express() - (don't touch) ************
@@ -57,8 +57,8 @@ app.use((err, req, res, next) => {
     res.locals.message = err.message;
     res.locals.path = req.path;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-    // render the error page
+    console.log()
+        // render the error page
     res.status(err.status || 500);
     res.render('error');
 });

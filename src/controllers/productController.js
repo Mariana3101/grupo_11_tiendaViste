@@ -59,7 +59,9 @@ const controller = {
 
     // crear producto por GET 
     create: (req, res) => {
+
         // falta hacer que se agregue el resto de los campos que no se cargan en la base de datos
+
         db.Brands
             .findAll()
             .then(brands => {
@@ -79,23 +81,23 @@ const controller = {
     store: (req, res) => {
 
 
-
         db.Products.create({
+            id: req.body.id,
             name: req.body.name,
             price: req.body.price,
-            image: req.body.image,
+            image: req.file.filename,
             brand_id: req.body.brand,
             size_id: req.body.size,
             category_id: req.body.categories,
             colors_id: req.body.colors_id,
 
+        })
 
+        .then(oneProducts => {
+                return res.redirect('/todosLosProductos');
 
-
-
-        });
-        return res.redirect('/todosLosProductos');
-
+            })
+            .catch(error => console.log(error));
     },
     // Borrar producto
     destroy: (req, res) => {
@@ -154,11 +156,14 @@ const controller = {
     update: (req, res) => {
         db.Products
             .update({
+                product_id: req.body.product_id,
                 name: req.body.name,
                 price: req.body.price,
-                image: req.body.image,
-                brand_id: req.body.brand,
-                catogory_id: req.body.Categories
+                // image: req.file.filename,
+                brand_id: req.body.brands,
+                size_id: req.body.size,
+                category_id: req.body.categories,
+                colors_id: req.body.colors_id,
 
             }, {
                 where: {
@@ -168,7 +173,7 @@ const controller = {
             })
             .then((unProducto) => {
                 //No funciona este redirest, pero si se modifica la base de datos
-                return res.render('productos/editar', { unProducto });
+                return res.redirect('/productos/editar' + req.params.id);
             })
             .catch(error => console.log(error));
     },
@@ -219,7 +224,7 @@ const controller = {
         };
 
         req.body.creador = 'Producto guardado por equipo Viste';
-        req.body.avatar = req.file.filename;
+        req.body.image = req.file.filename;
 
         arrayDeProductos.push(req.body);
 
@@ -313,7 +318,7 @@ const controller = {
                     producto: req.body.producto,
                     cantidad: req.body.cantidad,
                     precio: req.body.precio,
-                    avatar: req.file ? req.file.filename : unProducto.avatar,
+                    image: req.file ? req.file.filename : unProducto.image,
                 }
                 return unProducto;
             }

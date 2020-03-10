@@ -10,25 +10,29 @@
             <!--Falta Cargar Imagen y Talle y el select de producto-->
 
             <main class="carga-producto">
-                <form action="/productos/crear " method="POST">
+                <form action="/productos/crear " method="POST" enctype="multipart/form-data">
                     <div>
                         <label>Producto: </label> <br>
                         <input type="text" name="name" required>
                         <br><br>
                     </div>
 
-
-                    <div>
-                        <label>Precio: </label> <br>
-                        <input type="number" name="price" required>
-                        <br><br>
+                    <div class="row">
+                        <!--Label Cantidad-->
+                        <div class="col-6">
+                            <label for="cantidad">Cantidad</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="number" id="cantidad" name="cantidad" placeholder="Ingrese un numero" required>
+                        </div>
+                        <!--Label precio-->
+                        <div class="col-6">
+                            <label for="precio">Precio</label>
+                        </div>
+                        <div class="col-6">
+                            <input type="number" id="precio" name="price" required>
+                        </div>
                     </div>
-                    <div>
-                        <label>Cantidad: </label> <br>
-                        <input type="number" name="quantity" required>
-                        <br><br>
-                    </div>
-
                     <div>
                         <label>Marca: </label>
                         <select name="brand_id">
@@ -54,7 +58,7 @@
                         <div class="imagen">
                             <div id="divInputLoad">
                                 <div id="divFileUpload">
-                                    <input id="file-upload" type="file" accept="image/*" name="avatars" />
+                                    <input id="file-upload" type="file" accept="image/*" name="image" />
                                 </div>
                                 <div id="file-preview-zone">
                                 </div>
