@@ -72,43 +72,50 @@ const controller = {
     // POST de registrar
     store: (req, res) => {
 
+        let errors = (validationResult(req));
+        if (errors.isEmpty()) {
+            const userData = {
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                email: req.body.email,
+                password: req.body.password,
+                image: req.file.filename
 
-        const userData = {
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            email: req.body.email,
-            password: req.body.password,
-            image: req.file.filename
+            }
 
+            db.Users.findOne({
+                    where: {
+                        email: req.body.email
+                    }
+                })
+                //TODO bcrypt
+                .then(users => {
+                    if (!users) {
+                        bcrypt.hash(req.body.password, 10, (err, hash) => {
+                            userData.password = hash
+                            db.Users.create(userData)
+                                .then(users => {
+                                    return res.render('usuarios/ingresar', { users })
+
+
+                                })
+                                .catch(err => {
+                                    res.send('error: ' + err)
+                                })
+                        })
+                    } else {
+                        res.json({ error: 'User already exists' })
+                    }
+                })
+                .catch(err => {
+                    res.send('error: ' + err)
+                })
+
+        } else {
+            res.render('usuarios/registrar', {
+                errors: errors.errors
+            })
         }
-
-        db.Users.findOne({
-                where: {
-                    email: req.body.email
-                }
-            })
-            //TODO bcrypt
-            .then(users => {
-                if (!users) {
-                    bcrypt.hash(req.body.password, 10, (err, hash) => {
-                        userData.password = hash
-                        db.Users.create(userData)
-                            .then(users => {
-                                return res.render('usuarios/ingresar', { users })
-
-
-                            })
-                            .catch(err => {
-                                res.send('error: ' + err)
-                            })
-                    })
-                } else {
-                    res.json({ error: 'User already exists' })
-                }
-            })
-            .catch(err => {
-                res.send('error: ' + err)
-            })
     },
 
 
@@ -123,28 +130,43 @@ const controller = {
 
     // POST de ingresar
     processLogin: (req, res) => {
-        let email = req.body.email,
-            password = req.body.password;
-        db.Users
-            .findOne({ where: { email: email } })
-            .then(function(users) {
-                if (!users) {
-                    res.redirect('ingresar');
-                } else {
-                    bcrypt.compare(password, users.password, function(err, result) {
-                        if (result == true) {
-                            req.session.user = users;
-                            res.redirect('perfil'); // perfil
-                        } else {
-                            req.session.users = users.dataValues;
-                            res.redirect('index');
-                        }
 
-                    });
-                }
 
-                console.log(req.body.email);
-            }).catch(error => console.log(error));
+        let errors = (validationResult(req));
+        console.log(validationResult(req));
+
+        if (errors.isEmpty()) {
+
+            let email = req.body.email,
+                password = req.body.password;
+            db.Users
+                .findOne({ where: { email: email } })
+                .then(function(users) {
+                    if (!users) {
+                        res.redirect('ingresar');
+                    } else {
+                        bcrypt.compare(password, users.password, function(err, result) {
+                            if (result == true) {
+                                req.session.user = users;
+                                res.redirect('perfil'); // perfil
+                            } else {
+                                req.session.users = users.dataValues;
+                                res.redirect('index');
+                            }
+
+                        });
+                    }
+
+                    console.log(req.body.email);
+                }).catch(error => console.log(error));
+
+        } else {
+            res.render('usuarios/ingresar', {
+                errors: errors.errors
+            })
+
+        }
+
     },
 
 
