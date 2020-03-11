@@ -159,7 +159,15 @@ const controller = {
 
             )
             .then(users => {
-                return res.render('usuarios/perfil', { users });
+
+
+                let la_session = req.session;
+                if (la_session.email && req.cookies) {
+                    return res.render('usuarios/perfil', { users });
+                } else {
+                    res.redirect('ingresar');
+                }
+
             })
             .catch(error => console.log(error));
 
