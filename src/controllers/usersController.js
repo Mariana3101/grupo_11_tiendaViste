@@ -133,7 +133,7 @@ const controller = {
                 } else {
                     bcrypt.compare(password, users.password, function(err, result) {
                         if (result == true) {
-                            req.session.email = req.body.email;
+                            req.session.user = users;
                             res.redirect('perfil'); // perfil
                         } else {
                             req.session.users = users.dataValues;
@@ -151,22 +151,13 @@ const controller = {
     // GET de perfil
     perfil: (req, res) => {
         console.log("hola estoy en el get de perfil");
-        console.log(req.session.email);
+        console.log(req.session.user);
         db.Users
             .findByPk(
-                req.params.id,
-
-
+                req.session.user.id,
             )
             .then(users => {
-
-
-                let la_session = req.session;
-                if (la_session.email && req.cookies) {
-                    return res.render('usuarios/perfil', { users });
-                } else {
-                    res.redirect('ingresar');
-                }
+                return res.render('usuarios/perfil', { users });
 
             })
             .catch(error => console.log(error));
