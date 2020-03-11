@@ -152,24 +152,33 @@ const controller = {
     perfil: (req, res) => {
         console.log("hola estoy en el get de perfil");
         console.log(req.session.email);
+        db.Users
+            .findByPk(
+                req.params.id,
 
 
+            )
+            .then(users => {
+                return res.render('usuarios/perfil', { users });
+            })
+            .catch(error => console.log(error));
 
-
-        res.render('usuarios/perfil');
-        //let la_session = req.session;
-        // if (la_session.email) {
-
-        //  },
-
-        // if (req.session.users && req.cookies.register_login) {
-
-        // res.render('perfil');
-        //   res.redirect('usuarios/perfil');
-        //  } else {
-        //  res.redirect('ingresar');
-        //  }
     },
+
+    //  res.render('usuarios/perfil');
+    //let la_session = req.session;
+    // if (la_session.email) {
+
+    //  },
+
+    // if (req.session.users && req.cookies.register_login) {
+
+    // res.render('perfil');
+    //   res.redirect('usuarios/perfil');
+    //  } else {
+    //  res.redirect('ingresar');
+    //  }
+
     /*
                 db.Users.findOne({
                         where: {
