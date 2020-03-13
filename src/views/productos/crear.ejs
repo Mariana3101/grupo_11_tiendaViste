@@ -13,7 +13,7 @@
                 <form action="/productos/crear " method="POST" enctype="multipart/form-data">
                     <div>
                         <label>Producto: </label> <br>
-                        <input type="text" name="name" required>
+                        <input type="text" name="name" required placeholder="Ingrese un producto">
                         <br><br>
                     </div>
 
@@ -30,7 +30,7 @@
                             <label for="precio">Precio</label>
                         </div>
                         <div class="col-6">
-                            <input type="number" id="precio" name="price" required>
+                            <input type="number" id="precio" name="price" required placeholder="Ingrese un numero">
                         </div>
                     </div>
                     <div>
@@ -43,24 +43,40 @@
                         </select>
                         <br><br>
                     </div>
-
-                    <label>Categorías:</label>
-                    <select name="categories">
-                            <option value="" required>Elegí varias categorías</option>
+                    <!--Color-->
+                    <div>
+                        <label>Color: </label>
+                        <select name="colors_id">
+                            <option value="">Elegí una marca</option>
+                            <% colors.forEach(oneColors => { %>
+                            <option value="<%= oneColors.id %>"> <%= oneColors.name %> </option>
+                            <% }) %>
+                        </select>
+                        <br><br>
+                    </div>
+                    <!--Talle-->
+                    <div>
+                        <label>Talle: </label>
+                        <select name="size_id">
+                            <option value="">Elegí una marca</option>
+                            <% size.forEach(oneSize => { %>
+                            <option value="<%= oneSize.id %>"> <%= oneSize.name %> </option>
+                            <% }) %>
+                        </select>
+                        <br><br>
+                    </div>
+                    <!--Categoria-->
+                    <div>
+                        <label>Categorías:</label>
+                        <select name="categories" multiple>
+                            <option value="">Elegí varias categorías</option>
                             <% categories.forEach(oneCategory => { %>
                             <option value="<%= oneCategory.id %>"> <%= oneCategory.name %> </option>
                             <% }) %>
                         </select>
+                    </div>
 
-                    <br>
 
-                    <label>Color:</label>
-                    <select name="colors">
-                            <option value="" required>Elegí el color</option>
-                            <% colors.forEach(oneColor => { %>
-                            <option value="<%= oneColor.id %>"> <%= oneColor.name %> </option>
-                            <% }) %>
-                        </select>
 
                     <div class="row">
                         <div class="imagen">

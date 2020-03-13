@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
+const Op = db.Sequelize.Op;
 
 
 const ubicacionProductosJSON = path.join(__dirname, '../data/productos.json');
@@ -48,11 +49,13 @@ const controller = {
     index: (req, res) => {
         db.Products
             .findAll({
-                include: ['user', 'categories', 'brand', 'colors', 'sizes']
-                    //no puedo mostrar el talle
+                include: ['user', 'categories', 'brand', 'colors', 'size']
+
+
             })
             .then(products => {
                 return res.render('productos/todosLosProductos', { products });
+
             })
             .catch(error => console.log(error));
     },
@@ -86,9 +89,9 @@ const controller = {
             name: req.body.name,
             price: req.body.price,
             image: req.file.filename,
-            brand_id: req.body.brand,
-            size_id: req.body.size,
-            category_id: req.body.categories,
+            brand_id: req.body.brand_id,
+            size_id: req.body.size_id,
+            category_id: req.body.category,
             colors_id: req.body.colors_id,
 
         })

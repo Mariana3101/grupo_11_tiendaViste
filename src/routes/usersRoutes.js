@@ -4,6 +4,9 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 let { check, validationResult, body } = require('express-validator');
+const db = require('../database/models');
+const sequelize = db.sequelize;
+
 
 const diskStorage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -21,6 +24,8 @@ const diskStorage = multer.diskStorage({
 
 const upload = multer({ storage: diskStorage });
 
+//---
+
 
 
 // ************ Controller Require ************
@@ -37,8 +42,18 @@ router.post('/usuarios/registrar', upload.single("avatar"), [
     check('first_name').isLength({ min: 3 }).withMessage('Este campo debe estar completo'),
     check('lastname').isLength({ min: 3 }).withMessage('Este campo debe estar completo'),
     check('email').isEmail().withMessage('Debe ingresar un Email valido'),
-    check('password').isLength({}).withMessage('La contraseña debe tener por lo menos 3 caracteres'),
+    check('email').normalizeEmail(),
+    /*
+    check('email').custom(value => {
+        return db.Users.findByEmail(value).then(users => {
+            if (users) {
+                return Promise.reject('E-mail already in use');
+            }
+        });
+    }),
+*/
 
+    check('password').isLength({}).withMessage('La contraseña debe tener por lo menos 3 caracteres'),
 ], usersController.store);
 
 router.get('/usuarios/ingresar', guestMiddleware, usersController.login); /* Ingresar-Login*/
@@ -48,7 +63,6 @@ router.post('/usuarios/ingresar', [
         check('password').isLength({ min: 3 }).withMessage('La contraseña debe tener por lo menos 3 caracteres'),
     ],
     usersController.processLogin);
-
 //router.get("/usuarios/perfil", authMiddleware, usersController.perfil);
 router.get("/usuarios/perfil", usersController.perfil);
 router.get('/usuarios/cerrarSesion', usersController.cerrarSesion);

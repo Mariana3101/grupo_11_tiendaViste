@@ -151,7 +151,7 @@ const controller = {
                                 res.redirect('perfil'); // perfil
                             } else {
                                 req.session.users = users.dataValues;
-                                res.redirect('index');
+                                res.render('index');
                             }
 
                         });
@@ -174,6 +174,8 @@ const controller = {
     perfil: (req, res) => {
         console.log("hola estoy en el get de perfil");
         console.log(req.session.user);
+
+
         db.Users
             .findByPk(
                 req.session.user.id,
@@ -183,7 +185,6 @@ const controller = {
 
             })
             .catch(error => console.log(error));
-
     },
 
     //  res.render('usuarios/perfil');

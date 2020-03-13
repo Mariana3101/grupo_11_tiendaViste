@@ -7,14 +7,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         name: dataTypes.STRING,
     });
-    Size.associate = (models) => {
-        Size.belongsToMany(models.Products, {
-            as: 'products',
-            through: 'size_product',
-            foreignKey: 'size_id',
-            otherKey: 'product_id'
-        });
-    }
+
 
     return Size;
 }

@@ -24,41 +24,44 @@
 
                                         <article class="product-box_data">
                                             <ul>
-                                                <h1>
-                                                    <b>Nombre:</b>
-                                                    <%= oneProduct.name %>
-                                                </h1><br/>
-                                                <br/>
-                                                <h1><b> Precio:</b>
-                                                    <%= oneProduct.price %> <br></h1>
-                                                <!-- para llamar el color -->
-                                                <% if (oneProduct.colors.length > 0) { %>
-                                                    <b> Color</b>
-                                                    <% oneProduct.colors.forEach(colors => { %>
-                                                        <%= colors.name %>
-                                                            <% }) %>
-                                                                <br>
-                                                                <% } %>
-                                                                    <!--para llamar a la categoria-->
-                                                                    <% if (oneProduct.categories.length >0) { %>
-                                                                        <b> Categoría:</b>
-                                                                        <b>
-                                        
-                                            <% oneProduct.categories.forEach(category => { %>
+
                                                 <li>
-                                                    <%= category.name %>
-                                                </li>
-                                                <% }) %>
-                                             </ul>
-                                        <br>
-                                        <% } %>
+                                                    <h1>
+                                                        <b>Nombre:</b>
+                                                        <%= oneProduct.name %>
+                                                    </h1>
 
-                                            <br><br>
-                                </li>
-                                <% }) %>
+                                                    <h1><b> Precio:</b>
+                                                        <%= oneProduct.price %> <br></h1>
 
-                                    </article>
-                                </a>
+                                                    <b>Marca:</b>
+                                                    <%= oneProduct.brand.name %> <br>
+
+
+                                                        <b>Talle:</b>
+                                                        <%= oneProduct.size.name %> <br>
+
+
+
+                                                            <!-- para llamar el color -->
+                                                            <b>Color:</b>
+                                                            <%= oneProduct.colors.name %> <br>
+
+
+                                                                <b>Categoria:</b>
+                                                                <%= oneProduct.categories.name %> <br>
+
+                                                                    <br>
+
+
+
+
+                                                                    <!--para llamar a la categoria-->
+
+                                                                    <% }) %>
+
+                                        </article>
+                                    </a>
                         </section>
                     </div>
                 </main>

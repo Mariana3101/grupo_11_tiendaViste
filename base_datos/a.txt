@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('../partials/head.ejs', {title: 'todosLosProductos'}) %>
+
+    <body class="page-todosLosProductos">
+        <!-- Header -->
+        <%- include('../partials/headerNavbar.ejs') %>
+            <div class="container-productos">
+                <main>
+                    <div class="products-title">
+                        <h2>Todos los Productos</h2>
+                    </div>
+
+                    <div class="row product-box">
+                        <section class="list-group">
+
+                            <% products.forEach(oneProduct => { %>
+                                <li>
+                                    <a href="/productos/detalleProducto/ <%= oneProduct.id %>"><br>
+                                        <figure class="product-box_image">
+                                            <img src="/images/avatars/<%= oneProduct.image %>" width="100">
+                                        </figure>
+
+                                        <article class="product-box_data">
+                                            <ul>
+                                                <% products.forEach(oneProduct => { %>
+                                                    <li>
+                                                        <h1>
+                                                            <b>Nombre:</b>
+                                                            <%= oneProduct.name %>
+                                                        </h1><br/>
+                                                        <br/>
+                                                        <h1><b> Precio:</b>
+                                                            <%= oneProduct.price %> <br></h1>
+
+                                                        <b>Marca:</b>
+                                                        <%= oneProduct.brand.name %> <br>
+                                                            <!-- para llamar el color -->
+
+                                                            <% if (oneProduct.colors.length > 0) { %>
+                                                                <b> Color</b>
+                                                                <% oneProduct.colors.forEach(colors => { %>
+                                                                    <%= colors.name %>
+                                                                        <% }) %>
+                                                                            <br>
+                                                                            <% } %>
+                                                                                <!--para llamar a la categoria-->
+                                                                                <% if (oneProduct.categories.length >0) { %>
+                                                                                    <b> Categoría:</b>
+                                                                                    <b>
+                                        
+                                            <% oneProduct.categories.forEach(category => { %>
+                                                <li>
+                                                    <%= category.name %>
+                                                </li>
+                                                <% }) %>
+                                             </ul>
+                                        <br>
+                                        <% } %>
+
+                                            <br><br>
+                                </li>
+                                <% }) %>
+
+                                    </article>
+                                </a>
+                        </section>
+                    </div>
+                </main>
+            </div>
+    </body>
+
+
+
+    <!-- footer -->
+    <%- include('../partials/footer.ejs') %>
+        <!-- /footer -->

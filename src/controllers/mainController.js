@@ -60,8 +60,8 @@ function generateUserId() {
 
 const controller = {
     root: (req, res) => {
-        //const isLogged = req.session.userId ? true : false;
-        //let userLogged = getUserById(req.session.userId);
+        // const isLogged = req.session.userId ? true : false;
+        // let userLogged = getUserById(req.session.userId);
         //res.render('index', { isLogged, userLogged });
         res.render('index');
     },
