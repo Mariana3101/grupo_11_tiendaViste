@@ -74,7 +74,7 @@ const controller = {
                         db.Colors
                             .findAll()
                             .then(colors => {
-                                //return res.render('productos/crear', { brands, categories, colors });
+
                                 db.Sizes
                                     .findAll()
                                     .then(sizes => {
@@ -94,16 +94,18 @@ const controller = {
 
 
         db.Products.create({
-            id: req.body.id,
-            name: req.body.name,
-            price: req.body.price,
-            image: req.file.filename,
-            brand_id: req.body.brand_id,
-            size_id: req.body.size_id,
-            category_id: req.body.category,
-            colors_id: req.body.colors_id,
+                id: req.body.id,
+                name: req.body.name,
+                price: req.body.price,
+                image: req.file.filename,
+                brand_id: req.body.brand_id,
+                size_id: req.body.size_id,
+                category_id: req.body.category_id,
+                colors_id: req.body.colors_id,
 
-        })
+            })
+            //  console.log(req.body.category)
+
 
         .then(oneProducts => {
                 return res.redirect('/todosLosProductos');

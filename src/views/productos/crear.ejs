@@ -58,8 +58,8 @@
                     <div>
                         <label>Talle: </label>
                         <select name="size_id">
-                            <option value="">Elegí una marca</option>
-                            <% size.forEach(oneSize => { %>
+                            <option value="">Elegí una Talle</option>
+                            <% sizes.forEach(oneSize => { %>
                             <option value="<%= oneSize.id %>"> <%= oneSize.name %> </option>
                             <% }) %>
                         </select>
@@ -67,15 +67,15 @@
                     </div>
                     <!--Categoria-->
                     <div>
-                        <label>Categorías:</label>
-                        <select name="categories" multiple>
-                            <option value="">Elegí varias categorías</option>
-                            <% categories.forEach(oneCategory => { %>
-                            <option value="<%= oneCategory.id %>"> <%= oneCategory.name %> </option>
+                        <label>Categoria: </label>
+                        <select name="category_id">
+                            <option value="">Elegí una Talle</option>
+                            <% categories.forEach(oneCategories => { %>
+                            <option value="<%= oneCategories.id %>"> <%= oneCategories.name %> </option>
                             <% }) %>
                         </select>
+                        <br><br>
                     </div>
-
 
 
                     <div class="row">
