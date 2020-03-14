@@ -33,39 +33,20 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: 'size_id'
         });
 
-        Product.belongsTo(models.Categories, {
-            as: 'categories',
-            foreignKey: 'category_id'
-        });
+
 
         Product.belongsTo(models.Colors, {
             as: 'colors',
             foreignKey: 'colors_id'
         });
 
+        Product.belongsToMany(models.Categories, {
+            as: 'categories',
+            through: 'category_product',
+            foreignKey: 'product_id',
+            otherKey: 'category_id'
+        });
 
-        /*
-                        Product.belongsToMany(models.Categories, {
-                            as: 'categories',
-                            through: 'category_product',
-                            foreignKey: 'product_id',
-                            otherKey: 'category_id'
-                        });
-
-                        Product.belongsToMany(models.Colors, {
-                            as: 'colors',
-                            through: 'colors_product',
-                            foreignKey: 'product_id',
-                            otherKey: 'colors_id'
-                        });
-
-                        Product.belongsToMany(models.Sizes, {
-                            as: 'sizes',
-                            through: 'size_product',
-                            foreignKey: 'product_id',
-                            otherKey: 'size_id'
-                        });
-*/
 
     }
 

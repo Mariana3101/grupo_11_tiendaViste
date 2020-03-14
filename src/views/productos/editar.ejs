@@ -27,8 +27,7 @@
                         <input type="text" name="price" value="<%=products.price%> ">
                         <br><br>
                     </div>
-
-
+                    <!--Categoria-->
                     <div>
                         <label>Categorías:</label>
                         <select name=" category_id ">
@@ -45,6 +44,39 @@
                     </div>
 
 
+                    <!--Color-->
+                    <div>
+                        <label>Color:</label>
+                        <select name=" colors_id ">
+                            <option value=" ">Elegí un color</option>
+                            <% colors.forEach(oneColors => { %>
+                            <option 
+                                value="<%=oneColors.id %>"
+                        <%= products.colors_id == colors.id ? 'selected' : null %>
+                            >
+                            <%= oneColors.name %>
+                                </option>
+                                <% }) %>
+                                    </select>
+                    </div>
+                    <!--Talle-->
+                    <div>
+                        <label>Talle:</label>
+                        <select name=" size_id ">
+                            <option value=" ">Elegí un talle </option>
+                              <% sizes.forEach(oneSize => { %>
+                             <option 
+                                 value="<%= oneSize.id %>"
+                                     <%= products.size_id == oneSize.id ? 'selected' : null %>>
+        
+                                  <%= oneSize.name %>
+                            </option>
+                             <% }) %>
+                        </select>
+                    </div>
+
+
+                    <!--Scrip imagen-->
                     <div class="row ">
                         <div class="imagen">
                             <div id="divInputLoad">

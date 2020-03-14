@@ -139,7 +139,8 @@ const controller = {
                 req.params.id, {
                     include: [{
 
-                            association: 'categories'
+                            association: 'categories',
+
                         },
 
                     ],
@@ -160,7 +161,23 @@ const controller = {
                 sequelize
                     .query('SELECT * FROM categories')
                     .then(categoriesInDB => {
-                        return res.render('productos/editar', { products, categories: categoriesInDB[0] });
+                        sequelize
+
+                            .query('SELECT * FROM colors')
+                            .then(colorsInDb => {
+                                sequelize
+                                    .query('SELECT * FROM sizes')
+                                    .then(sizesInDb => {
+                                        return res.render('productos/editar', {
+                                            products,
+                                            categories: categoriesInDB[0],
+                                            colors: colorsInDb[0],
+                                            sizes: sizesInDb[0]
+                                        });
+                                    })
+
+                            })
+
                     })
             })
             .catch(error => console.log(error));
