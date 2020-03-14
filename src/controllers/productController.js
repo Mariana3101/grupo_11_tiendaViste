@@ -71,7 +71,16 @@ const controller = {
                 db.Categories
                     .findAll()
                     .then(categories => {
-                        return res.render('productos/crear', { brands, categories });
+                        db.Colors
+                            .findAll()
+                            .then(colors => {
+                                //return res.render('productos/crear', { brands, categories, colors });
+                                db.Sizes
+                                    .findAll()
+                                    .then(sizes => {
+                                        return res.render('productos/crear', { brands, categories, colors, sizes });
+                                    })
+                            })
                     })
 
             })
