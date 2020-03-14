@@ -10,8 +10,7 @@ module.exports = (sequelize, dataTypes) => {
         email: dataTypes.STRING,
         password: dataTypes.STRING,
         image: dataTypes.STRING,
-
-
+        role: dataTypes.STRING,
     });
 
     User.prototype.getFullName = function() {

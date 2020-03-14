@@ -7,25 +7,22 @@ let { check, validationResult, body } = require('express-validator');
 const db = require('../database/models');
 const sequelize = db.sequelize;
 
-
 const diskStorage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, path.join(__dirname, '../../public/images/usersAvatars'));
     },
 
     filename: function(req, file, cb) {
-        //  let userName = req.body.name.replace(/ /g, '_').toLowerCase();
-        // let imageFinalName = userName + 'userAvatar' + Date.now() + path.extname(file.originalname);
-        // cb(null, imageFinalName);
-        let imageFinalName = `user_avatar${Date.now()}${path.extname(file.originalname)}`;
+        let userName = req.body.name;
+        let imageFinalName = userName + 'userAvatar' + Date.now() + path.extname(file.originalname);
         cb(null, imageFinalName);
+       // let imageFinalName = `user_avatar${Date.now()}${path.extname(file.originalname)}`;
+        //cb(null, imageFinalName);
     }
 });
 
+
 const upload = multer({ storage: diskStorage });
-
-//---
-
 
 
 // ************ Controller Require ************
@@ -40,9 +37,9 @@ router.get('/usuarios/registrar', guestMiddleware, usersController.register); /*
 
 router.post('/usuarios/registrar', upload.single("avatar"), [
     check('first_name').isLength({ min: 3 }).withMessage('Este campo debe estar completo'),
-    check('lastname').isLength({ min: 3 }).withMessage('Este campo debe estar completo'),
+    check('last_name').isLength({ min: 3 }).withMessage('Este campo debe estar completo'),
     check('email').isEmail().withMessage('Debe ingresar un Email valido'),
-    check('email').normalizeEmail(),
+    //check('email').normalizeEmail(),
     /*
     check('email').custom(value => {
         return db.Users.findByEmail(value).then(users => {
