@@ -115,22 +115,17 @@ const controller = {
     },
     // Borrar producto
     destroy: (req, res) => {
+        db.Colors
         db.Products
-            .findByPk(req.params.id, {
-                include: ['categories']
+            .destroy({
+                where: {
+                    id: req.params.id
+                }
             })
-            .then(products => {
-                let categories = products.categories;
-                categories.map(cat => {
-                    sequelize
-                        .query(`DELETE FROM category_product WHERE product_id = ${products.id} AND category_id = ${cat.id}`)
-                        .then(() => console.log('Done!'))
-                        .catch(() => console.log('Ups I did it again!'));
-                });
-                products.destroy();
-                return res.status(200).redirect('/todosLosProductos');
+            .then(() => {
+                return res.redirect('/todosLosProductos');
             })
-            .catch(() => console.log('Is the final count down!'));
+            .catch(error => console.log(error));
     },
     // Detalle Producto
     show: (req, res) => {
