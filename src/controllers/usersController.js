@@ -1,7 +1,6 @@
 const fs = require('fs');
 const bcrypt = require('bcrypt');
 const path = require('path');
-
 let { check, validationResult, body } = require('express-validator');
 
 const db = require('../database/models');
@@ -73,6 +72,7 @@ const controller = {
     store: (req, res) => {
 
         let errors = (validationResult(req));
+        console.log(validationResult(req))
         if (errors.isEmpty()) {
             const userData = {
                 first_name: req.body.first_name,
@@ -80,6 +80,7 @@ const controller = {
                 email: req.body.email,
                 password: req.body.password,
                 image: req.file.filename
+                
 
             }
 
@@ -96,15 +97,16 @@ const controller = {
                             db.Users.create(userData)
                                 .then(users => {
                                     return res.render('usuarios/ingresar', { users })
-
+                                    
 
                                 })
+                               
                                 .catch(err => {
                                     res.send('error: ' + err)
                                 })
                         })
                     } else {
-                        res.json({ error: 'User already exists' })
+                        res.json({ error: 'Usuario ya existe' })
                     }
                 })
                 .catch(err => {
@@ -131,33 +133,35 @@ const controller = {
     // POST de ingresar
     processLogin: (req, res) => {
 
-
         let errors = (validationResult(req));
-        console.log(validationResult(req));
-
+        
         if (errors.isEmpty()) {
 
-            let email = req.body.email,
-                password = req.body.password;
+            let email = req.body.email;
+            let password = req.body.password;
             db.Users
-                .findOne({ where: { email: email } })
+                .findOne({ where: { email: email} 
+                         })
                 .then(function(users) {
                     if (!users) {
-                        res.redirect('ingresar');
+                        res.send('No hay usuarios registrados con ese email');
                     } else {
                         bcrypt.compare(password, users.password, function(err, result) {
                             if (result == true) {
+                                // Setear en session el ID del usuario
                                 req.session.user = users;
+                        
                                 res.redirect('perfil'); // perfil
+                                
                             } else {
-                                req.session.users = users.dataValues;
-                                res.render('index');
+                                res.send ("Credenciales inválidas");
+                                //req.session.users = users.dataValues;
+                                //res.render('index');
                             }
 
                         });
                     }
-
-                    console.log(req.body.email);
+                    
                 }).catch(error => console.log(error));
 
         } else {
@@ -172,21 +176,18 @@ const controller = {
 
     // GET de perfil
     perfil: (req, res) => {
-        console.log("hola estoy en el get de perfil");
-        console.log(req.session.user);
-
-
+        
         db.Users
             .findByPk(
                 req.session.user.id,
-            )
-            .then(users => {
-                return res.render('usuarios/perfil', { users });
+                     )
+            .then(usersLogged => {
+                return res.render('usuarios/perfil', { usersLogged });
 
             })
             .catch(error => console.log(error));
     },
-
+ 
     //  res.render('usuarios/perfil');
     //let la_session = req.session;
     // if (la_session.email) {

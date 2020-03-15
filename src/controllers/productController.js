@@ -50,14 +50,20 @@ const controller = {
         db.Products
             .findAll({
                 include: ['user', 'categories', 'brand', 'colors', 'size']
-
-
             })
             .then(products => {
-                return res.render('productos/todosLosProductos', { products });
+                db.Users
+                    .findByPk(
+                        req.session.user.id,
+                    )
+                    .then(usersLogged => {
+                        const isLogged = req.session.user;
+                        if (isLogged)
+                            return res.render('productos/todosLosProductos', { usersLogged, products, isLogged });
 
+                    })
+                    .catch(error => console.log(error));
             })
-            .catch(error => console.log(error));
     },
     // crear producto por GET 
     create: (req, res) => {

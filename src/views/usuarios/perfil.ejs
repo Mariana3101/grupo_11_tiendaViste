@@ -11,10 +11,11 @@
             <div class="container" style="margin-top: 40px;">
                 <div class="row">
                     <div class="col-md-4">
-                        <h2>Hola
-                            <%= users.email %>
+                        <h2>¡Hola!
+                            
+                            <%= usersLogged.first_name %>
                         </h2>
-                        <img src="/images/usersAvatars/<%= users.image %>" width="100%">
+                        <img src="/images/usersAvatars/<%= usersLogged.image %>" width="100%">
                         <br>
                         <br>
                         <div class="alert alert-success">

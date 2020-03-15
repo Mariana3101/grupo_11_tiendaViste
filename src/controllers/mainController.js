@@ -60,20 +60,28 @@ function generateUserId() {
 
 const controller = {
     root: (req, res) => {
-        // const isLogged = req.session.userId ? true : false;
+        const isLogged = req.session.user; 
+        if(!isLogged) {
+            res. render ("index")
+        } else {
+        
+        db.Users
+        .findByPk(
+            req.session.user.id,
+                 )
+        .then(usersLogged => {
+        res.render('index', { isLogged, usersLogged });
+        })
+    }
+    },
         // let userLogged = getUserById(req.session.userId);
         //res.render('index', { isLogged, userLogged });
-        res.render('index');
-    },
-
+        //res.render('index');
     nosotros: (req, res) => {
         const isLogged = req.session.userId ? true : false;
         //  let userLogged = getUserById(req.session.userId);
         //res.render('nosotros', { isLogged, userLogged });
         res.render('index');
     },
-
 };
-
-
 module.exports = controller;

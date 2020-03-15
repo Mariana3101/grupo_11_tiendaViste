@@ -37,10 +37,11 @@
                     <!--<h1>hola</h1>-->
 
                     <% if (isLogged) { %>
+                        
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="/images/usersAvatars/<%= userLogged.avatar %>" width="40" style="border-radius: 100%;">
-                    Hola <%= userLogged.name %>
+                    <img src="/images/usersAvatars/<%= usersLogged.image %>" width="40" style="border-radius: 100%;">
+                    Hola <%= usersLogged.first_name %>
                     </a>
                             <div class="dropdown-menu" aria-labelledby="dropUser" style="left: auto; right: 0;">
                                 <a class="dropdown-item" href="/usuarios/perfil">Mi perfil</a>
