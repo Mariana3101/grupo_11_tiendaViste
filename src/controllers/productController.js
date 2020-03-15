@@ -59,7 +59,6 @@ const controller = {
             })
             .catch(error => console.log(error));
     },
-
     // crear producto por GET 
     create: (req, res) => {
 
@@ -129,6 +128,7 @@ const controller = {
     },
     // Detalle Producto
     show: (req, res) => {
+
         db.Products
             .findByPk(
                 req.params.id, {
@@ -142,7 +142,11 @@ const controller = {
                 }
             )
             .then(products => {
-                return res.render('productos/detalleProducto', { products, id: products.id });
+                return res.render('productos/detalleProducto', {
+                    products,
+                    id: products.id,
+
+                });
             })
             .catch(error => console.log(error));
     },
