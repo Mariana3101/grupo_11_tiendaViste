@@ -30,7 +30,7 @@
                     <!--Categoria-->
                     <div>
                         <label>Categorías:</label>
-                        <select name=" category_id ">
+                        <select name="category_id">
                             <option value=" ">Elegí una categoria</option>
                             <% categories.forEach(oneCategories => { %>
                             <option 
@@ -42,12 +42,27 @@
                                 <% }) %>
                                     </select>
                     </div>
-
-
+                    <!--Marca-->
+                    <div>
+                        <label>Marca:</label>
+                        <select name="brand_id">
+                            <option value=" ">Elegí una marca</option>
+                            <% brands.forEach(onebrands => { %>
+                            <option 
+                                value="<%= onebrands.id %>"
+                        <%= products.brand_id == onebrands.id ? 'selected' : null %>
+                            >
+                            <%= onebrands.name %>
+                                </option>
+                                <% }) %>
+                                    </select>
+                    </div>
                     <!--Color-->
+
+
                     <div>
                         <label>Color:</label>
-                        <select name=" colors_id ">
+                        <select name="colors_id">
                             <option value=" ">Elegí un color</option>
                             <% colors.forEach(oneColors => { %>
                             <option 
@@ -62,7 +77,7 @@
                     <!--Talle-->
                     <div>
                         <label>Talle:</label>
-                        <select name=" size_id ">
+                        <select name="size_id">
                             <option value=" ">Elegí un talle </option>
                               <% sizes.forEach(oneSize => { %>
                              <option 
