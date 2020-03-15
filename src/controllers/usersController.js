@@ -150,6 +150,7 @@ const controller = {
                             if (result == true) {
                                 // Setear en session el ID del usuario
                                 req.session.user = users;
+                        
                                 res.redirect('perfil'); // perfil
                                 
                             } else {
@@ -180,8 +181,8 @@ const controller = {
             .findByPk(
                 req.session.user.id,
                      )
-            .then(users => {
-                return res.render('usuarios/perfil', { users });
+            .then(usersLogged => {
+                return res.render('usuarios/perfil', { usersLogged });
 
             })
             .catch(error => console.log(error));
