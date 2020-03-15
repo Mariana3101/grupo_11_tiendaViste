@@ -24,13 +24,13 @@
 
                     <div>
                         <label>Precio: </label> <br>
-                        <input type="text" name="price" value="<%=products.price%> ">
+                        <input type="text" name="price" value="<%=products.price%> " required>
                         <br><br>
                     </div>
                     <!--Categoria-->
                     <div>
                         <label>Categorías:</label>
-                        <select name="category_id">
+                        <select name="category_id" required>
                             <option value=" ">Elegí una categoria</option>
                             <% categories.forEach(oneCategories => { %>
                             <option 
@@ -45,7 +45,7 @@
                     <!--Marca-->
                     <div>
                         <label>Marca:</label>
-                        <select name="brand_id">
+                        <select name="brand_id" required>
                             <option value=" ">Elegí una marca</option>
                             <% brands.forEach(onebrands => { %>
                             <option 
@@ -59,25 +59,25 @@
                     </div>
                     <!--Color-->
 
-
                     <div>
                         <label>Color:</label>
-                        <select name="colors_id">
+                        <select name="colors_id" required>
                             <option value=" ">Elegí un color</option>
                             <% colors.forEach(oneColors => { %>
                             <option 
-                                value="<%=oneColors.id %>"
-                        <%= products.colors_id == colors.id ? 'selected' : null %>
+                                value="<%= oneColors.id %>"
+                        <%= products.colors_id == oneColors.id ? 'selected' : null %>
                             >
                             <%= oneColors.name %>
                                 </option>
                                 <% }) %>
                                     </select>
                     </div>
+
                     <!--Talle-->
                     <div>
                         <label>Talle:</label>
-                        <select name="size_id">
+                        <select name="size_id" required>
                             <option value=" ">Elegí un talle </option>
                               <% sizes.forEach(oneSize => { %>
                              <option 
@@ -96,7 +96,7 @@
                         <div class="imagen">
                             <div id="divInputLoad">
                                 <div id="divFileUpload">
-                                    <input id="file-upload" type="file" accept="image/*" name="image" />
+                                    <input id="file-upload" required type="file" accept="image/*" name="image" />
                                 </div>
                                 <div id="file-preview-zone">
                                 </div>
