@@ -179,50 +179,13 @@ const controller = {
     // GET de perfil
     perfil: (req, res) => {
 
-        db.Users
-            .findByPk(
-                req.session.user.id,
-            )
-            .then(userLogged => {
-                return res.render('usuarios/perfil', { userLogged });
 
-            })
-            .catch(error => console.log(error));
+        return res.render('usuarios/perfil');
+
+
     },
 
-    //  res.render('usuarios/perfil');
-    //let la_session = req.session;
-    // if (la_session.email) {
 
-    //  },
-
-    // if (req.session.users && req.cookies.register_login) {
-
-    // res.render('perfil');
-    //   res.redirect('usuarios/perfil');
-    //  } else {
-    //  res.redirect('ingresar');
-    //  }
-
-    /*
-                db.Users.findOne({
-                        where: {
-                            id: req.params.id
-                        }
-                    })
-                    .then(users => {
-                        if (users) {
-                            res.json(users)
-                        } else {
-                            res.send('User does not exist')
-                        }
-                    })
-                    .catch(err => {
-                        res.send('error: ' + err)
-                    })
-
-
-                res.render('/perfil'); */
 
     // GET de cerrar sesion
 
@@ -235,7 +198,7 @@ const controller = {
         // return res.redirect('/usuariosperfil');
         res.cookie('userCookie', null, { maxAge: 1 });
 
-        return res.redirect('/');
+        return res.redirect('/usuarios/perfil');
 
     },
 
