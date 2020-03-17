@@ -47,7 +47,7 @@ function getUserById(id) {
 const controller = {
     // todos los productos
     index: (req, res) => {
-<<<<<<< HEAD
+
         const isLogged = req.session.user; 
         if(isLogged) {
             db.Products
@@ -75,46 +75,7 @@ const controller = {
             .catch(error => console.log(error));
 }
 },
-
-        db.Products
-            .findAll({
-                include: ['user', 'categories', 'brand', 'colors', 'size']
-            })
-
-        .then(products => {
-
-
-
-                return res.render('productos/todosLosProductos', { products });
-
-
-
-
-                /*
-                        Me parece que esta logica no es necesaria, porque la vista todosLosProductos 
-                        debe ser vista por los usuarios esten logueados  o no 
-                    
-                                        .then(products => {
-
-
-                                                db.Users
-                                                    .findByPk(
-                                                        req.session.user.id,
-                                                    )
-
-                                                .then(usersLogged => {
-                                                    const isLogged = req.session.user;
-                                                    if (isLogged)
-                                                        return res.render('productos/todosLosProductos', { usersLogged, products, isLogged });
-
-                                                })*/
-
-            })
-            .catch(error => console.log(error));
-    },
->>>>>>> 72bec720ccfeaf0742e0665832a45f0e46504e0d
-
-
+  
     // crear producto por GET 
     create: (req, res) => {
 
