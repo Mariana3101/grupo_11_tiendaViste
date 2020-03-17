@@ -48,17 +48,25 @@
                                                             <%= oneProduct.colors.name %> <br>
 
 
-                                                                <b>Categoria:</b>
-                                                                <%= oneProduct.categories.name %> <br>
 
+
+                                                                <!--no muestra la categoria-->
+
+                                                                <% if (oneProduct.categories.length > 0) { %>
+                                                                    <h5>Categorías</h5>
+                                                                    <ul>
+                                                                        <% oneProduct.categories.forEach(category => { %>
+                                                                            <li>
+                                                                                <%= category.name %>
+                                                                            </li>
+                                                                            <% }) %>
+                                                                    </ul>
                                                                     <br>
+                                                                    <% } %>
 
+                                                                        <!--para llamar a la categoria-->
 
-
-
-                                                                    <!--para llamar a la categoria-->
-
-                                                                    <% }) %>
+                                                                        <% }) %>
 
                                         </article>
                                     </a>
