@@ -16,7 +16,7 @@ const diskStorage = multer.diskStorage({
         let userName = req.body.name;
         let imageFinalName = userName + 'userAvatar' + Date.now() + path.extname(file.originalname);
         cb(null, imageFinalName);
-       // let imageFinalName = `user_avatar${Date.now()}${path.extname(file.originalname)}`;
+        // let imageFinalName = `user_avatar${Date.now()}${path.extname(file.originalname)}`;
         //cb(null, imageFinalName);
     }
 });
@@ -39,18 +39,8 @@ router.post('/usuarios/registrar', upload.single("avatar"), [
     check('first_name').isLength({ min: 3 }).withMessage('Este campo debe estar completo'),
     check('last_name').isLength({ min: 3 }).withMessage('Este campo debe estar completo'),
     check('email').isEmail().withMessage('Debe ingresar un Email valido'),
-    //check('email').normalizeEmail(),
-    /*
-    check('email').custom(value => {
-        return db.Users.findByEmail(value).then(users => {
-            if (users) {
-                return Promise.reject('E-mail already in use');
-            }
-        });
-    }),
-*/
 
-    check('password').isLength({}).withMessage('La contraseña debe tener por lo menos 3 caracteres'),
+    check('password').isLength({ min: 3 }).withMessage('La contraseña debe tener por lo menos 3 caracteres'),
 ], usersController.store);
 
 router.get('/usuarios/ingresar', guestMiddleware, usersController.login); /* Ingresar-Login*/
@@ -60,8 +50,8 @@ router.post('/usuarios/ingresar', [
         check('password').isLength({ min: 3 }).withMessage('La contraseña debe tener por lo menos 3 caracteres'),
     ],
     usersController.processLogin);
-//router.get("/usuarios/perfil", authMiddleware, usersController.perfil);
-router.get("/usuarios/perfil", usersController.perfil);
+router.get("/usuarios/perfil", authMiddleware, usersController.perfil);
+//router.get("/usuarios/perfil", usersController.perfil);
 router.get('/usuarios/cerrarSesion', usersController.cerrarSesion);
 
 

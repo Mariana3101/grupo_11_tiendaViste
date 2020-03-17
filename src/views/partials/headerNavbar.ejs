@@ -34,31 +34,31 @@
             <div class="col-md- 3 d-none d-md-block">
 
                 <ul class="navbar-nav ml-auto align-items-center ">
-                    <!--<h1>hola</h1>-->
+                    <h1>hola</h1>
+                    <% console.log(locals.user) %>
+                        <% if (isLogged) { %>
 
-                    <% if (isLogged) { %>
-                        
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img src="/images/usersAvatars/<%= usersLogged.image %>" width="40" style="border-radius: 100%;">
-                    Hola <%= usersLogged.first_name %>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="/images/usersAvatars/<%= user.image %>" width="40" style="border-radius: 100%;">
+                    Hola <%= user.first_name %>
                     </a>
-                            <div class="dropdown-menu" aria-labelledby="dropUser" style="left: auto; right: 0;">
-                                <a class="dropdown-item" href="/usuarios/perfil">Mi perfil</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/usuarios/cerrarSesion">Cerrar Sesion</a>
-                            </div>
-                        </li>
-                        <% } else { %>
-                            <nav class="nav">
+                                <div class="dropdown-menu" aria-labelledby="dropUser" style="left: auto; right: 0;">
+                                    <a class="dropdown-item" href="/usuarios/perfil">Mi perfil</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="/usuarios/cerrarSesion">Cerrar Sesion</a>
+                                </div>
+                            </li>
+                            <% } else { %>
+                                <nav class="nav">
 
-                                <a class="nav-link active nav-ingresar" href="/usuarios/ingresar" style="padding: 5px;">
+                                    <a class="nav-link active nav-ingresar" href="/usuarios/ingresar" style="padding: 5px;">
                                     Ingresar </a>
 
-                                <a class="nav-link nav-registrar" href="/usuarios/registrar" style="padding: 5px;"> Registrar </a>
+                                    <a class="nav-link nav-registrar" href="/usuarios/registrar" style="padding: 5px;"> Registrar </a>
 
-                            </nav>
-                            <% } %>
+                                </nav>
+                                <% } %>
                 </ul>
 
             </div>

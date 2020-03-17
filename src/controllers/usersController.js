@@ -68,6 +68,7 @@ const controller = {
 
     },
 
+
     // POST de registrar
     store: (req, res) => {
 
@@ -80,7 +81,7 @@ const controller = {
                 email: req.body.email,
                 password: req.body.password,
                 image: req.file.filename
-                
+
 
             }
 
@@ -97,13 +98,13 @@ const controller = {
                             db.Users.create(userData)
                                 .then(users => {
                                     return res.render('usuarios/ingresar', { users })
-                                    
+
 
                                 })
-                               
-                                .catch(err => {
-                                    res.send('error: ' + err)
-                                })
+
+                            .catch(err => {
+                                res.send('error: ' + err)
+                            })
                         })
                     } else {
                         res.json({ error: 'Usuario ya existe' })
@@ -134,14 +135,15 @@ const controller = {
     processLogin: (req, res) => {
 
         let errors = (validationResult(req));
-        
+
         if (errors.isEmpty()) {
 
             let email = req.body.email;
             let password = req.body.password;
             db.Users
-                .findOne({ where: { email: email} 
-                         })
+                .findOne({
+                    where: { email: email }
+                })
                 .then(function(users) {
                     if (!users) {
                         res.send('No hay usuarios registrados con ese email');
@@ -150,18 +152,18 @@ const controller = {
                             if (result == true) {
                                 // Setear en session el ID del usuario
                                 req.session.user = users;
-                        
-                                res.redirect('perfil'); // perfil
-                                
+
+                                res.redirect('perfil');
+
                             } else {
-                                res.send ("Credenciales inválidas");
+                                res.send("Credenciales inválidas");
                                 //req.session.users = users.dataValues;
                                 //res.render('index');
                             }
 
                         });
                     }
-                    
+
                 }).catch(error => console.log(error));
 
         } else {
@@ -176,18 +178,18 @@ const controller = {
 
     // GET de perfil
     perfil: (req, res) => {
-        
+
         db.Users
             .findByPk(
                 req.session.user.id,
-                     )
-            .then(usersLogged => {
-                return res.render('usuarios/perfil', { usersLogged });
+            )
+            .then(userLogged => {
+                return res.render('usuarios/perfil', { userLogged });
 
             })
             .catch(error => console.log(error));
     },
- 
+
     //  res.render('usuarios/perfil');
     //let la_session = req.session;
     // if (la_session.email) {
@@ -227,13 +229,13 @@ const controller = {
     cerrarSesion: (req, res) => {
         //Destruir la session
         req.session.destroy();
-
+        console.log(req.session.user);
         //Destruir la cookie
         res.cookie('userIdCookie', null, { maxAge: 1 });
         // return res.redirect('/usuariosperfil');
         res.cookie('userCookie', null, { maxAge: 1 });
 
-        return res.redirect('/usuarios/perfil');
+        return res.redirect('/');
 
     },
 

@@ -1,9 +1,10 @@
 function userCookieMiddleware(req, res, next) {
     res.locals.isLogged = false;
 
-    if (req.cookies.userCookie || req.session.users) {
-        req.session.users = req.cookies.userCookie ? req.cookies.userCookie : req.session.users;
+    if (req.session.user) {
+
         res.locals.isLogged = true;
+        res.locals.user = req.session.user
     }
 
     next();
