@@ -47,7 +47,9 @@ function getUserById(id) {
 const controller = {
     // todos los productos
     index: (req, res) => {
-        db.Products
+        const isLogged = req.session.user; 
+        if(isLogged) {
+            db.Products
             .findAll({
                 include: ['user', 'categories', 'brand', 'colors', 'size']
             })
@@ -57,14 +59,22 @@ const controller = {
                 req.session.user.id,
                 )
             .then(usersLogged => {
-                const isLogged = req.session.user; 
-                if(isLogged)
-                return res.render('productos/todosLosProductos', { usersLogged,products, isLogged });
-
-            })
+                return res.render('productos/todosLosProductos', { usersLogged,products, isLogged }); 
+        })
             .catch(error => console.log(error));
     })
+} else {
+    db.Products
+            .findAll({
+                include: ['user', 'categories', 'brand', 'colors', 'size']
+            })
+            .then(products => {
+    return res.render('productos/todosLosProductos', { products }); 
+})
+            .catch(error => console.log(error));
+}
 },
+
 
     // crear producto por GET 
     create: (req, res) => {

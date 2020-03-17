@@ -80,9 +80,7 @@ const controller = {
                 email: req.body.email,
                 password: req.body.password,
                 image: req.file.filename
-                
-
-            }
+                }
 
             db.Users.findOne({
                     where: {
@@ -97,8 +95,6 @@ const controller = {
                             db.Users.create(userData)
                                 .then(users => {
                                     return res.render('usuarios/ingresar', { users })
-                                    
-
                                 })
                                
                                 .catch(err => {
@@ -150,6 +146,8 @@ const controller = {
                             if (result == true) {
                                 // Setear en session el ID del usuario
                                 req.session.user = users;
+
+                                
                         
                                 res.redirect('perfil'); // perfil
                                 
