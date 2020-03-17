@@ -192,13 +192,13 @@ const controller = {
     cerrarSesion: (req, res) => {
         //Destruir la session
         req.session.destroy();
-        console.log(req.session.user);
+
         //Destruir la cookie
         res.cookie('userIdCookie', null, { maxAge: 1 });
         // return res.redirect('/usuariosperfil');
         res.cookie('userCookie', null, { maxAge: 1 });
 
-        return res.redirect('/usuarios/perfil');
+        return res.redirect('/');
 
     },
 

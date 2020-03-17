@@ -66,13 +66,10 @@ const controller = {
 
 
     },
-    // let userLogged = getUserById(req.session.userId);
-    //res.render('index', { isLogged, userLogged });
-    //res.render('index');
+
     nosotros: (req, res) => {
         const isLogged = req.session.userId ? true : false;
-        //  let userLogged = getUserById(req.session.userId);
-        //res.render('nosotros', { isLogged, userLogged });
+
         res.render('index');
     },
 };
