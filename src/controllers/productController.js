@@ -3,6 +3,7 @@ const path = require('path');
 const db = require('../database/models');
 const sequelize = db.sequelize;
 const Op = db.Sequelize.Op;
+let { check, validationResult, body } = require('express-validator');
 
 
 const ubicacionProductosJSON = path.join(__dirname, '../data/productos.json');
@@ -107,9 +108,9 @@ const controller = {
 
     // Crear producto por POST
     store: (req, res) => {
-
-
-        db.Products.create({
+        let errors = (validationResult(req));
+        if (errors.isEmpty()) {
+            db.Products.create({
                 id: req.body.id,
                 name: req.body.name,
                 price: req.body.price,
@@ -120,14 +121,20 @@ const controller = {
                 colors_id: req.body.colors_id,
 
             })
-            //  console.log(req.body.category)
 
 
-        .then(oneProducts => {
-                return res.redirect('/todosLosProductos');
 
+            .then(oneProducts => {
+                    return res.redirect('/todosLosProductos');
+
+                })
+                .catch(error => console.log(error));
+        } else {
+            res.render('productos/crear', {
+                errors: errors.errors
             })
-            .catch(error => console.log(error));
+        }
+
     },
     // Borrar producto
     destroy: (req, res) => {

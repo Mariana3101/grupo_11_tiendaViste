@@ -7,10 +7,8 @@ const productosApiControlller = require("../../controllers/api/productosApiContr
 router.get("/", productosApiControlller.index);
 
 
-// POST - Guardar - store
-router.post('/', productosApiControlller.store);
 
-// GET - Detalle - show
-router.get('/:id', productosApiControlller.show);
+// GET - listado de users
+//router.get('/users', productosApiControlller.apiUsers);
 
 module.exports = router;

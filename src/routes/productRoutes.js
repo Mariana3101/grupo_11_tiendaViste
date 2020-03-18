@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
+let { check, validationResult, body } = require('express-validator');
 
 const storageDisk = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -26,7 +27,10 @@ const productController = require('../controllers/productController');
 /* GET - carga-producto  CREACION PRODUCTO 1*/
 router.get('/productos/crear', productController.create);
 /* POST - carga-producto CREACION PRODUCTO 2*/
-router.post("/productos/crear", upload.single('image'), productController.store);
+router.post("/productos/crear", upload.single('image'), [
+    check('name').isLength({ min: 2 }).withMessage('Este campo debe contener 2 caracteres minimo'),
+
+], productController.store);
 /* detalle-producto 3*/
 router.get('/productos/detalleProducto/:id', productController.show);
 //Listado de productos que ve el usuarioso 4

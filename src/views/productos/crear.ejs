@@ -33,16 +33,7 @@
                             <input type="number" id="precio" name="price" required placeholder="Ingrese un numero" required>
                         </div>
                     </div>
-                    <div>
-                        <label>Marca: </label>
-                        <select name="brand_id" required>
-                            <option value="" >Elegí una marca</option>
-                            <% brands.forEach(oneBrand => { %>
-                            <option value="<%= oneBrand.id %>"> <%= oneBrand.name %> </option>
-                            <% }) %>
-                        </select>
-                        <br><br>
-                    </div>
+
                     <!--Color-->
                     <div>
                         <label>Color: </label>
@@ -69,7 +60,7 @@
                     <div>
                         <label>Categoria: </label>
                         <select name="category_id" required>
-                            <option value="" >Elegí una Talle</option>
+                            <option value="" >Elegí una categoria</option>
                             <% categories.forEach(oneCategories => { %>
                             <option value="<%= oneCategories.id %>"> <%= oneCategories.name %> </option>
                             <% }) %>

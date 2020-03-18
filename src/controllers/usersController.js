@@ -193,6 +193,10 @@ const controller = {
         //Destruir la session
         req.session.destroy();
 
+
+        // No estamos usando la cookie !!!
+
+
         //Destruir la cookie
         res.cookie('userIdCookie', null, { maxAge: 1 });
         // return res.redirect('/usuariosperfil');
