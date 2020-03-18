@@ -97,9 +97,8 @@ const controller = {
                             userData.password = hash
                             db.Users.create(userData)
                                 .then(users => {
+                                    
                                     return res.render('usuarios/ingresar', { users })
-
-
                                 })
 
                             .catch(err => {

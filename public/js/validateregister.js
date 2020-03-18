@@ -16,12 +16,14 @@ function validateInput(message, input, typeOfValidator) {
     let validation;
 
     switch (typeOfValidator) {
+  
         case 'isEmail':
             validation = !validator[typeOfValidator](valorDelCampo);
             break;
         default:
             validation = validator[typeOfValidator](valorDelCampo);
             break;
+        
     }
 
     // si no se pasa la validación
@@ -47,8 +49,10 @@ function validateInput(message, input, typeOfValidator) {
 for (const unCampo of camposDelFormulario) {
     // A cada campo le pasamos el evento blur
     unCampo.addEventListener('blur', function() {
+        if (!validator.isEmpty(unCampo.value)) {
         validateInput('es obligatorio', this, 'isEmpty');
-    });
+    }
+});
 
     // Si el nombre del campo es 'email'
     if (unCampo.name === 'email') {
