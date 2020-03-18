@@ -45,6 +45,18 @@
                         </select>
                         <br><br>
                     </div>
+                    <!--Marca-->
+
+                    <div>
+                        <label>Marca: </label>
+                        <select name="brand_id" required>
+                            <option value="" >Elegí una Marca</option>
+                            <% brands.forEach(onebrands => { %>
+                            <option value="<%= onebrands.id %>"> <%= onebrands.name %> </option>
+                            <% }) %>
+                        </select>
+                        <br><br>
+                    </div>
                     <!--Talle-->
                     <div>
                         <label>Talle: </label>

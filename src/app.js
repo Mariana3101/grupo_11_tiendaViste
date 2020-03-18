@@ -46,7 +46,7 @@ app.use('/', mainRouter);
 app.use('/', usersRoutes);
 app.use('/', productRoutes);
 
-app.use('/api/productos', apiProductRouter);
+app.use('/api', apiProductRouter);
 
 
 // ************ DON'T TOUCH FROM HERE ************

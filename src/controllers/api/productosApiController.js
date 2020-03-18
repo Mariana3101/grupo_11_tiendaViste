@@ -6,15 +6,18 @@ const Op = db.Sequelize.Op;
 
 const controller = {
     // todos los productos
+
     index: (req, res) => {
+        // Error al sumar los precios
+
         //suma todos los  precios
-        //let totalSum = db.products
-        //.math.sum('price');
+        // let totalSum = db.products
+        // .sum('price');
 
         //Busco los productos
         let products = db.Products
             .findAll({
-                attributes: ['id', 'name']
+                attributes: ['id', 'name', ]
             });
 
         //Promise.all([totalSum, products])
@@ -37,61 +40,35 @@ const controller = {
 
             })
             .catch(error => console.log(error));
-        /*
-                            .catch(error => {
-                                return res.status(500).json({
-                                    metadata: {
-                                        status: req.status,
-                                        msg: 'No puedo conectar con la Base de Datos'
-                                    }
 
-                                });
-                            });
-
-*/
     },
-    /*
+    apiUsers: (req, res) => {
+        /* Busca todos los usuarios en la base de datos */
+        db.Users
+            .findAll(
 
-        // Crear producto por POST
-        store: (req, res) => {
-            Products
-                .create(req.body)
-                .then(productSaved => {
-                    return res.status(201).json({
+                {
+                    order: [
+                        ['id', 'DESC']
+                    ],
+                    attributes: ['first_name', 'last_name', 'email']
+                }
+            )
+            .then(users => {
+                /* En el resultado tambien le ponemos la URL de donde sacamos los datos y cuantos hay */
+                let result = {
                         metadata: {
-                            status: 'OK se guardó'
-                        },
-                        url: req.originalUrl + '/' + productSaved.id,
-                        loQueSeGuardoEnLaDB: productSaved
-                    })
-                }).catch(err => {
-                    return res.json(err);
-                });
-
-        },
-        // Detalle Producto
-        show: (req, res) => {
-            Products
-                .findByPk(req.params.id)
-                .then(oneProduct => {
-                    if (oneProduct) {
-                        return res.send({
-                            metadata: {
-                                status: 'OK vino el producto'
-                            },
                             url: req.originalUrl,
-
-                        })
+                            quantity: users.length
+                        },
+                        /* Aca le decimos que nos traiga los datos encontrados */
+                        data: users
                     }
-                    return res.status(404).json({
-                        metadata: {
-                            status: 404,
-                            data: 'Not found'
-                        }
-                    })
-                })
-                .catch(error => console.log(error));
-        },*/
+                    /* llamamos a result en el send, para que nos muestre los datos y lo q esta en metadata */
+                return res.send(result);
+            })
+            .catch(error => console.log(error));
+    },
 
 
 }

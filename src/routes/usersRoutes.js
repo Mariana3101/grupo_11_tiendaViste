@@ -40,14 +40,14 @@ router.post('/usuarios/registrar', upload.single("avatar"), [
     check('last_name').isLength({ min: 2 }).withMessage('Este campo debe contener 2 caracteres minimo'),
     check('email').isEmail().withMessage('Debe ingresar un Email valido'),
 
-    check('password').isLength({ min: 3 }).withMessage('La contraseña debe tener por lo menos 8 caracteres'),
+    check('password').isLength({ min: 3 }).withMessage('La contraseña debe tener por lo menos 3 caracteres'),
 ], usersController.store);
 
 router.get('/usuarios/ingresar', guestMiddleware, usersController.login); /* Ingresar-Login*/
 
 router.post('/usuarios/ingresar', [
         check('email').isEmail().withMessage('Debe ingresar un mail '),
-        check('password').isLength({ min: 3 }).withMessage('La contraseña debe tener por lo menos 8 caracteres'),
+        check('password').isLength({ min: 3 }).withMessage('La contraseña debe tener por lo menos 3 caracteres'),
     ],
     usersController.processLogin);
 router.get("/usuarios/perfil", authMiddleware, usersController.perfil);
