@@ -11,17 +11,21 @@ const controller = {
         // Error al sumar los precios
 
         //suma todos los  precios
-        // let totalSum = db.products
-        // .sum('price');
+         let totalSum = db.Products
+        .sum('price');
 
         //Busco los productos
         let products = db.Products
             .findAll({
+                order: [
+                    ['id', 'DESC']
+                ],
+
                 attributes: ['id', 'name', ]
             });
 
-        //Promise.all([totalSum, products])
-        Promise.all([products])
+        Promise.all([totalSum, products])
+        //Promise.all([products])
 
         .then(function([amount, product]) {
 
