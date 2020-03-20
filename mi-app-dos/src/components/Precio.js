@@ -46,6 +46,7 @@ class Precio extends Component{
     traerProductos(){
         this.apiCall("http://localhost:4000/api/productos", this.mostrarProductos)
     }
+    
 
     render(){
         return(

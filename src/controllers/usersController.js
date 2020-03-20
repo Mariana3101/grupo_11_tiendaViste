@@ -152,6 +152,8 @@ const controller = {
                                 // Setear en session el ID del usuario
                                 req.session.user = users;
 
+                                
+
                                 res.redirect('perfil');
 
                             } else {
