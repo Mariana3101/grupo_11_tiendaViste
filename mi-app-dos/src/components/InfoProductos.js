@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 
-class infoProductos extends Component{
+class InfoProductos extends Component{
 
     /* --- Aca arrancamos dandole el estado */
     constructor(props){
@@ -67,4 +67,4 @@ class infoProductos extends Component{
         )
     }
 }
-export default infoProductos;
+export default InfoProductos;

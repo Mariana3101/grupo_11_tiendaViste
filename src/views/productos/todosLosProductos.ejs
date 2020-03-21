@@ -50,22 +50,26 @@
 
 
 
-                                                                <!--no muestra la categoria-->
+                                                                
 
-                                                                <% if (oneProduct.categories.length > 0) { %>
-                                                                    <h5>Categorías</h5>
-                                                                    <ul>
-                                                                        <% oneProduct.categories.forEach(category => { %>
-                                                                            <li>
-                                                                                <%= category.name %>
-                                                                            </li>
-                                                                            <% }) %>
-                                                                    </ul>
-                                                                    <br>
-                                                                    <% } %>
 
                                                                         <!--para llamar a la categoria-->
-
+                                                                        <!--no muestra la categoria-->
+                                                                        <!--REvisar  categories y category_product-->
+                                                            <b>Categoria</b>
+                                                            
+                                                            <% if (oneProduct.categories.length > 0) { %>
+                                                                <h5>Categorías</h5>
+                                                                <ul>
+                                                                    <% oneProduct.categories.forEach(category => { %>
+                                                                        <li>
+                                                                            <%= category.name %>
+                                                                        </li>
+                                                                        <% }) %>
+                                                                </ul>
+                                                                <br>
+                                                                <% } %>
+                                                            
                                                                         <% }) %>
 
                                         </article>

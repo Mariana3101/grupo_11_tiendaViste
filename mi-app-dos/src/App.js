@@ -7,6 +7,7 @@ import InfoProductos from './components/InfoProductos';
 import Precio from './components/Precio';
 import UltimoItems from './components/UltimoItems';
 import Categoria from './components/Categoria';
+import InfoUsers from './components/InfoUsers';
 
 function App() {
   return (
@@ -45,8 +46,8 @@ function App() {
 {/* Aca va Precio*/}
                    <Precio/>
 
-                   {/* Aca va InfoUsers*/}
-
+ {/* Aca va InfoUsers*/}
+  <InfoUsers/>
                   
                     </div>
 
