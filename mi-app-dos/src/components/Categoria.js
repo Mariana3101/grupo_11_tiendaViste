@@ -4,13 +4,22 @@ class Categoria extends Component{
     constructor(){
         super()
         this.cambiarAmarillo = this.cambiarAmarillo.bind(this)
+        this.cambiarAzul = this.cambiarAzul.bind(this)
+
     }
 
 
     
-    cambiarAmarillo(){
-        document.querySelector('div').style.backgroundColor="yellow"
-        }
+    cambiarAmarillo(valor, id){
+      
+        document.getElementById(id).style.backgroundColor= '#00aae4' ;
+       
+
+    }
+    cambiarAzul(valor, id){
+        
+        document.getElementById(id).style.backgroundColor="blue";
+    }
 
 
 
@@ -26,47 +35,35 @@ class Categoria extends Component{
                 <div className="card-body">
                     <div className="row">
                         <div className="col-lg-6 mb-4">
-                            <div className="card bg-info text-white shadow"onMouseOver={this.cambiarAmarillo}>
+                            <div id='1' className="card bg-info2 text-white shadow" onMouseOver={(e)=>this.cambiarAmarillo(e, '1' )} onMouseOut={(e)=>this.cambiarAzul(e, '1' )}>
                                 <div className="card-body">
-                                    Category 01
+                                  Bebe-Niña
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-6 mb-4">
-                            <div className="card bg-info text-white shadow">
+                            <div id='2' className="card bg-info2 text-white shadow"  onMouseOver={(e)=>this.cambiarAmarillo(e, '2' )} onMouseOut={(e)=>this.cambiarAzul(e, '2' )}>
                                 <div className="card-body">
-                                    Category 02
+                                  Bebe-Niño
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-6 mb-4">
-                            <div className="card bg-info text-white shadow">
+                            <div  id='3' className="card bg-info2 text-white shadow" onMouseOver={(e)=>this.cambiarAmarillo(e, '3' )} onMouseOut={(e)=>this.cambiarAzul(e, '3' )}>
                                 <div className="card-body ">
-                                    Category 03
+                                    Niña
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-6 mb-4">
-                            <div className="card bg-info text-white shadow">
+                            <div  id='4'className="card bg-info2 text-white shadow"onMouseOver={(e)=>this.cambiarAmarillo(e, '4' )} onMouseOut={(e)=>this.cambiarAzul(e, '4' )}>
                                 <div className="card-body">
-                                    Category 04
+                                    Niño
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-info text-white shadow">
-                                <div className="card-body">
-                                    Category 05
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 mb-4">
-                            <div className="card bg-info text-white shadow">
-                                <div className="card-body"  >
-                                    Category 06
-                                </div>
-                            </div>
-                        </div>
+                        
+                      
                     </div>
                 </div>
             </div>
