@@ -1,6 +1,7 @@
 import React from 'react';
 //import logo from './logo.svg';
 import './App.css';
+import './Categoria.css';
 import MenuLateral from './components/MenuLateral';
 import NavBar from './components/NavBar';
 import InfoProductos from './components/InfoProductos';
