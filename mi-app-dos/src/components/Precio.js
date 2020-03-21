@@ -11,6 +11,7 @@ class Precio extends Component{
         }
     }
 
+
     /* Funcion para llamar a la API, hacemos una func porq vamos a llamar a varias */
 
     apiCall(url, consecuencia){
@@ -20,33 +21,21 @@ class Precio extends Component{
             .catch( error => console.log(error))
     }
 
-    /* Esta es la funcion consecuencia de "apiCall()" */
-
-    mostrarProductos = (data)=>{
-        console.log(data);
-        
-       this.setState(
-           {
-            amount: data.metadata.amount,
-            titulo: "Precio Total en la DB"
-           }
-        ) 
-        
-        
-        
-    }
-
     /* Cuando el componente carga, recien ahi llamamos a la API */
     componentDidMount(){
         console.log("Me monté!!");
-        this.traerProductos() 
-    }
+        this.apiCall("http://localhost:4000/api/productos", this.mostrarPrecioTotal)
+        }
 
     /* Aca va la funcion a la q llamamos desde el componentDidMount */
-    traerProductos(){
-        this.apiCall("http://localhost:4000/api/productos", this.mostrarProductos)
+    mostrarPrecioTotal = (data) => {
+        console.log(data);
+        this.setState (
+            {
+            amount: data.metadata.quantity,
+            }
+        )
     }
-    
 
     render(){
         return(

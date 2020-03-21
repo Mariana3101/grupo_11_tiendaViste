@@ -12,7 +12,7 @@ import InfoUsers from './components/InfoUsers';
 function App() {
   return (
 
-<body>
+<span>
 
 
 <div id="wrapper">
@@ -86,7 +86,7 @@ function App() {
 </div>
 
 
-</body>
+</span>
   );
 }
 

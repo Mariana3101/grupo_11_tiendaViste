@@ -36,7 +36,7 @@ function NavBar(){
             <li className="nav-item dropdown no-arrow">
                 <a className="nav-link dropdown-toggle" href="/" id="userDropdown">
                     <span className="mr-2 d-none d-lg-inline text-gray-600 small">Viste</span>
-                    <img className="img-profile rounded-circle" src="assets/images/logo.jpg" width="40" />
+                    <img className="img-profile rounded-circle" src="assets/images/logo.jpg" alt="Viste" width="40" />
                 </a>
             </li>
 
