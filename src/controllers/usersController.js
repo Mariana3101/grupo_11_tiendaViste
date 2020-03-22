@@ -153,7 +153,9 @@ const controller = {
                                 // Setear en session el ID del usuario
                                 req.session.user = users;
 
-                                
+                                if (req.body.remember_user != undefined) {
+                                    res.cookie("recordame", users.email, {maxAge: 60000} )
+                                }
 
                                 res.redirect('perfil');
 
