@@ -6,8 +6,8 @@ class InfoUsers extends Component{
     constructor(props){
         super(props);
         this.state= {
-            quatity:"",
-            titulo: "Users total en la DB"
+            quantity:"",
+            titulo: "Usuarios total en la DB"
         }
     }
 
@@ -20,28 +20,20 @@ class InfoUsers extends Component{
             .catch( error => console.log(error))
     }
 
-    /* Esta es la funcion consecuencia de "apiCall()" */
-
-    mostrarProductos = (data)=>{
-        console.log(data);
-        
-       this.setState(
-           {
-            quantity: data.metadata.quantity,
-            titulo: "Total de Usuarios"
-           }
-        )  
-    }
-
     /* Cuando el componente carga, recien ahi llamamos a la API */
     componentDidMount(){
         console.log("Me monté!!");
-        this.traerProductos() 
-    }
+        this.apiCall("http://localhost:4000/api/users", this.mostrarUsuariosTotal)
+        }
 
     /* Aca va la funcion a la q llamamos desde el componentDidMount */
-    traerProductos(){
-        this.apiCall("http://localhost:4000/api/users", this.mostrarProductos)
+    mostrarUsuariosTotal = (data) => {
+        console.log(data);
+        this.setState (
+            {
+            amount: data.metadata.quantity,
+            }
+        )
     }
 
     render(){
