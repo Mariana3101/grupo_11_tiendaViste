@@ -51,15 +51,36 @@
 
                         <!--Borrar Producto -->
                         <br> <br/>
-
+                        <% if (user.role === "admin") { %>
                         <form action="/productos/borrar/<%= products.id %>?_method=DELETE" method="POST">
                             <button type="submit" class="btn btn-light">BORRAR</button>
                         </form>
+                        <% } %> 
+            
+                        <% if (user.role === "guest") { %>
+                        <div class= "d-none">
+                            <form action="/productos/borrar/<%= products.id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-light">BORRAR</button>
+                            </form>
+                        </div>
+                        <% } %>
+                                                
                         <br> <br/>
+
+                        <% if (user.role === "admin") { %>
                         <form action="/productos/editar/<%= products.id %>?_method=PUT" method="POST">
-                            <button class="btn btn-light"><a href="/productos/editar/<%= products.id %>">Modificar</a>
-                                </button>
+                            <button class="btn btn-light"><a href="/productos/editar/<%= products.id %>">Modificar</a></button>
                         </form>
+                        <% } %> 
+
+                        <% if (user.role === "guest") { %>
+                        <div class= "d-none">
+                            <form action="/productos/editar/<%= products.id %>?_method=PUT" method="POST">
+                                <button class="btn btn-light"><a href="/productos/editar/<%= products.id %>">Modificar</a></button>
+                            </form>
+                        </div>
+                        <% } %>
+                    
                         <br>
                         <br/>
                         <div class=" col-12 container-listaProductos responsive ">

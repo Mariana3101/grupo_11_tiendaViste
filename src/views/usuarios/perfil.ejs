@@ -24,9 +24,18 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <% if (user.role === "admin") { %>
+               <div>
+                   <a href="/productos/crear"> Crear Producto</a>
+                </div>
+                           
+            <% } %> 
+            
+            <% if (user.role === "guest") { %>
+            <div class= "d-none"> 
                 <a href="/productos/crear">Crear Producto</a>
             </div>
+            <% } %>
 
     </body>
     <%- include('../partials/footer.ejs') %>
