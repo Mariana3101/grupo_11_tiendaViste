@@ -32,7 +32,7 @@ class Precio extends Component{
         console.log(data);
         this.setState (
             {
-            amount: data.metadata.quantity,
+                amount: data.metadata.amount,
             }
         )
     }

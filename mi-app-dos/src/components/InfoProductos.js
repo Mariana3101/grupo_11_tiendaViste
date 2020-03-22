@@ -32,6 +32,7 @@ class InfoProductos extends Component{
         this.setState (
             {
             quantity: data.metadata.quantity,
+           
             }
         )
     }

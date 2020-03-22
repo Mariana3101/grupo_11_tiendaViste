@@ -25,21 +25,23 @@ const controller = {
             });
 
         Promise.all([totalSum, products])
-        //Promise.all([products])
+      
 
         .then(function([amount, product]) {
 
+           
                 let result = {
                     metadata: {
-                        // status: 200,
-                        // url: "/api/productos",
+                        
                         url: req.originalUrl,
-                        quantity: products.length,
-                        amount: amount
+                        quantity: product.length,
+                        amount: amount,
+                       
                     },
+                   
                     data: products
                 }
-
+                
                 return res.send(result);
 
             })

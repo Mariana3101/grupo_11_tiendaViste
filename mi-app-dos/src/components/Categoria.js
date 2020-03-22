@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 
 class Categoria extends Component{
-  
+   constructor (){
+       super();
+       this.state = {
+           valor:1
+       }
+   }
 
     
     cambiarColor(valor, id){
-        if (!document.getElementById(id).style.backgroundColor || document.getElementById(id).style.backgroundColor=="blue")
+        if (!document.getElementById(id).style.backgroundColor || document.getElementById(id).style.backgroundColor==="blue")
             document.getElementById(id).style.backgroundColor= '#00aae4' ;
         else
             document.getElementById(id).style.backgroundColor="blue";

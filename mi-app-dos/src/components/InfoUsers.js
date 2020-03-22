@@ -31,7 +31,7 @@ class InfoUsers extends Component{
         console.log(data);
         this.setState (
             {
-            amount: data.metadata.quantity,
+                quantity: data.metadata.quantity,
             }
         )
     }
