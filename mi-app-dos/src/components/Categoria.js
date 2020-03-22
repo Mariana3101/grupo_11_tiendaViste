@@ -1,26 +1,17 @@
 import React, { Component } from 'react';
 
 class Categoria extends Component{
-    constructor(){
-        super()
-        this.cambiarAmarillo = this.cambiarAmarillo.bind(this)
-        this.cambiarAzul = this.cambiarAzul.bind(this)
-
-    }
-
+  
 
     
-    cambiarAmarillo(valor, id){
-      
-        document.getElementById(id).style.backgroundColor= '#00aae4' ;
-       
+    cambiarColor(valor, id){
+        if (!document.getElementById(id).style.backgroundColor || document.getElementById(id).style.backgroundColor=="blue")
+            document.getElementById(id).style.backgroundColor= '#00aae4' ;
+        else
+            document.getElementById(id).style.backgroundColor="blue";
 
     }
-    cambiarAzul(valor, id){
-        
-        document.getElementById(id).style.backgroundColor="blue";
-    }
-
+  
 
 
     render(){
@@ -35,28 +26,28 @@ class Categoria extends Component{
                 <div className="card-body">
                     <div className="row">
                         <div className="col-lg-6 mb-4">
-                            <div id='1' className="card bg-info2 text-white shadow" onMouseOver={(e)=>this.cambiarAmarillo(e, '1' )} onMouseOut={(e)=>this.cambiarAzul(e, '1' )}>
+                            <div id='1' className="card bg-info2 text-white shadow" onClick={(e)=>this.cambiarColor(e, '1' )} >
                                 <div className="card-body">
                                   Bebe-Niña
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-6 mb-4">
-                            <div id='2' className="card bg-info2 text-white shadow"  onMouseOver={(e)=>this.cambiarAmarillo(e, '2' )} onMouseOut={(e)=>this.cambiarAzul(e, '2' )}>
+                            <div id='2' className="card bg-info2 text-white shadow"  onClick={(e)=>this.cambiarColor(e, '2' )} >
                                 <div className="card-body">
                                   Bebe-Niño
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-6 mb-4">
-                            <div  id='3' className="card bg-info2 text-white shadow" onMouseOver={(e)=>this.cambiarAmarillo(e, '3' )} onMouseOut={(e)=>this.cambiarAzul(e, '3' )}>
+                            <div  id='3' className="card bg-info2 text-white shadow" onClick={(e)=>this.cambiarColor(e, '3' )}>
                                 <div className="card-body ">
                                     Niña
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-6 mb-4">
-                            <div  id='4'className="card bg-info2 text-white shadow"onMouseOver={(e)=>this.cambiarAmarillo(e, '4' )} onMouseOut={(e)=>this.cambiarAzul(e, '4' )}>
+                            <div  id='4'className="card bg-info2 text-white shadow"onClick={(e)=>this.cambiarColor(e, '4' )} >
                                 <div className="card-body">
                                     Niño
                                 </div>
