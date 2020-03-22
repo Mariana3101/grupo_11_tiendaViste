@@ -5,7 +5,7 @@ class Categoria extends Component{
 
     
     cambiarColor(valor, id){
-        if (!document.getElementById(id).style.backgroundColor || document.getElementById(id).style.backgroundColor=="blue")
+        if (!document.getElementById(id).style.backgroundColor || document.getElementById(id).style.backgroundColor==="blue")
             document.getElementById(id).style.backgroundColor= '#00aae4' ;
         else
             document.getElementById(id).style.backgroundColor="blue";
@@ -21,7 +21,7 @@ class Categoria extends Component{
             <div className="col-lg-6 mb-4" >
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
-                    <h6 className="m-0 font-weight-bold text-primary">Categories in Data Base</h6>
+                    <h6 className="m-0 font-weight-bold text-primary">Categorias en Base de Dato</h6>
                 </div>
                 <div className="card-body">
                     <div className="row">

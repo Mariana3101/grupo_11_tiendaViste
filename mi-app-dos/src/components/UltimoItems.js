@@ -21,8 +21,14 @@ class UltimoItems extends Component{
             .then( data => consecuencia(data) )
             .catch( error => console.log(error))
     }
+
+    /* Cuando el componente carga, recien ahi llamamos a la API */
+    componentDidMount(){
+        console.log("Me monté!!");
+        this.apiCall("http://localhost:4000/api/productos", this.mostrarUltimoItems)
+    }
 /* Funcion CONSECUENCIA */
-    mostrarUltimoProducto = (data)=>{
+    mostrarUltimoItems = (data)=>{
         console.log(data);
         
        this.setState(
@@ -36,24 +42,13 @@ class UltimoItems extends Component{
         )  
     }
 
-    /* Cuando el componente carga, recien ahi llamamos a la API */
-    componentDidMount(){
-        console.log("Me monté!!");
-        this.traerUltimoProducto() 
-    }
-
-    /* Aca va la funcion a la q llamamos desde el componentDidMount */
-    traerUltimoProducto(){
-        this.apiCall("http://localhost:4000/api/productos", this.mostrarUltimoProducto)
-    }
-
-
+    
     render(){
         return(
             <div className="col-lg-6 mb-4">
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
-                    <h6 className="m-0 font-weight-bold text-primary">ÚLTIMO PRODUCTO CARGADO</h6>
+                    <h6 className="m-0 font-weight-bold text-primary">Último producto cargado...</h6>
                 </div>
                 <div className="card-body">
                     <div className="text-center">
@@ -64,7 +59,7 @@ class UltimoItems extends Component{
                     <h3>Nombre: {this.state.name}</h3>
                     <p>Precio: ${this.state.price}</p>
                     <p>{this.state.description}</p>
-                    <a target="_blank" rel="noopener noreferrer" href={`http://localhost:3000/productos/detalle/${this.state.id}`}>Ver detalle de Producto</a>
+                    <a target="_blank" rel="noopener noreferrer" href="/">Ver detalle de Producto</a>
                 </div>
             </div>
         </div>

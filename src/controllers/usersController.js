@@ -80,10 +80,11 @@ const controller = {
                 last_name: req.body.last_name,
                 email: req.body.email,
                 password: req.body.password,
-                image: req.file.filename
-
-
+                image: req.file.filename,
+                role: "guest"
+                
             }
+            console.log(userData)
 
             db.Users.findOne({
                     where: {

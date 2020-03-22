@@ -37,7 +37,7 @@ const controller = {
                         quantity: products.length,
                         amount: amount
                     },
-                    data: products
+                    data: product
                 }
 
                 return res.send(result);
