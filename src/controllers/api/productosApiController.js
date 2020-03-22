@@ -38,8 +38,12 @@ const controller = {
                         amount: amount,
                        
                     },
+<<<<<<< HEAD
                    
                     data: products
+=======
+                    data: product
+>>>>>>> a20594bfed3722c0ac85cc87e98e1b8a9f55c7cb
                 }
                 
                 return res.send(result);

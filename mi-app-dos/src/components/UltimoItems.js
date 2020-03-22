@@ -21,7 +21,14 @@ class UltimoItems extends Component{
             .then( data => consecuencia(data) )
             .catch( error => console.log(error))
     }
+
+    /* Cuando el componente carga, recien ahi llamamos a la API */
+    componentDidMount(){
+        console.log("Me monté!!");
+        this.apiCall("http://localhost:4000/api/productos", this.mostrarUltimoItems)
+    }
 /* Funcion CONSECUENCIA */
+<<<<<<< HEAD
 mostrarUltimoProducto = (data)=>{
     console.log(data);
     
@@ -50,12 +57,29 @@ mostrarUltimoProducto = (data)=>{
     }
 
 
+=======
+    mostrarUltimoItems = (data)=>{
+        console.log(data);
+        
+       this.setState(
+           {
+            id: data.data[0].id,
+            name: data.data[0].name,
+            price: data.data[0].price,
+            description: data.data[0].description,
+            image: data.data[0].image
+           }
+        )  
+    }
+
+    
+>>>>>>> a20594bfed3722c0ac85cc87e98e1b8a9f55c7cb
     render(){
         return(
             <div className="col-lg-6 mb-4">
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
-                    <h6 className="m-0 font-weight-bold text-primary">ÚLTIMO PRODUCTO CARGADO</h6>
+                    <h6 className="m-0 font-weight-bold text-primary">Último producto cargado...</h6>
                 </div>
                 <div className="card-body">
                     <div className="text-center">
@@ -66,8 +90,13 @@ mostrarUltimoProducto = (data)=>{
                     <h3>Nombre: {this.state.name}</h3>
                    ;
                     <p>Precio: ${this.state.price}</p>
+<<<<<<< HEAD
                    
                     <a target="_blank" rel="noopener noreferrer" href={`http://localhost:4000/productos/detalleProducto/${this.state.id}`}>Ver detalle de Producto</a>
+=======
+                    <p>{this.state.description}</p>
+                    <a target="_blank" rel="noopener noreferrer" href="/">Ver detalle de Producto</a>
+>>>>>>> a20594bfed3722c0ac85cc87e98e1b8a9f55c7cb
                 </div>
             </div>
         </div>

@@ -17,17 +17,15 @@ const storageDisk = multer.diskStorage({
 
 const upload = multer({ storage: storageDisk })
 
-// ************ Controller Require ************
-//const controller = require('../controllers/productController');
-
-
-
 const productController = require('../controllers/productController');
 
+// ************ Middlewares ************
+const adminMiddleware = require('../middlewares/adminMiddleware');
+
 /* GET - carga-producto  CREACION PRODUCTO 1*/
-router.get('/productos/crear', productController.create);
+router.get('/productos/crear', adminMiddleware, productController.create);
 /* POST - carga-producto CREACION PRODUCTO 2*/
-router.post("/productos/crear", upload.single('image'), [
+router.post("/productos/crear",adminMiddleware, upload.single('image'), [
     check('name').isLength({ min: 2 }).withMessage('Este campo debe contener 2 caracteres minimo'),
 
 ], productController.store);
@@ -36,11 +34,11 @@ router.get('/productos/detalleProducto/:id', productController.show);
 //Listado de productos que ve el usuarioso 4
 router.get('/todosLosProductos', productController.index);
 /*GET Formulario de edicion 5 */
-router.get('/productos/editar/:id', productController.edit);
+router.get('/productos/editar/:id', adminMiddleware, productController.edit);
 /* PUT Accion de edicion 6  */
-router.put('/productos/editar/:id', upload.single('image'), productController.update);
+router.put('/productos/editar/:id', adminMiddleware, upload.single('image'), productController.update);
 /*DELETE Accion de borrado  7*/
-router.delete('/productos/borrar/:id', productController.destroy);
+router.delete('/productos/borrar/:id', adminMiddleware, productController.destroy);
 /* GET -carrito*/
 //router.get('/carrito', productController.carrito);
 
