@@ -152,6 +152,7 @@ const controller = {
     },
     // Detalle Producto
     show: (req, res) => {
+        let user = req.session.user 
         db.Products
             .findByPk(
                 req.params.id, {
@@ -164,8 +165,9 @@ const controller = {
                     ],
                 }
             )
+            
             .then(products => {
-                return res.render('productos/detalleProducto', { products, id: products.id });
+                return res.render('productos/detalleProducto', { products, id: products.id,user });
             })
             .catch(error => console.log(error));
     },

@@ -32,7 +32,7 @@
                                                     </h1>
 
                                                     <h1><b> Precio:</b>
-                                                        <%= oneProduct.price %> <br></h1>
+                                                       $ <%= oneProduct.price %> <br></h1>
 
                                                     <b>Marca:</b>
                                                     <%= oneProduct.brand.name %> <br>
@@ -53,22 +53,13 @@
                                                                 
 
 
-                                                                        <!--para llamar a la categoria-->
-                                                                        <!--no muestra la categoria-->
-                                                                        <!--REvisar  categories y category_product-->
+                                                                     
                                                             <b>Categoria</b>
+                                                           
+                                                            <%= oneProduct.categories.name %> <br>
+                                                           
                                                             
-                                                            <% if (oneProduct.categories.length > 0) { %>
-                                                                <h5>Categorías</h5>
-                                                                <ul>
-                                                                    <% oneProduct.categories.forEach(category => { %>
-                                                                        <li>
-                                                                            <%= category.name %>
-                                                                        </li>
-                                                                        <% }) %>
-                                                                </ul>
-                                                                <br>
-                                                                <% } %>
+                                                           
                                                             
                                                                         <% }) %>
 

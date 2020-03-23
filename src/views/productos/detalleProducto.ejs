@@ -27,8 +27,8 @@
                                     <%= products.name %>
 
                                 </p>
-                                <p>Precio:$
-                                    <%= products.price %>
+                                <p>Precio:</p>
+                                  <p>$<%= products.price %>
                                 </p>
                                 <p>Categoria:
                                     <%= products.categories.name %>
@@ -51,13 +51,18 @@
 
                         <!--Borrar Producto -->
                         <br> <br/>
-                        <% if (user.role === "admin") { %>
+                        <% 
+                        console.log('mariana')
+                        if ( user && user.role === "admin") { 
+                            console.log(user)
+                            %>
+                           
                         <form action="/productos/borrar/<%= products.id %>?_method=DELETE" method="POST">
                             <button type="submit" class="btn btn-light">BORRAR</button>
                         </form>
                         <% } %> 
             
-                        <% if (user.role === "guest") { %>
+                        <% if ( user && user.role === "guest") { %>
                         <div class= "d-none">
                             <form action="/productos/borrar/<%= products.id %>?_method=DELETE" method="POST">
                             <button type="submit" class="btn btn-light">BORRAR</button>
@@ -67,13 +72,13 @@
                                                 
                         <br> <br/>
 
-                        <% if (user.role === "admin") { %>
+                        <% if (user && user.role === "admin") { %>
                         <form action="/productos/editar/<%= products.id %>?_method=PUT" method="POST">
                             <button class="btn btn-light"><a href="/productos/editar/<%= products.id %>">Modificar</a></button>
                         </form>
                         <% } %> 
 
-                        <% if (user.role === "guest") { %>
+                        <% if (user && user.role === "guest") { %>
                         <div class= "d-none">
                             <form action="/productos/editar/<%= products.id %>?_method=PUT" method="POST">
                                 <button class="btn btn-light"><a href="/productos/editar/<%= products.id %>">Modificar</a></button>

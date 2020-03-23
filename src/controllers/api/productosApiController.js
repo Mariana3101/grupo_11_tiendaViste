@@ -38,12 +38,8 @@ const controller = {
                         amount: amount,
                        
                     },
-<<<<<<< HEAD
                    
                     data: products
-=======
-                    data: product
->>>>>>> a20594bfed3722c0ac85cc87e98e1b8a9f55c7cb
                 }
                 
                 return res.send(result);
@@ -79,7 +75,21 @@ const controller = {
             })
             .catch(error => console.log(error));
     },
+/*
+    show: (req, res) => {
+		db.Products
+			.findByPk(req.params.id)
+			.then(result => {
+				if(result) {
+					return res.json(result);
+				}
+				return res.status(404).json({
+					status: res.statusCode,
+					method: req.method
+				});
+			}).catch(error => res.json(error));
+	}
 
-
+*/
 }
 module.exports = controller;

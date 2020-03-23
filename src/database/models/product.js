@@ -40,6 +40,11 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: 'colors_id'
         });
 
+        Product.belongsTo(models.Categories, {
+            as: 'categories',
+            foreignKey: 'category_id'
+        });
+/*
         Product.belongsToMany(models.Categories, {
             as: 'categories',
             through: 'category_product',
@@ -47,7 +52,7 @@ module.exports = (sequelize, dataTypes) => {
             otherKey: 'category_id'
         });
 
-
+*/
     }
 
     return Product;

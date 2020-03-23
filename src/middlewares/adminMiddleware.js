@@ -3,7 +3,7 @@ var adminMiddleware = function(req, res, next) {
            console.log("what")
         return next();
     } else {
-    if (req.session.users != undefined || req.session && req.session.user)
+    if (req.session.users != undefined )
         return res.send('No tiene credenciales para acceder');
     }
 }

@@ -1,3 +1,4 @@
+/*
 module.exports = (sequelize, dataTypes) => {
     const Category = sequelize.define('Categories', {
         id: {
@@ -16,6 +17,20 @@ module.exports = (sequelize, dataTypes) => {
             otherKey: 'product_id'
         });
     }
+
+    return Category;
+}*/
+
+module.exports = (sequelize, dataTypes) => {
+    const Category = sequelize.define('Categories', {
+        id: {
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        name: dataTypes.STRING,
+    });
+
 
     return Category;
 }

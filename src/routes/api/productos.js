@@ -11,4 +11,6 @@ router.get("/productos", productosApiControlller.index);
 // GET - listado de users
 router.get('/users', productosApiControlller.apiUsers);
 
+//router.get('/productos/:id', productosApiControlller.show);
+
 module.exports = router;
