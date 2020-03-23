@@ -33,6 +33,15 @@
                                 <p>Categoria:
                                     <%= products.categories.name %>
                                 </p>
+                                <p>Color:
+                                    <%= products.colors.name %>
+                                </p>
+                                <p>Talle:
+                                    <%= products.size.name %>
+                                </p>
+                                <p>Marca:
+                                    <%= products.brand.name %>
+                                </p>
                                 <ul class="actions-list">
                                     <li>
                                         <i class="fas fa-credit-card"></i>
@@ -52,9 +61,9 @@
                         <!--Borrar Producto -->
                         <br> <br/>
                         <% 
-                        console.log('mariana')
+                      
                         if ( user && user.role === "admin") { 
-                            console.log(user)
+                           
                             %>
                            
                         <form action="/productos/borrar/<%= products.id %>?_method=DELETE" method="POST">

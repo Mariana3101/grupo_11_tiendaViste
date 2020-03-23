@@ -49,6 +49,7 @@ const controller = {
     // todos los productos
     index: (req, res) => {
 
+        // Si el usuario esta logueado
         const isLogged = req.session.user;
         if (isLogged) {
             db.Products
@@ -66,6 +67,7 @@ const controller = {
                         .catch(error => console.log(error));
                 })
         } else {
+            //Mostrar de todas formas si el usuario no esta logueado
             db.Products
                 .findAll({
                     include: ['user', 'categories', 'brand', 'colors', 'size']
@@ -80,7 +82,7 @@ const controller = {
     // crear producto por GET 
     create: (req, res) => {
 
-        // falta hacer que se agregue el resto de los campos que no se cargan en la base de datos
+        //Buscamos de la base de datos cada campo 
 
         db.Brands
             .findAll()
@@ -108,8 +110,10 @@ const controller = {
 
     // Crear producto por POST
     store: (req, res) => {
+        //validacion desde el validator express
         let errors = (validationResult(req));
         if (errors.isEmpty()) {
+
             db.Products.create({
                 id: req.body.id,
                 name: req.body.name,
@@ -138,7 +142,7 @@ const controller = {
     },
     // Borrar producto
     destroy: (req, res) => {
-        db.Colors
+      //  db.Colors
         db.Products
             .destroy({
                 where: {
@@ -152,17 +156,16 @@ const controller = {
     },
     // Detalle Producto
     show: (req, res) => {
+        
         let user = req.session.user 
         db.Products
             .findByPk(
                 req.params.id, {
-                    include: [{
-
-                            association: 'categories',
-
-                        },
-
-                    ],
+                    include: 
+                       
+                         ['categories', 'brand', 'colors', 'size']
+                        
+                    
                 }
             )
             
