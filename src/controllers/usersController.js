@@ -202,9 +202,9 @@ const controller = {
 
 
         //Destruir la cookie
-        res.cookie('userIdCookie', null, { maxAge: 1 });
+        res.cookie('user_email', null, { maxAge: 1 });
         // return res.redirect('/usuariosperfil');
-        res.cookie('userCookie', null, { maxAge: 1 });
+        res.cookie('ser_email', null, { maxAge: 1 });
 
         return res.redirect('/');
 
