@@ -154,7 +154,7 @@ const controller = {
                                 req.session.user = users;
 
                                 if (req.body.remember_user != undefined) {
-                                    res.cookie("recordame", users.email, {maxAge: 60000} )
+                                    res.cookie("user_email", users.email, {maxAge: 60000*100} )
                                 }
 
                                 res.redirect('perfil');
