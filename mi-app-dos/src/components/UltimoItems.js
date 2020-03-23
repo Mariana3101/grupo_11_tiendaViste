@@ -7,9 +7,9 @@ class UltimoItems extends Component{
     constructor(props){
         super(props);
         this.state= {
+            id:"",
             name:"",
             price: "",
-            description:"",
             image:""
         }
     }
@@ -25,25 +25,25 @@ class UltimoItems extends Component{
 /* Funcion CONSECUENCIA */
     mostrarUltimoProducto = (data)=>{
         console.log(data);
-        
-       this.setState(
-           {
-            //id: data.data[0].id,
-            name: data.data[0].name,
-            price: data.data[0].price,
-            description: data.data[0].description,
-            image: data.data[0].image
-           }
-        )  
-    }
+    
+         this.setState(
+            {
+            id: data.data.fulfillmentValue[0].id,
+            name: data.data.fulfillmentValue[0].name,
+            price: data.data.fulfillmentValue[0].price,
+            //description: data.data[0].description,
+            image: data.data.fulfillmentValue[0].image
+            }
+    )  
+}
 
     /* Cuando el componente carga, recien ahi llamamos a la API */
     componentDidMount(){
-        console.log("Me monté!!");
-        this.traerUltimoProducto() 
+       console.log("Me monté!!");
+       this.traerUltimoProducto()
+       console.log(this.traerUltimoProducto)
     }
-
-    /* Aca va la funcion a la q llamamos desde el componentDidMount */
+       
     traerUltimoProducto(){
         this.apiCall("http://localhost:4000/api/productos", this.mostrarUltimoProducto)
     }
@@ -59,13 +59,13 @@ class UltimoItems extends Component{
                 <div className="card-body">
                     <div className="text-center">
                        
-                         <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width:"25rem"}} src={`http://localhost:3000/images/productos/${this.state.image}`} alt="foto producto"/> 
+                    <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width:"25rem"}} src={`http://localhost:4000/images/avatars/${this.state.image}`} alt="foto producto"/> 
 
                     </div>
                     <h3>Nombre: {this.state.name}</h3>
                     <p>Precio: ${this.state.price}</p>
-                    <p>{this.state.description}</p>
-                    <a target="_blank" rel="noopener noreferrer" href={`http://localhost:4000/productos/detalle/${this.state.id}`}>Ver detalle de Producto</a>
+                   
+                    <a target="_blank" rel="noopener noreferrer" href={`http://localhost:4000/productos/detalleProducto/${this.state.id}`}>Ver detalle de Producto</a>
                 </div>
             </div>
         </div>

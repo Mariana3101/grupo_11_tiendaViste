@@ -45,10 +45,10 @@ class Precio extends Component{
                         <div className="row no-gutters align-items-center">    
                     <div className="col mr-2">
                         <div className="text-xs font-weight-bold text-dark text-uppercase mb-1">{this.state.titulo}</div>
-                        <div className="h5 mb-0 font-weight-bold text-gray-800">${this.state.amount}</div>
+                        <div className="h5 mb-0 font-weight-bold text-gray-800">{this.state.amount}</div>
                     </div>
                 <div className="col-auto">
-                            <i className="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        <i className="fas fa-dollar-sign fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>
