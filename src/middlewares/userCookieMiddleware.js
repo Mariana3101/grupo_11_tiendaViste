@@ -1,5 +1,5 @@
 function userCookieMiddleware(req, res, next) {
-    res.locals.isLogged = false;
+    res.locals.aute= false;
 
     if (req.session.user) {
 
