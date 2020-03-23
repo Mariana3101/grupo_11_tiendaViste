@@ -54,18 +54,18 @@ class UltimoItems extends Component{
             <div className="col-lg-6 mb-4">
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
-                    <h6 className="m-0 font-weight-bold text-primary">ÚLTIMO PRODUCTO CARGADO</h6>
+                    <h6 className="m-0 font-weight-bold text-primary">Último producto cargado...</h6>
                 </div>
                 <div className="card-body">
                     <div className="text-center">
                        
-                         <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width:"25rem"}} src={`http://localhost:3000/images/productos/${this.state.image}`} alt="image dummy"/> 
+                         <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width:"25rem"}} src={`http://localhost:3000/images/productos/${this.state.image}`} alt="foto producto"/> 
 
                     </div>
                     <h3>Nombre: {this.state.name}</h3>
                     <p>Precio: ${this.state.price}</p>
                     <p>{this.state.description}</p>
-                    <a target="_blank" rel="nofollow" href={`http://localhost:4000/productos/detalle/${this.state.id}`}>Ver detalle de Producto</a>
+                    <a target="_blank" rel="noopener noreferrer" href={`http://localhost:4000/productos/detalle/${this.state.id}`}>Ver detalle de Producto</a>
                 </div>
             </div>
         </div>

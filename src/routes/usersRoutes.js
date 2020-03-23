@@ -36,11 +36,11 @@ const guestMiddleware = require('../middlewares/guestMiddleware');
 router.get('/usuarios/registrar', guestMiddleware, usersController.register); /* registrar*/
 
 router.post('/usuarios/registrar', upload.single("avatar"), [
-    check('first_name').isLength({ min: 2 }).withMessage('Este campo debe contener 2 caracteres minimo'),
-    check('last_name').isLength({ min: 2 }).withMessage('Este campo debe contener 2 caracteres minimo'),
-    check('email').isEmail().withMessage('Debe ingresar un Email valido'),
+    check('first_name').isAlpha().isLength({min:3}).withMessage('Este campo debe contener letras'),
+    check('last_name').isAlpha().isLength({min:3}).withMessage('Este campo debe contener letras'),
+    check('email').isEmail().withMessage('Debe ingresar un email valido'),
     check('password').isLength({ min: 3 }).withMessage('La contraseña debe tener por lo menos 3 caracteres'),
-    check('rePassword').isLength({ min: 3 }).withMessage('La contraseña debe tener por lo menos 3 caracteres'),
+    check('rePassword').isLength({ min: 3 }).withMessage('La contraseña debe ser la misma'),
 ], usersController.store);
 
 router.get('/usuarios/ingresar', guestMiddleware, usersController.login); /* Ingresar-Login*/

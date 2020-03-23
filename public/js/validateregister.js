@@ -23,8 +23,7 @@ function validateInput(message, input, typeOfValidator) {
         default:
             validation = validator[typeOfValidator](valorDelCampo);
             break;
-        
-    }
+        }
 
     // si no se pasa la validación
     if (validation) {
@@ -58,15 +57,14 @@ for (const unCampo of camposDelFormulario) {
     if (unCampo.name === 'email') {
         unCampo.addEventListener('blur', function() {
             if (!validator.isEmpty(unCampo.value)) {
-                validateInput('debe contener un formato de correo electrónico', this, 'isEmail');
+                validateInput('Debe contener un formato de correo electrónico', this, 'isEmail');
             }
         })
-    }
-}
-
+    };
+  
 // Validando el campo de imagen
-if (oneInput.name === 'avatar') {
-    oneInput.addEventListener('change', function() {
+    if (unCampo.name === 'avatar') {
+        unCampo.addEventListener('change', function() {
         // Array de extensiones permitidas
         let validExtensions = ['jpg', 'jpeg', 'gif', 'svg', 'png', 'webm'];
         // Extensión del archivo que desean subir
@@ -91,6 +89,8 @@ if (oneInput.name === 'avatar') {
 
         console.log(inputErrors);
     })
+
+}
 }
 
 
