@@ -21,7 +21,7 @@ const controller = {
                     ['id', 'DESC']
                 ],
 
-                attributes: ['id', 'name', ]
+                attributes: ['id', 'name', "image", "price" ]
             });
 
         Promise.all([totalSum, products])
