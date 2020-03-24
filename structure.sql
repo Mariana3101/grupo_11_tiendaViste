@@ -51,7 +51,7 @@ CREATE TABLE `products` (
   `name` varchar(255) NOT NULL,
   `price` decimal(8,2) NOT NULL,
   `image` varchar(255) NULL DEFAULT 'no-image.png',
-  `user_id` int(10) unsigned DEFAULT NULL,
+ 
   `colors_id` int(10) unsigned DEFAULT NULL,
   `size_id` int(10) unsigned DEFAULT NULL,
   `brand_id` int(10) unsigned DEFAULT NULL,
@@ -76,6 +76,9 @@ CREATE TABLE `category_product` (
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- /  Completando tablas
+INSERT INTO `products` VALUES
+(DEFAULT, 'Remera', 500, 'remera.png',1,1,1,1, null,null );
+
 
 INSERT INTO `brands` VALUES 
 	(DEFAULT, 'Meow', NULL, NULL),
