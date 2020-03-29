@@ -8,6 +8,7 @@ const methodOverride = require('method-override');
 const multer = require("multer"); //Necesario para poder subir archivos// 
 const session = require('express-session');
 const userCookieMiddleware = require('./middlewares/userCookieMiddleware');
+const cartMiddleware = require('./middlewares/cartMiddleware');
 
 
 
@@ -28,6 +29,7 @@ app.use(session({
 
 }));
 app.use(userCookieMiddleware);
+app.use(cartMiddleware);
 
 // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs');

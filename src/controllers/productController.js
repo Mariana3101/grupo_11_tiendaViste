@@ -247,19 +247,30 @@ const controller = {
     mostrarCarrito: (req,res) => {
         db.Products
         .findAll({
-            where: {
-                id: req.session.carrito
+         where: {
+             id: req.session.carrito
+             
             }
         })
         .then(products => {
-            return res.render('cart', { products });
+         
+            return res.render('carrito', {products});
         });
        
     },
 
     carritoCompra: (req,res) => {
-        
-        res.send ("compro")
+        let carro = req.session.carrito;
+
+		if (!carro.includes(req.body.product)) {
+			req.session.carrito.push(req.body.product);
+		}
+
+		console.log('======');
+		console.log(req.session.cart);
+		console.log('======');
+		return res.redirect('/');
+       
     }
     
 

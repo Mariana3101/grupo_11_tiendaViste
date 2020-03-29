@@ -53,7 +53,10 @@
                                     </li>
                                 </ul>
 
-                                <a href="/productos/carrito" class="buy-now-button">COMPRAR AHORA</a>
+                                <form action="/productos/carrito" method="post">
+                                    <input name="product" type="hidden" value="<%= products.id %>">
+                                    <button type="submit" class="btn btn-success btn-sm">Agregar al carrito</but>
+                                </form>
                             </article>
                         </div>
 
