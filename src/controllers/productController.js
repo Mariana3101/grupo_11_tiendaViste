@@ -47,6 +47,9 @@ function getUserById(id) {
 
 const controller = {
     // todos los productos
+
+
+
     index: (req, res) => {
 
         // Si el usuario esta logueado
@@ -200,7 +203,7 @@ const controller = {
                                                 categories: categoriesInDB[0],
                                                 colors: colorsInDb[0],
                                                 sizes: sizesInDb[0],
-                                                brands: brandsInDb[0]
+                                                brands: brandsInDb[0],
                                             });
                                         })
 
@@ -240,6 +243,25 @@ const controller = {
             })
             .catch(error => console.log(error));
     },
+
+    mostrarCarrito: (req,res) => {
+        db.Products
+        .findAll({
+            where: {
+                id: req.session.carrito
+            }
+        })
+        .then(products => {
+            return res.render('cart', { products });
+        });
+       
+    },
+
+    carritoCompra: (req,res) => {
+        
+        res.send ("compro")
+    }
+    
 
 }
 module.exports = controller;

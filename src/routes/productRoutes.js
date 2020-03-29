@@ -40,6 +40,8 @@ router.put('/productos/editar/:id', adminMiddleware, upload.single('image'), pro
 /*DELETE Accion de borrado  7*/
 router.delete('/productos/borrar/:id', adminMiddleware, productController.destroy);
 /* GET -carrito*/
-//router.get('/productos/carrito', productController.carrito);
+router.get('/productos/carrito', productController.mostrarCarrito);
+/* POST-carrito*/
+router.post('/productos/carrito', productController.carritoCompra);
 
 module.exports = router;

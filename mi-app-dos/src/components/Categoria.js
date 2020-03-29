@@ -17,6 +17,7 @@ class Categoria extends Component{
 
     }
   
+   
 
 
     render(){
@@ -26,7 +27,7 @@ class Categoria extends Component{
             <div className="col-lg-6 mb-4" >
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
-                    <h6 className="m-0 font-weight-bold text-primary">Categorias en Base de Dato</h6>
+                    <h6 className="m-0 font-weight-bold text-primary">Categorías en Base de Datos</h6>
                 </div>
                 <div className="card-body">
                     <div className="row">

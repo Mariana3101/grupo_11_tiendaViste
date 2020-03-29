@@ -5,7 +5,8 @@ const productosApiControlller = require("../../controllers/api/productosApiContr
 
 //Get listado de productos
 router.get("/productos", productosApiControlller.index);
-
+//Get listado de Categorias
+router.get("/categories", productosApiControlller.apiCategories);
 
 
 // GET - listado de users
