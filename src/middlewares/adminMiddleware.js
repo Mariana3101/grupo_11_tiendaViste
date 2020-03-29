@@ -3,7 +3,8 @@ var adminMiddleware = function(req, res, next) {
            console.log("what")
         return next();
     } else {
-    if (req.session.users != undefined )
+    if (req.session.user.role === "guest" )
+
         return res.send('No tiene credenciales para acceder');
     }
 }
