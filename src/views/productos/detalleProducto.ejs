@@ -53,13 +53,23 @@
                                     </li>
                                 </ul>
 
-                                <form action="/productos/carrito" method="post">
+                                <% if (isLogged == true) { %>
+                                    <form action="/productos/carrito" method="post">
                                     <input name="product" type="hidden" value="<%= products.id %>">
                                     <button type="submit" class="btn btn-success btn-sm">Agregar al carrito</but>
                                 </form>
                             </article>
-                        </div>
-
+                                </div>
+ 
+                                <%} else {%>
+                                    <div>
+                                    <form action="/usuarios/ingresar">
+                                        <input name="product" type="hidden" value="<%= products.id %>">
+                                        <button type="submit" class="btn btn-success btn-sm">Agregar al carrito</but>
+                                    </form>
+                                </div>
+                               <% } %>
+                               
 
                         <!--Borrar Producto -->
                         <br> <br/>

@@ -3,7 +3,7 @@
     <div class="container">
         <!-- promocion menu logo carrito -->
         <!--promocion-->
-        <div class="row justify-content-between ">
+        <div class="row justify-content-md-center justify-content-between">
             <div class="col-12 col-md-12 col-sm-12 d-md-none promocion"><b>Promociones: 3, 6 o 12 cuotas sin interes!!!</b></div>
             <!--Aca va  a ir el menu desplegable, 
             <h1>estoy en el header Navbar</h1>-->
@@ -23,7 +23,7 @@
             </div>
 
 
-            <div class="justify-content-center col-6 col-md-5 ">
+            <div class="justify-content-center  col-6 col-md-5 ">
                 <!--imagen logo a partir de md-->
                 <img src="/images/logo.jpg" class="d-none d-sm-block logo">
                 <!--Imagen de logo mobile-->
@@ -31,7 +31,7 @@
 
             </div>
             <!--Link a Ingresar Registrar visible a partir de md-->
-            <div class="col-md- 3 d-none d-md-block">
+            <div class="col-md-3  d-none d-md-block align-self-start">
 
                 <ul class="navbar-nav ml-auto align-items-center ">
                     
@@ -50,7 +50,7 @@
                                 </div>
                             </li>
                             <% } else { %>
-                                <nav class="nav">
+                                <nav class="nav ">
 
                                     <a class="nav-link active nav-ingresar" href="/usuarios/ingresar" style="padding: 5px;">
                                     Ingresar </a>
@@ -62,11 +62,18 @@
                 </ul>
 
             </div>
+
+            <% if (isLogged) { %>
             <!--Link a carrito-->
-            <div class="col-2 col-md-2">
-                <a href= "productos/carrito"><i class="fas fa-cart-plus"></i><span class="badge badge-info"><%= cartQty %> </span></a>
-               
+            <div class="col-3 align-self-start  d-flex justify-content-end mt-2 pt-4 col-md-2">
+                <a href= "/usuarios/carrito"><i class="fas fa-cart-plus  "style="font-size: 24px"></i><span class="ml-1 badge badge-info" style="font-size: 12px"><%= cartQty %> </span></a>
             </div>
+                <% } else { %>
+            <div class="col-3 align-self-start  d-flex justify-content-end mt-2 pt-4 col-md-2">
+                <a href= "/usuarios/ingresar"><i class="fas fa-cart-plus "style="font-size:24px"></i><span class="ml-1 badge badge-info" style="font-size: 12px"><%= cartQty %> </span></a>
+            </div>
+            <% } %>
+           
             <!--Barra de navegacion -->
             <div>
                 <div class="col-md-12 d-none d-md-block ">
