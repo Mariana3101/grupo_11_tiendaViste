@@ -17,14 +17,17 @@
                             <div class="container-formulario">
 
                                 <% if (typeof errors != 'undefined') { %>
-                                    <p style="color: red">Error</p>
-                                    <ul>
-                                        <% for (let i = 0; i < errors.length; i++)  { %>
-                                            <li>
-                                                <%= errors[i].msg %>
-                                            </li>
-                                            <% } %>
-                                    </ul>
+                                    <div>
+                                        <p style="color: red">Error</p>
+                                        <ul>
+                                            <% for (let i = 0; i < errors.length; i++)  { %>
+                                                <li>
+                                                    <%= errors[i].msg %>
+                                                </li>
+                                                <% } %>
+                                        </ul>
+                                    </div>
+                                   
                                     <% } %>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Email</label>

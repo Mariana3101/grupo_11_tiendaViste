@@ -7,7 +7,7 @@ module.exports = (sequelize, dataTypes) => {
         },
         name: dataTypes.STRING,
         price: dataTypes.INTEGER,
-        image: dataTypes.STRING, // que debe devolver para que muestre la imagen
+        image: dataTypes.STRING, 
         user_id: dataTypes.INTEGER,
         brand_id: dataTypes.INTEGER,
         size_id: dataTypes.INTEGER,

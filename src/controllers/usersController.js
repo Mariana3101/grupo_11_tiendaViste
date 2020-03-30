@@ -7,48 +7,6 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 
 
-//Helper Functions
-
-
-function getAllUsers() {
-    //let usersFileContent = fs.readFileSync(db, 'utf-8');
-    //let finalUsers = usersFileContent == '' ? [] : JSON.parse(usersFileContent);
-    db.User
-        .findAll({
-            include: ['users']
-        })
-        .then(products => {
-            return res.render('usuarios/perfil');
-            // return finalUsers;
-        })
-        .catch(error => console.log(error));
-
-
-}
-
-function generateUserId() {
-    let allUsers = getAllUsers();
-    if (allUsers.length == 0) {
-        return 1;
-    }
-    let lastUser = allUsers.pop();
-    return lastUser.id + 1;
-}
-
-function getUserByEmail(email) {
-    let allUsers = getAllUsers();
-    let userByEmail = allUsers.find(oneUser => oneUser.email == email);
-    return userByEmail;
-}
-
-function getUserById(id) {
-    let allUsers = getAllUsers();
-    let userById = allUsers.find(oneUser => oneUser.id == id);
-    return userById;
-}
-
-
-
 // Controller Methods
 const controller = {
 
@@ -197,13 +155,9 @@ const controller = {
         //Destruir la session
         req.session.destroy();
 
-
-        // No estamos usando la cookie !!!
-
-
         //Destruir la cookie
         res.cookie('user_email', null, { maxAge: 1 });
-        // return res.redirect('/usuariosperfil');
+       
         res.cookie('ser_email', null, { maxAge: 1 });
 
         return res.redirect('/');
