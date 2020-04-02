@@ -13,16 +13,8 @@ const controller = {
     //Get de registrar
 
     register: (req, res) => {
-        db.Users
-            .findAll()
-
-        .then(users => {
-                return res.render('usuarios/registrar', { users });
-
-
-            })
-            .catch(error => console.log(error));
-
+  
+        res.render('usuarios/registrar');
 
     },
 

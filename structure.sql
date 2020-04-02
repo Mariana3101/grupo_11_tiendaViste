@@ -65,15 +65,7 @@ CREATE TABLE `products` (
   FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`)
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-CREATE TABLE `category_product` (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `product_id` int(10) unsigned DEFAULT NULL,
-  `category_id` int(10) unsigned DEFAULT NULL,
-  `createdAt` timestamp NULL DEFAULT NULL,
-  `updatedAt` timestamp NULL DEFAULT NULL,
-  FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
-  FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)
-) DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 
 -- /  Completando tablas
 INSERT INTO `products` VALUES

@@ -10,7 +10,7 @@ class Categoria extends Component{
 
     
     cambiarColor(valor, id){
-        if (!document.getElementById(id).style.backgroundColor || document.getElementById(id).style.backgroundColor==="blue")
+        if (!document.getElementById(id).style.backgroundColor || document.getElementById(id).style.backgroundColor=="blue")
             document.getElementById(id).style.backgroundColor= '#00aae4' ;
         else
             document.getElementById(id).style.backgroundColor="blue";

@@ -167,8 +167,7 @@ const controller = {
                     include: 
                        
                          ['categories', 'brand', 'colors', 'size']
-                        
-                    
+   
                 }
             )
             
@@ -181,23 +180,17 @@ const controller = {
     edit: (req, res) => {
         db.brands
         db.Products
-            .findByPk(req.params.id)
-            .then(products => {
-
-                sequelize
-                    .query('SELECT * FROM categories')
-                    .then(categoriesInDB => {
+            .findByPk(req.params.id).then(products => {
+                 sequelize
+               /* query: recibe una consulta SQl como parametro y se debe acceder al 
+                onjeto sequelize para poder llegar a ella */ 
+                    .query('SELECT * FROM categories').then(categoriesInDB => {
                         sequelize
-
-                            .query('SELECT * FROM colors')
-                            .then(colorsInDb => {
+                         .query('SELECT * FROM colors').then(colorsInDb => {
                                 sequelize
-                                    .query('SELECT * FROM sizes')
-
-                                .then(sizesInDb => {
+                                    .query('SELECT * FROM sizes').then(sizesInDb => {
                                     sequelize
-                                        .query('SELECT * FROM brands')
-                                        .then(brandsInDb => {
+                                        .query('SELECT * FROM brands').then(brandsInDb => {
                                             return res.render('productos/editar', {
                                                 products,
                                                 categories: categoriesInDB[0],
@@ -225,8 +218,8 @@ const controller = {
                 price: req.body.price,
                 image: req.file.filename,
                 brand_id: req.body.brand_id,
-                size_id: req.body.size_id, // no cambia el talle 
-                category_id: req.body.category_id, // no cambia la categoria 
+                size_id: req.body.size_id,
+                category_id: req.body.category_id, 
                 colors_id: req.body.colors_id,
 
 
@@ -243,7 +236,7 @@ const controller = {
             })
             .catch(error => console.log(error));
     },
-
+// Carrito por Get 
     mostrarCarrito: (req,res) => {
         db.Products
         .findAll({
@@ -258,6 +251,8 @@ const controller = {
         });
        
     },
+
+    // Carrito Post
 
     carritoCompra: (req,res) => {
         let carro = req.session.carrito;

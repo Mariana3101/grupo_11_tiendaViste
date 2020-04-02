@@ -19,6 +19,7 @@ module.exports = (sequelize, dataTypes) => {
 
     Product.associate = (models) => {
         Product.belongsTo(models.Brands, {
+            
             as: 'brand',
             foreignKey: 'brand_id'
         });
@@ -32,8 +33,6 @@ module.exports = (sequelize, dataTypes) => {
             as: 'size',
             foreignKey: 'size_id'
         });
-
-
 
         Product.belongsTo(models.Colors, {
             as: 'colors',

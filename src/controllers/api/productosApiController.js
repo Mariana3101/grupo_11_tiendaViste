@@ -8,7 +8,7 @@ const controller = {
     // todos los productos
 
     index: (req, res) => {
-        // Error al sumar los precios
+       
 
         //suma todos los  precios
          let totalSum = db.Products
