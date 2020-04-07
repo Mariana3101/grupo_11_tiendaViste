@@ -110,7 +110,8 @@ const controller = {
                                 res.redirect('perfil');
 
                             } else {
-                                res.send("Credenciales inválidas");
+                                res.render('404')
+                                //res.send("Credenciales inválidas");
                                 //req.session.users = users.dataValues;
                                 //res.render('index');
                             }

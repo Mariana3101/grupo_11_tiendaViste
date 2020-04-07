@@ -9,10 +9,13 @@ class Categoria extends Component{
    }
 
     
-    cambiarColor(valor, id){
+    cambiarColor(e, id){
+        // si el elemento tiene color blue
         if (!document.getElementById(id).style.backgroundColor || document.getElementById(id).style.backgroundColor=="blue")
+        // asignale el color celeste
             document.getElementById(id).style.backgroundColor= '#00aae4' ;
         else
+        // si no dejalo azul
             document.getElementById(id).style.backgroundColor="blue";
 
     }
@@ -32,6 +35,7 @@ class Categoria extends Component{
                 <div className="card-body">
                     <div className="row">
                         <div className="col-lg-6 mb-4">
+                            
                             <div id='1' className="card bg-info2 text-white shadow" onClick={(e)=>this.cambiarColor(e, '1' )} >
                                 <div className="card-body">
                                   Bebe-Niña

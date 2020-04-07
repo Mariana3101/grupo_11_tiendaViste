@@ -1,11 +1,14 @@
 var adminMiddleware = function(req, res, next) {
-       if (req.session && req.session.user.role === "admin"){
-           console.log("what")
-        return next();
-    } else {
-    if (req.session.user.role === "guest" )
+    if(req.session.user === undefined){
+        res.redirect('404');
+    }else
+        if (req.session && req.session.user.role === "admin"){
+            console.log("what")
+            return next();
+        } else {
+            if (req.session.user.role === "guest" )
 
-        return res.send('No tiene credenciales para acceder');
+            return res.send('No tiene credenciales para acceder');
     }
 }
    

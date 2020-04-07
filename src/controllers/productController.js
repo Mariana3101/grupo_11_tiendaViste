@@ -53,6 +53,7 @@ const controller = {
     index: (req, res) => {
 
         // Si el usuario esta logueado
+        /*
         const isLogged = req.session.user;
         if (isLogged) {
             db.Products
@@ -70,6 +71,7 @@ const controller = {
                         .catch(error => console.log(error));
                 })
         } else {
+            */
             //Mostrar de todas formas si el usuario no esta logueado
             db.Products
                 .findAll({
@@ -79,11 +81,20 @@ const controller = {
                     return res.render('productos/todosLosProductos', { products });
                 })
                 .catch(error => console.log(error));
-        }
+      //  }
     },
 
     // crear producto por GET 
     create: (req, res) => {
+
+        /*
+        if(!req.body){
+            res.status(400).send({
+                mensaje: 'vacio'
+            });
+            return;
+        }
+*/
 
         //Buscamos de la base de datos cada campo 
 
@@ -135,7 +146,8 @@ const controller = {
                     return res.redirect('/todosLosProductos');
 
                 })
-                .catch(error => console.log(error));
+                //.catch(res.render('404'))
+                    .catch(error => console.log(error));
         } else {
             res.render('productos/crear', {
                 errors: errors.errors
@@ -183,7 +195,7 @@ const controller = {
             .findByPk(req.params.id).then(products => {
                  sequelize
                /* query: recibe una consulta SQl como parametro y se debe acceder al 
-                onjeto sequelize para poder llegar a ella */ 
+                objeto sequelize para poder llegar a ella */ 
                     .query('SELECT * FROM categories').then(categoriesInDB => {
                         sequelize
                          .query('SELECT * FROM colors').then(colorsInDb => {

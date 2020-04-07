@@ -13,9 +13,9 @@ module.exports = (sequelize, dataTypes) => {
         role: dataTypes.STRING,
     });
 
-    User.prototype.getFullName = function() {
-        return `${this.first_name} ${this.last_name}`;
-    }
+    
+
+
 
     return User;
 }
