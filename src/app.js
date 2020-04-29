@@ -8,7 +8,6 @@ const methodOverride = require('method-override');
 const multer = require("multer"); //Necesario para poder subir archivos// 
 const session = require('express-session');
 const userCookieMiddleware = require('./middlewares/userCookieMiddleware');
-const cartMiddleware = require('./middlewares/cartMiddleware');
 
 
 
@@ -29,7 +28,6 @@ app.use(session({
 
 }));
 app.use(userCookieMiddleware);
-app.use(cartMiddleware);
 
 // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs');
@@ -41,23 +39,18 @@ app.set('views', './src/views'); // Define la ruta de la carpeta "views"
 // ************ Route System require and use() ************
 const mainRouter = require('./routes/main');
 const usersRoutes = require('./routes/usersRoutes');
-const productRoutes = require('./routes/productRoutes');
+
 const apiProductRouter = require('./routes/api/productos');
 
 app.use('/', mainRouter);
 app.use('/', usersRoutes);
-app.use('/', productRoutes);
 
 app.use('/api', apiProductRouter);
 
 
 // ************ DON'T TOUCH FROM HERE ************
 // ************ catch 404 and forward to error handler ************
-//app.use((req, res, next) => next(createError(404)));
-
-app.use((req,res,next)=>{
-    res.status(404).render('404');
-})
+app.use((req, res, next) => next(createError(404)));
 
 // ************ error handler ************
 app.use((err, req, res, next) => {
@@ -68,8 +61,7 @@ app.use((err, req, res, next) => {
     console.log()
         // render the error page
     res.status(err.status || 500);
-   res.render('error');
-  // res.render('500');
+    res.render('not-found');
 });
 
 // ************ exports app - dont'touch ************

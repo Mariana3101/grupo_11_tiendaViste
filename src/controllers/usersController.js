@@ -7,14 +7,29 @@ const db = require('../database/models');
 const sequelize = db.sequelize;
 
 
+
+
+
+
+
 // Controller Methods
 const controller = {
 
     //Get de registrar
 
     register: (req, res) => {
-  
-        res.render('usuarios/registrar');
+        res.render('usuarios/registrar')
+        /*
+        db.Users
+            .findAll()
+
+        .then(users => {
+                return res.render('usuarios/registrar', { users });
+
+
+            })
+            .catch(error => console.log(error));
+*/
 
     },
 
@@ -78,7 +93,7 @@ const controller = {
 
 
         res.render('usuarios/ingresar');
-        //res.render('ingresar');
+        
     },
 
     // POST de ingresar
@@ -110,8 +125,7 @@ const controller = {
                                 res.redirect('perfil');
 
                             } else {
-                                res.render('404')
-                                //res.send("Credenciales inválidas");
+                                res.send("Credenciales inválidas");
                                 //req.session.users = users.dataValues;
                                 //res.render('index');
                             }
@@ -148,9 +162,13 @@ const controller = {
         //Destruir la session
         req.session.destroy();
 
+
+        // No estamos usando la cookie !!!
+
+
         //Destruir la cookie
         res.cookie('user_email', null, { maxAge: 1 });
-       
+        // return res.redirect('/usuariosperfil');
         res.cookie('ser_email', null, { maxAge: 1 });
 
         return res.redirect('/');

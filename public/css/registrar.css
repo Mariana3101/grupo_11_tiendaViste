@@ -1,0 +1,112 @@
+/*
+.registrar {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.fondo-imagen {
+    background-image: url("/images/nena1.png");
+    padding: 2rem;
+    margin: auto;
+}
+
+.formulario-registrar {
+    display: flex;
+    justify-content: flex-end;
+    text-align: justify;
+}
+*/
+body {
+    margin: 10px;
+    font-family: sans-serif;
+  }
+.formulariosContainer{
+  display: flex;
+  justify-content:space-around;
+  align-items: flex-start;
+}
+.formularios{
+    background-color: rgba(128, 229, 210, 0.2);
+    margin:20px;
+    padding: 30px;
+    border-radius: 10px;
+}
+#login-registro, #nuevoproducto, #exito{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 145px;
+}
+#login-registro input, #nuevoproducto input, textarea{
+  padding: 10px;
+  border-radius: 8px;
+  border: solid 1px #cecece;
+  width:100%;
+  margin:10px 0;
+}
+.btn-principal{
+  border-radius: 10px;
+  padding: 15px 35px;
+  background-color: #FF6080;
+  color: #ffffff;
+  text-align: center;
+  margin:20px 0;
+  text-transform: uppercase;
+}
+.btn-register{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-right: 10px;
+}
+.login-title{
+  font-size: 20px;
+}
+small{
+  font-size: 14px;
+}
+::placeholder {
+  color:#cecece;
+  font-weight: 200;
+}
+.center{
+  text-align: center;
+  display:flex;
+  margin: auto;
+}
+.invalid-feedback b{
+  color:#dc3545;
+  font-size: 12.8px;
+}
+#login-registro .form-control.is-invalid{
+  border-color: #dc3545; 
+}
+.requerido{
+  color:#dc3545;
+}
+#login-registro input[type=checkbox]{
+  width:30px;
+}
+.recordar{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.pass{
+  padding-top: 5px;
+}
+.color-primary{
+  color: #FF6080;
+}
+.errors-back{
+  color: #721c24!important;
+  list-style: circle!important;
+}
+.alert-success strong{
+  color:#155724!important;
+}

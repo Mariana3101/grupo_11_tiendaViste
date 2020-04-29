@@ -1,0 +1,65 @@
+
+.row{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-flow: wrap;
+}
+.prod{
+    text-align: center;
+    margin-top:20px;
+}
+.imagen{
+    max-width:250px;
+}
+.prod-nombre{
+    font-size: 20px;
+    font-weight: 400;
+}
+.main-precio{
+    font-size: 25px;
+    font-weight: 700;
+}
+.center{
+    display:flex;
+    margin: auto;
+}
+/* Efecto sobre el boton*/
+.prod-wrap{
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.prod-wrap:hover .over{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+.over{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    visibility: hidden;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity .2s, visibility .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-comprar{
+    border-radius: 20px;
+    padding: 15px;
+    background-color: #FF6080;
+    color:#ffffff;
+    position: absolute;
+    transition: .2s;
+    transform: translateY(1em);
+}

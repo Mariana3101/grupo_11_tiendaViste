@@ -2,149 +2,135 @@
 <html lang="en">
 <!-- Include Head -->
 <%- include('../partials/head.ejs', {title: 'Editar'}) %>
+<link rel="stylesheet" href="/css/app.css">
 
-    <body class="page-editar-producto">
-        <!-- Header -->
-        <%- include('../partials/headerNavbar.ejs') %>
-
-            <main class="editar-producto">
-                <form action="/productos/editar/<%= products.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-
-
-                    <div class="col-6 ">
-                        <label>Producto:</label>
-                        <select id="producto" name="name">
-                            <option> <%= products.name %></option>
-                        <option value="remera ">Remera</option>
-                        <option value="pantalon ">Pantalón</option>
-                        <option value="sweater ">Sweater</option>
-                        <option value="vestido ">Vestido</option>
-                      </select>
-                    </div>
-
-                    <div>
-                        <label>Precio: </label> <br>
-                        <input type="text" name="price" value="<%=products.price%> " required>
-                        <br><br>
-                    </div>
-                    <!--Categoria-->
-                    <div>
-                        <label>Categorías:</label>
-                        <select name="category_id" required>
-                            <option value=" ">Elegí una categoria</option>
-                            <% categories.forEach(oneCategories => { %>
-                            <option 
-                                value="<%=oneCategories.id %>"
-                        <%= products.category_id == oneCategories.id ? 'selected' : null %>
-                            >
-                            <%= oneCategories.name %>
-                                </option>
-                                <% }) %>
-                                    </select>
-                    </div>
-                    <!--Marca-->
-                    <div>
-                        <label>Marca:</label>
-                        <select name="brand_id" required>
-                            <option value=" ">Elegí una marca</option>
-                            <% brands.forEach(onebrands => { %>
-                            <option 
-                                value="<%= onebrands.id %>"
-                        <%= products.brand_id == onebrands.id ? 'selected' : null %>
-                            >
-                            <%= onebrands.name %>
-                                </option>
-                                <% }) %>
-                                    </select>
-                    </div>
-                    <!--Color-->
-
-                    <div>
-                        <label>Color:</label>
-                        <select name="colors_id" required>
-                            <option value=" ">Elegí un color</option>
-                            <% colors.forEach(oneColors => { %>
-                            <option 
-                                value="<%= oneColors.id %>"
-                        <%= products.colors_id == oneColors.id ? 'selected' : null %>
-                            >
-                            <%= oneColors.name %>
-                                </option>
-                                <% }) %>
-                                    </select>
-                    </div>
-
-                    <!--Talle-->
-                    <div>
-                        <label>Talle:</label>
-                        <select name="size_id" required>
-                            <option value=" ">Elegí un talle </option>
-                              <% sizes.forEach(oneSize => { %>
-                             <option 
-                                 value="<%= oneSize.id %>"
-                                     <%= products.size_id == oneSize.id ? 'selected' : null %>>
-        
-                                  <%= oneSize.name %>
-                            </option>
-                             <% }) %>
-                        </select>
-                    </div>
-
-
-                    <!--Scrip imagen-->
-                    <div class="row ">
-                        <div class="imagen">
-                            <div id="divInputLoad">
-                                <div id="divFileUpload">
-                                    <input id="file-upload" required type="file" accept="image/*" name="image" width="100%"/>
-                                </div>
-                                <div id="file-preview-zone">
+<body class="page-editar-producto">
+    <!-- Header -->
+    <%- include('../partials/header') %>
+    <%- include('../partials/logo') %>
+    
+    <div class="container-fluid px-0">
+        <section id="nuevoproducto">
+            <div class="container ">
+                <h2 class="text-center">Editar producto</h2>
+                <div class="formulariosContainer">
+                    <div class="col-md-12 formularios">
+                        
+                        
+                        <form action="/productos/editar/<%= product.id %>" method="POST" enctype="multipart/form-data">
+                            <% if (typeof errors != 'undefined'){ %>
+                                <div class="alert alert-danger" role="alert">
+                                    <ul>
+                                        <% for (var i = 0; i< errors.length ; i++ ){ %>
+                                            <li class="errors-back"><%= errors[i].msg  %></li>
+                                            <% } %>   
+                                        </ul>
+                                    </div>
+                                    <% } %>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label>Nombre:</label>
+                                            <input type="text" name="name" value="<%= product.name %>" class="form-control" placeholder="Ej: Parlante 3m">
+                                        </div>
+                                        <div  class="col-12">
+                                            <label>Precio:</label>
+                                            <input type="number" name="price" value="<%= product.price %>" class="form-control" placeholder="Ej: AX23">
+                                        </div>
+                                        <div  class="col-12">
+                                            <!-- <label>%= product.image %></label> -->
+                                            <label>Imagen Actual:</label>
+                                            <input type="text" readonly name="currentImage" value="<%= product.image %>" placeholder="NO la trae bart" class="form-control mt-1">
+                                            <label>Subir Imagen nueva</label>
+                                            <input type="file" name="image" value="<%= product.image %>" class="form-control" required>
+                                        </div> 
+                                        <div class="col-12">
+                                            <label>Marca:</label>
+                                            <!-- <input type="number" name="brand_id" value="%= product.brand_id %>"  class="form-control" placeholder="Ej: BENQ"> -->
+                                            <select name="brand_id" class="form-control">
+                                                <option value="">Elegí una marca</option>
+                                                <% for (let i = 0; i < brand.length; i++) {%> 
+                                                    <% if (brand[i].id == product.brand_id) {%>
+                                                        
+                                                        <option value="<%= brand[i].id%>" selected>
+                                                            <%= brand[i].name%>
+                                                        </option>
+                                                        
+                                                        <%} else {%>
+                                                            <option value="<%= brand[i].id%>">
+                                                                <%= brand[i].name%>
+                                                            </option>
+                                                            <%}%>
+                                                            <%}%>
+                                                        </select>
+                                                    </div>
+                                                    <br><br>
+                                                    <!--Categoria-->
+                                                    <br><br>
+                                                    <div class="col-12">
+                                                        <label>Categorías:</label>
+                                                        <select name="category_id" required>
+                                                            <option value=" ">Elegí una categoria</option>
+                                                            <% categories.forEach(oneCategories => { %>
+                                                                <option 
+                                                                value="<%=oneCategories.id %>"
+                                                                <%= product.category_id == oneCategories.id ? 'selected' : null %>
+                                                                >
+                                                                <%= oneCategories.name %>
+                                                            </option>
+                                                            <% }) %>
+                                                        </select>
+                                                    </div>
+                                                    <br>
+                                                    <!--Color-->
+                                                    <br>
+                                                    <div class="col-12">
+                                                        <label>Color:</label>
+                                                        <select name="colors_id" required>
+                                                            <option value=" ">Elegí un color</option>
+                                                            <% colors.forEach(oneColors => { %>
+                                                                <option 
+                                                                value="<%= oneColors.id %>"
+                                                                <%= product.colors_id == oneColors.id ? 'selected' : null %>
+                                                                >
+                                                                <%= oneColors.name %>
+                                                            </option>
+                                                            <% }) %>
+                                                        </select>
+                                                    </div>
+                                                    <br>
+                                                    <!--Talle-->
+                                                    <br>
+                                                    <div class="col-12">
+                                                        <label>Talle:</label>
+                                                        <select name="size_id" required>
+                                                            <option value=" ">Elegí un talle </option>
+                                                            <% sizes.forEach(oneSize => { %>
+                                                                <option 
+                                                                value="<%= oneSize.id %>"
+                                                                <%= product.size_id == oneSize.id ? 'selected' : null %>>
+                                                                
+                                                                <%= oneSize.name %>
+                                                            </option>
+                                                            <% }) %>
+                                                        </select>
+                                                    </div>
+                                                    <br>
+                                                    <div  class="col-12">
+                                                        <label></label>
+                                                        <button type="submit" class="btn btn-amarillo btn-block" >Editar Producto</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <br><br>
-                    <div class="row">
-                        <!--Guardar-->
-                        <form action="">
-                            <button type="submit" class="col-6" value="">Guardar</button>
-                        </form>
-
-
-                    </div>
-                </form>
-
-                <div class="col-12">
-                    <a href="/productos/detalleProducto/<%= products.id %>" class="btn btn-primary btn-sm button-volver" role="button" aria-pressed="true">Volver</a>
-                </div>
-
-                <script>
-                    function readFile(input) {
-                        if (input.files && input.files[0]) {
-                            var reader = new FileReader();
-
-                            reader.onload = function(e) {
-                                var filePreview = document.createElement(' img ');
-                                filePreview.id = 'file-preview ';
-                                //e.target.result contents the base64 data from the image uploaded
-                                filePreview.src = e.target.result;
-                                console.log(e.target.result);
-
-                                var previewZone = document.getElementById('file-preview-zone ');
-                                previewZone.appendChild(filePreview);
-                            }
-
-                            reader.readAsDataURL(input.files[0]);
-                        }
-                    }
-
-                    var fileUpload = document.getElementById('file-upload ');
-                    fileUpload.onchange = function(e) {
-                        readFile(e.srcElement);
-                    }
-                </script>
-            </main>
-
-            <!-- footer -->
-            <%- include('../partials/footer.ejs') %>
-                <!-- /footer -->
+                            
+                            
+                        </body>
+                        
+                        
+                        <%- include('../partials/footer.ejs') %>
+                        <script defer src="/js/validaciones.js"></script>
+                        <%- include('../partials/script.ejs') %>
+                        </html>

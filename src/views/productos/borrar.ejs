@@ -7,10 +7,10 @@
         <!-- Header -->
         <%- include('../partials/headerNavbar.ejs') %>
             <section class="product-detail">
-                <%- include('detalleProducto', { elProducto }) %>
+                <%- include('detalle', { elProducto }) %>
             </section>
             <section class="buttons">
-                <a class="button" href="/todosLosProductos/">&larr; Volver al listado</a>
+                <a class="button" href="/listado/">&larr; Volver al listado</a>
                 <form class="has-buttons" action="/productos/<%=elProducto.id %>?_method=DELETE" method="POST">
                     <button class="button is-danger" type="submit">Eliminar producto</button>
                 </form>

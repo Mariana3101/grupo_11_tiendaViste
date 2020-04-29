@@ -1,139 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Include Head -->
-<%- include('../partials/head.ejs', {title: 'Inicio'}) %>
+<%- include('../partials/head', {title: 'Crear'}) %>
+<link rel="stylesheet" href="/css/app.css">
+<body>
+    <%- include('../partials/header') %>
 
-    <body class="page-carga-producto">
-        <!-- Header -->
-        <%- include('../partials/headerNavbar.ejs') %>
+    <%- include('../partials/logo') %>
 
-            <!--Falta Cargar Imagen y Talle y el select de producto-->
-
-            <main class="carga-producto">
-                <form action="/productos/crear " method="POST" enctype="multipart/form-data">
-                    <div>
-                        <label>Producto: </label> <br>
-                        <input type="text" name="name" required placeholder="Ingrese un producto" required>
-                        <br><br>
-                    </div>
-
-                    <div class="row">
-                        <!--Label Cantidad-->
-                        <div class="col-6">
-                            <label for="cantidad">Cantidad</label>
-                        </div>
-                        <div class="col-6">
-                            <input type="number" id="cantidad" name="cantidad" value="1" min="0" placeholder="Ingrese un numero" required>
-                        </div>
-                        <!--Label precio-->
-                        <div class="col-6">
-                            <label for="precio">Precio</label>
-                        </div>
-                        <div class="col-6">
-                            <input type="number" id="precio" name="price" value="1" min="1"required placeholder="Ingrese un numero" required>
-                        </div>
-                    </div>
-
-                    <!--Color-->
-                    <div>
-                        <label>Color: </label>
-                        <select name="colors_id" required>
-                            <option value="" >Elegí un color</option>
-                            <% colors.forEach(oneColors => { %>
-                            <option value="<%= oneColors.id %>"> <%= oneColors.name %> </option>
-                            <% }) %>
-                        </select>
-                        <br><br>
-                    </div>
-                    <!--Marca-->
-
-                    <div>
-                        <label>Marca: </label>
-                        <select name="brand_id" required>
-                            <option value="" >Elegí una Marca</option>
-                            <% brands.forEach(onebrands => { %>
-                            <option value="<%= onebrands.id %>"> <%= onebrands.name %> </option>
-                            <% }) %>
-                        </select>
-                        <br><br>
-                    </div>
-                    <!--Talle-->
-                    <div>
-                        <label>Talle: </label>
-                        <select name="size_id" required>
-                            <option value="" >Elegí una Talle</option>
-                            <% sizes.forEach(oneSize => { %>
-                            <option value="<%= oneSize.id %>"> <%= oneSize.name %> </option>
-                            <% }) %>
-                        </select>
-                        <br><br>
-                    </div>
-                    <!--Categoria-->
-                    <div>
-                        <label>Categoria: </label>
-                        <select name="category_id" required>
-                            <option value="" >Elegí una categoria</option>
-                            <% categories.forEach(oneCategories => { %>
-                            <option value="<%= oneCategories.id %>"> <%= oneCategories.name %> </option>
-                            <% }) %>
-                        </select>
-                        <br><br>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="imagen">
-                            <div id="divInputLoad">
-                                <div id="divFileUpload">
-                                    <input id="file-upload" required type="file" accept="image/*" name="image" width="100%" />
-                                </div>
-                                <div id="file-preview-zone">
-                                </div>
+    <div class="container-fluid px-0">
+        <section id="nuevoproducto">
+            <div class="container ">
+                <h2 class="text-center">Carga nuevo producto</h2>
+                <div class="formulariosContainer">
+                    <div class="col-md-12 formularios">
+                        <form action="/productos/crear" method="POST" enctype="multipart/form-data">	
+                            <%- include('./partials/formularioProduct')%>
+                            <div class="col-md-6 ml-auto p-2 bd-highlight text-right">
+                                <button class="btn-principal " type="submit">Cargar nuevo producto!</button>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <!--Guardar-->
-                        <form action="">
-                            <button type="submit" class="col-6" value="">Guardar</button>
                         </form>
-
-
                     </div>
-
-                </form>
-                <div class="col-12">
-                    <a href="/usuarios/perfil" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Volver</a>
                 </div>
-
-                <script>
-                    function readFile(input) {
-                        if (input.files && input.files[0]) {
-                            var reader = new FileReader();
-
-                            reader.onload = function(e) {
-                                var filePreview = document.createElement('img');
-                                filePreview.id = 'file-preview';
-                                //e.target.result contents the base64 data from the image uploaded
-                                filePreview.src = e.target.result;
-                                console.log(e.target.result);
-
-                                var previewZone = document.getElementById('file-preview-zone');
-                                previewZone.appendChild(filePreview);
-                            }
-
-                            reader.readAsDataURL(input.files[0]);
-                        }
-                    }
-
-                    var fileUpload = document.getElementById('file-upload');
-                    fileUpload.onchange = function(e) {
-                        readFile(e.srcElement);
-                    }
-                </script>
-            </main>
-
-            <!-- footer -->
-            <%- include('../partials/footer.ejs') %>
-                <!-- /footer -->
+            </div>
+        </div>
+        
+        
+        
+        
+    </body>
+    
+    
+    <%- include('../partials/footer.ejs') %>
+    <script defer src="/js/validaciones.js"></script>
+    <%- include('../partials/script.ejs') %>
+    </html>

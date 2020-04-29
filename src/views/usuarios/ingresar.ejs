@@ -1,64 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Include Head -->
-<%- include('../partials/head.ejs', {title: 'Inicio'}) %>
 
-    <body class="page-ingresar">
-        <!-- Header -->
-        <%- include('../partials/headerNavbar.ejs') %>
-            <main>
-                <div class="registrar fondo-imagen">
+	<%- include('../partials/head',{title: 'Ingresar'}) %>
+	<link rel="stylesheet" href="/css/app.css">
 
+<body>
+	<%- include('../partials/header') %>
+	<%- include('../partials/logo') %>
 
-                    <!--Ingresar-->
-                    <div>
-                        <form action="/usuarios/ingresar" method="POST" class="formulario-registrar">
+  <div class="container-fluid">
+	<section id="login-registro">
+    <div class="container">
+			<h3 class="text-center mb-4">Iniciar sesión </h3>
 
-                            <div class="container-formulario">
+			<% if (typeof errors != 'undefined'){ %>
+        <div class="alert alert-danger col-md-6 col-sm-10 mx-auto" role="alert">
+          <ul>
+            <% for (var i = 0; i< errors.length ; i++ ){ %>
+             <li class="errors-back"><%= errors[i].msg  %></li>
+            <% } %>   
+          </ul>
+          </div>
+					<% } %>
+					
+			<div class="col-md-6 col-sm-10 formularios m-auto">
+				<form id="login" action="/usuarios/ingresar" method="POST">
+					<h2 class="login-title">Clientes </h2>		
+						<small class="login-required"> Campos requeridos 
+							<span class="login-register-login-form-required">*
+							</span></small>  	
+		
+					<div >
+						<label> E-mail <small class= "login campo requerido" >*	</small>
+						</label>
+					</div>
+					<div class= "login control" data-valition = "control">
+						<input  class="form-control " required data-name="email" type="email" name="email" placeholder="tunombre@email.com">
+						<div class="invalid-feedback"> </div>
+					</div>
+		
+					<div>
+						<label> Contraseña <small class="requerido" >*</small></label>
+						<div class="login control">
+							<input name="password" required class="form-control"  type="password"  placeholder="Contraseña" data-name="contraseña">
+							<div class="invalid-feedback"> </div>
+						</div>
+					</div>
+					<div class="row">
+					<div class="recordar col-md-6">
+						<label class="pass">Recordar contraseña</label>
+						<input type="checkbox" id="remember"required name="remember" value="remember">
+						<div class="invalid-feedback"> </div>
+					</div>
+					<div class="col-md-6 text-right">
+							<a href="/" class="color-primary" >¿Olvidaste tu contraseña?</a>
+					</div>
+				</div>
+					<div class="btn-login col-sm-8 m-auto">
+						<button type="submit" class="btn-principal btn-login" > Iniciar sesion</button>
+				</div>
+				<div class="col-md-12">
+					<p class="text-center">¿No tenes usuario?<a href="usuarios/registrar" class="color-primary" > Registrate aca!</a></p>
+				</div>
+			</form>
+		
+			</div>
+    </section>
+  
+	</div>
+  <br><br>
 
-                                <% if (typeof errors != 'undefined') { %>
-                                    <div>
-                                        <p style="color: red">Error</p>
-                                        <ul>
-                                            <% for (let i = 0; i < errors.length; i++)  { %>
-                                                <li>
-                                                    <%= errors[i].msg %>
-                                                </li>
-                                                <% } %>
-                                        </ul>
-                                    </div>
-                                   
-                                    <% } %>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Email</label>
-                                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="mjuarez@gmail.com" data-name="email">
-                                            <small id="emailHelp" class="form-text text-muted"></small>
-                                            <div class="invalid-feedback"></div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1">Contraseña</label>
-                                            <input type="password" class="form-control" name="password" placeholder="ingresá tu contraseña" data-name="contraseña">
-                                            <div class="invalid-feedback"></div>
-                                        </div><br><br>
-
-                                        <div class="form-group form-check">
-                                            <label class="form-check-label">
-									<input type="checkbox" class="form-check-input" name="remember_user">Recordar mi usuarios
-								</label>
-                                        </div>
-
-                                        <button type="submit" class="btn btn-primary">Ingresar</button>
-
-                            </div>
-
-
-                        </form>
-                    </div>
-                </div>
-            </main>
-    
-        <script defer src="/js/validator.js"></script>
-        <script defer src="/js/validateRegister.js"></script>
-
-    </body>
-    <%- include('../partials/footer.ejs') %>
+</body>
+<%- include('../partials/footer.ejs') %>
+<script defer src="/js/validateregister.js"></script>
+<%- include('../partials/script.ejs') %>
+</html>

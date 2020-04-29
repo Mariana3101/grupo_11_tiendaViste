@@ -2,40 +2,41 @@
 <html lang="en">
 <!-- Include Head -->
 <%- include('../partials/head.ejs', {title: 'Perfil'}) %>
+<link rel="stylesheet" href="/css/app.css">
 
-    <body class="page-perfil">
-        <!-- Header -->
-        <%- include('../partials/headerNavbar.ejs') %>
-
-
-            <div class="container" style="margin-top: 40px;">
-                <div class="row">
-                    <div class="col-md-4">
-                        <h2>¡Hola!
-
-                            <%= user.first_name %>
-                        </h2>
-                        <img src="/images/usersAvatars/<%= user.image %>" width="100%">
-                        <br>
-                        <br>
-                        <div class="alert alert-success">
-
-                        </div>
-                    </div>
+<body class="page-perfil">
+    <!-- Header -->
+    <%- include('../partials/header.ejs') %>
+    <%- include('../partials/logo') %>
+    
+    <div class="container" style="margin-top: 40px;">
+        <div class="row">
+            <div class="col-md-4">
+                <h2>¡Hola!
+                    
+                    <%= user.first_name %>
+                </h2>
+                <img src="/images/usersAvatars/<%= user.image %>" width="100%">
+                <br>
+                <br>
+                <div class="alert alert-success">
+                    
                 </div>
             </div>
-            <% if (user.role === "admin") { %>
-               <div>
-                   <a href="/productos/crear"> Crear Producto</a>
-                </div>
-                           
-            <% } %> 
-            
-            <% if (user.role === "guest") { %>
+        </div>
+    </div>
+    <% if (user.role === "admin") { %>
+        <div>
+            <a href="/productos/crear"> Crear Producto</a>
+        </div>
+        
+        <% } %> 
+        
+        <% if (user.role === "guest") { %>
             <div class= "d-none"> 
                 <a href="/productos/crear">Crear Producto</a>
             </div>
             <% } %>
-
-    </body>
-    <%- include('../partials/footer.ejs') %>
+            
+        </body>
+        <%- include('../partials/footer.ejs') %>

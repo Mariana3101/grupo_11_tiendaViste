@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Inicio'}) %>
+
+    <body class="page-carrito">
+        <!-- Header -->
+        <%- include('partials/headerNavbar-interno') %>
+
+
+
+            <main class="error-servidor">
+                <div class="contenedor-error500">
+                    <div class="row justify-content-between">
+                        <div class="col-12 error-500">
+                            <h5>Error en el servidor</h5>
+                            <img src="/images/error-servidor.png" alt="Error en el servidor " class="responsive">
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <%- include('partials/footer-errores') %>

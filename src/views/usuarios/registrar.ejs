@@ -2,70 +2,46 @@
 <html lang="en">
 <!-- Include Head -->
 <%- include('../partials/head.ejs', {title: 'Registrar'}) %>
+<link rel="stylesheet" href="/css/app.css">
 
-    <body class="page-registrar">
-        <!-- Header -->
-        <%- include('../partials/headerNavbar.ejs') %>
-            <main>
-                <div class="registrar fondo-imagen">
-
-                    <!--Registracion-->
-                    <form action="/usuarios/registrar" method="POST" enctype="multipart/form-data" class="formulario-registrar">
-
-                        <div class="container-formulario">
-                            <% if (typeof errors != 'undefined') { %>
-                                <p style="color: red">Error</p>
-                                <ul>
-                                    <% for (let i = 0; i < errors.length; i++)  { %>
-                                        
-                                            <%= errors[i].msg %>
-                                        
-                                        <% } %>
-                                </ul>
-                                <% } %>
-                                    <div class="form-group">
-                                        <label for="inputNombre">Nombre</label>
-                                        <input type="text" class="form-control" name="first_name" placeholder="María" data-name="Nombre">
-                                        <div class= "invalid-feedback"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputApellido">Apellido</label>
-                                        <input type="text" class="form-control" name="last_name" placeholder="Juárez" data-name="Apellido">
-                                        <div class= "invalid-feedback"> </div>
-
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Email</label>
-                                        <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="mjuarez@gmail.com" data-name="Email">
-                                        <small id="emailHelp" class="form-text text-muted"></small>
-                                        <div class= "invalid-feedback"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Contraseña</label>
-                                        <input type="password" class="form-control" name="password" placeholder="ingresá una contraseña" data-name="Contraseña">
-                                        <div class= "invalid-feedback"> </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Repetir Contraseña</label>
-                                        <input type="password" class="form-control" name="rePassword"placeholder="repetí la contraseña" data-name="Contraseña" >
-                                        <div class= "invalid-feedback"> </div>
-                                    </div>
-                                    <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="avatar" required data-name="Imagen">
-                                        <label class="custom-file-label">Elegi una foto...</label>
-                                        <div class="invalid-feedback">
-                                        
-                                        </div>
-                                    </div>
-
-                                    <button type="submit" class="btn btn-primary">Registrar</button>
-
+<body class="page-registrar">
+    <!-- Header -->
+    <%- include('../partials/header.ejs') %>
+    
+    <div class="container-fluid">
+        <%- include('../partials/logo.ejs') %>
+        <section id="login-registro">
+            <div class="container">
+                <h2 class="text-center">Registrarse</h2>
+                <!--Registracion-->
+                <div class="columna col-sm-12 col-md-8 mx-auto formulariosContainer">
+                    <div class="columna4 col-sm-12 formularios">
+                        <h2 class="columna4 col-sm-12 formularios">Completa tus datos</h2>
+                        <small class="requerido"> Campos requeridos <span class="requerido">*</span></small>
+                        
+                        <form action="/usuarios/registrar" method="POST" enctype="multipart/form-data" class="formulario-registrar">
+                            <%- include('./partials/formulario.ejs') %>
+                            
+                            <div class="btn-register">
+                                
+                            </div>
+                            <button type="submit" class="btn btn-primary">Registrar</button>
+                            
                         </div>
-
+                        
                     </form>
                 </div>
-            </main>
-            <script defer src="/js/validator.js"></script>
-            <script defer src="/js/validateRegister.js"></script>
-    </body>
-    <%- include('../partials/footer.ejs') %>
+                
+            </div>
+            
+            
+            
+            
+        </section>
+        
+    </div>
+    
+    <script defer src="/js/validator.js"></script>
+    <script defer src="/js/validateRegister.js"></script>
+</body>
+<%- include('../partials/footer.ejs') %>

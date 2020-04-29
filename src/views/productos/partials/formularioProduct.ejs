@@ -1,0 +1,105 @@
+<% if (typeof errors != 'undefined'){ %>
+    <div class="alert alert-danger" role="alert">
+        <ul>
+            <% for (var i = 0; i< errors.length ; i++ ){ %>
+                <li class="errors-back"><%= errors[i].msg  %></li>
+                <% } %>   
+            </ul>
+        </div>
+        <% } %>
+        <div class="row">
+            <div class="col-md-4 col-sm-10">
+                <div class="form-group">
+                 <label>Producto: </label> <br>
+                <input type="text" name="name" required placeholder="Ingrese un producto" required>
+            
+        </div>
+
+        
+            <!--Label Cantidad-->
+            <div class="col-md-4 col-sm-10">
+                <div class="form-group">
+                    <label for="cantidad">Cantidad</label>
+                    <input type="number" id="cantidad" name="cantidad" value="1" min="0" placeholder="Ingrese un numero" required>
+
+                </div>
+            </div>
+            <!--
+            <div class="col-md-4 col-sm-10">
+                <div class="form-group">
+
+                </div>
+            </div>-->
+            <!--Label precio-->
+            <div class="col-md-4 col-sm-10">
+                <div class="form-group">
+                    <label for="precio">Precio</label>
+
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-10">
+                <div class="form-group">
+                    <input type="number" id="precio" name="price" value="1" min="1"required placeholder="Ingrese un numero" required>
+
+                </div>
+            </div>
+    
+
+        <!--Color-->
+        <div>
+            <label>Color: </label>
+            <select name="colors_id" required>
+                <option value="" >Elegí un color</option>
+                <% colors.forEach(oneColors => { %>
+                <option value="<%= oneColors.id %>"> <%= oneColors.name %> </option>
+                <% }) %>
+            </select>
+            <br><br>
+        </div>
+        <!--Marca-->
+
+        <div>
+            <label>Marca: </label>
+            <select name="brand_id" required>
+                <option value="" >Elegí una Marca</option>
+                <% brands.forEach(onebrands => { %>
+                <option value="<%= onebrands.id %>"> <%= onebrands.name %> </option>
+                <% }) %>
+            </select>
+            <br><br>
+        </div>
+        <!--Talle-->
+        <div>
+            <label>Talle: </label>
+            <select name="size_id" required>
+                <option value="" >Elegí una Talle</option>
+                <% sizes.forEach(oneSize => { %>
+                <option value="<%= oneSize.id %>"> <%= oneSize.name %> </option>
+                <% }) %>
+            </select>
+            <br><br>
+        </div>
+        <!--Categoria-->
+        <div>
+            <label>Categoria: </label>
+            <select name="category_id" required>
+                <option value="" >Elegí una categoria</option>
+                <% categories.forEach(oneCategories => { %>
+                <option value="<%= oneCategories.id %>"> <%= oneCategories.name %> </option>
+                <% }) %>
+            </select>
+            <br><br>
+        </div>
+
+
+        <div class="row">
+            <div class="imagen">
+                <div id="divInputLoad">
+                    <div id="divFileUpload">
+                        <input id="file-upload" required type="file" accept="image/*" name="image" width="100%" />
+                    </div>
+                    <div id="file-preview-zone">
+                    </div>
+                </div>
+            </div>
+        </div>

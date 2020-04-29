@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Head -->
+<%- include('../partials/head', {title: 'Detalle'}) %>
+<link rel="stylesheet" href="/css/app.css">
+<body>
+  <%- include('../partials/header') %>
+  <%- include('../partials/logo') %>
+  
+  <section id="main-producto" class="mb-5">
+    <div class="container pb-5 detalle">
+      <% products.id %>
+      
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="col-md-7 mx-auto d-block container-img">
+            
+            <img src=" " > 
+            
+            <img class="img-fluid mx-auto" src="/images/avatars/<%= products.image %>" />
+            
+          </div>
+          
+        </div>
+        <div class="col-md-6">
+          <div class="detail-prod">
+            <div class="detail-texto">
+              <h3> <%= products.name %></h3>
+              
+              <p>Marca: <%= products.brand.name %> </p>
+              <p class="detail-talle">Categoria <%= products.categories.name %></p>
+              
+              <p class="detail-talle">Talle <%= products.size.name %></p>
+              <p class="detail-talle">Color <%= products.colors.name %></p>
+              
+              <p class="detail-precio">$ <%= products.price %>
+                
+                <!--
+                  <span>precio</span>-->
+                </p>
+                <div class="row">
+                  <div class="col-md-1 plus">
+                  </div>
+                  <div class="col-md-2">
+                    <input type="number" maxlength="2"/>
+                  </div>
+                  <div class="col-md-2 minus">
+                    <i class="fas fa-minus"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <a href="productCart"><div class="btn-comprar mr-3">Agregar al Carrito</div>
+                  
+                </a>
+              </div>
+            </div>
+            </div>
+            
+            
+            <br> <br/>
+            <% 
+            
+            if ( user && user.role === "admin") { 
+              
+              %>
+              
+              <form action="/productos/borrar/<%= products.id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-light">BORRAR</button>
+              </form>
+              <% } %> 
+              
+              <% if ( user && user.role === "guest") { %>
+                <div class= "d-none">
+                  <form action="/productos/borrar/<%= products.id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="btn btn-light">BORRAR</button>
+                  </form>
+                </div>
+                <% } %>
+                
+                <br> <br/>
+                
+                <% if (user && user.role === "admin") { %>
+                  <form action="/productos/editar/<%= products.id %>?_method=PUT" method="POST">
+                    <button class="btn btn-light"><a href="/productos/editar/<%= products.id %>">Modificar</a></button>
+                  </form>
+                  <% } %> 
+                  
+                  <% if (user && user.role === "guest") { %>
+                    <div class= "d-none">
+                      <form action="/productos/editar/<%= products.id %>?_method=PUT" method="POST">
+                        <button class="btn btn-light"><a href="/productos/editar/<%= products.id %>">Modificar</a></button>
+                      </form>
+                    </div>
+                    <% } %>
+                    
+                  </div>
+                  <div>
+                    <a href="/listado " class= "btn btn-outline-light btn-sm button-volver"
+                    role="button " aria-pressed="true ">Volver</a>
+                  </div>
+                </section>
+                
+                
+                
+                
+              </body>
+              
+              
+              
+              <%- include('../partials/footer.ejs') %>
+              
+              <%- include('../partials/script.ejs') %>
+              </html>

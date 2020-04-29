@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head', {title: 'Listado'}) %>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+    <%- include('../partials/header')%>
+    <%- include('../partials/logo')%>
+  <div class="container-fluid p-0">
+ 
+  <section id="productos">
+    <div class="container ">
+      <div class="columna3 center">
+        <div class="main-titulo">
+            <h2 >Todos los Productos</h2>
+        </div>
+      </div>
+      <!--primer fila de productos-->
+      <div class="row">
+          <% products.forEach(unProducto => { %>
+            <div class="prod-wrap">
+              <div class="columna prod">
+                
+                  <img src="/images/avatars/<%= unProducto.image %>" class="imagen"> 
+                  
+                <p class="prod-nombre"> <%= unProducto.name %> </p>
+                <p class="main-precio">$ <%= unProducto.price %> </p>
+                <p class="main-marca">$ <%= unProducto.brand.name %> </p>
+                <p class="main-talle">$ <%= unProducto.size.name %> </p>
+                <p class="main-colot">$ <%= unProducto.colors.name %> </p>
+                <p class="main-categoria">$ <%= unProducto.categories.name %> </p>
+
+              </div>
+              <a href="/productos/detalle/ <%= unProducto.id %>"><br>
+                <div class="over">
+                  <div class="btn-comprar">Comprar</div>
+                </div>
+              </a>
+            </div>
+          <% }) %>
+      </div>
+        <!--segunda fila de productos-->
+      
+  </div>
+  </section>
+	
+</div>
+
+<%- include('../partials/footer')%>
+<%- include('../partials/script') %>
+</body>
+</html>

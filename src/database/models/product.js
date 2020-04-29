@@ -19,9 +19,7 @@ module.exports = (sequelize, dataTypes) => {
 
     Product.associate = (models) => {
         Product.belongsTo(models.Brands, {
-           // asignando un alias con el que llamaremos luego a la relacion
             as: 'brand',
-            // Aclaramos la foreignKey donde se relacionan ambas tablas
             foreignKey: 'brand_id'
         });
 
@@ -34,6 +32,8 @@ module.exports = (sequelize, dataTypes) => {
             as: 'size',
             foreignKey: 'size_id'
         });
+
+
 
         Product.belongsTo(models.Colors, {
             as: 'colors',
