@@ -26,6 +26,6 @@
         "nodemon": "^2.0.1",
         "save": "^2.4.0",
         "sequelize": "^5.21.4",
-        "validator": "^12.2.0"
+        "validator": "^13.7.0"
     }
 }
